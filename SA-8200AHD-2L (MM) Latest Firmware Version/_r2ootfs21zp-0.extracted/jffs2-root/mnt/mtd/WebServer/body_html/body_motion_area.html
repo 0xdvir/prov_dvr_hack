@@ -1,0 +1,39 @@
+﻿<div id = "cfg_area_div" style="text-align:left;padding:5px 10px;">
+<div id = "motion_area_label" class = "head_div">Motion area</div>
+<div style ="border:solid 1px gray;">
+    <div id="div_motion_area_channel" style="margin-left:10px;position:relative;margin-top:20px; font-weight:bold;">
+        <div id = "motion_area_channel_label">Channel</div>
+        <select id = "motion_area_channel_list" style ="width:165px; margin-top:5px;" onchange="OnEnterMotinoArea(this.value)">
+        </select>
+    </div>
+    <div id = "motion_area_sensitive_label" style="position:relative; margin-left:10px;margin-top:10px;">sensitivity</div>
+    <div style="position:relative;margin-left:10px; margin-top:5px;width:120px;height:20px;">
+        <div id="div_motion_sensi" style="position:absolute;left:0px;top:0px;width:140px;">
+		    <img id="sensi_bk" src="res/sliderbk.jpg" style="position:absolute;width:100px;left:0px;top:5px" onmousedown="bright_thumb.src='res/sliderthumb2.jpg';"/>
+		    <img id="sensi_thumb" src="res/sliderthumb1.jpg" style="z-index:1; position:absolute;left:0px;top:0px" onmouseover="this.src='res/sliderthumb2.jpg'" onmouseout="this.src='res/sliderthumb1.jpg'"/>
+		    <div id="sensi_tip" style="position:absolute; display:none;width:30px; left:105px;top:0px;border:solid 1 black; background-color:#a0b0f0;text-align:center;"></div>
+	    </div>
+	</div>
+	
+	
+	<div id="div_motion_oper" style="position:relative; width:160px; margin:20px 0 0 10px; padding-left:2px;padding-bottom:10px; text-align:left; border:solid 1px gray;">
+        <input type="radio" name="motion_oper" value="add" checked="checked" style="width:auto;margin-top:5px;" onclick="SetAreaEditMode(0)"/><label id = "motion_area_add">add</label> 
+        <br />
+        <input type="radio" name="motion_oper" value="delete" style="width:auto;margin-top:5px;"  onclick="SetAreaEditMode(1)"/><label id = "motion_area_del">delete</label>
+        <br />
+        <input id = "motion_area_markall_button" type="button" value="mark all" style="margin-top:20px;" onclick="MotionMarkAll()"/>
+        <br />
+        <input id = "motion_area_invertmark_button" type="button" value="invert mark" style="margin-top:5px;" onclick="MotionInvertMark()"/>
+    </div>
+    <div  style="position:relative;margin:10px;text-align:right;">
+        <img id = "motion_area_save_button" src = "res/save_img_bg1.png" title="Save" onclick="SaveMotionArea()" onmouseover = "this.src = 'res/save_img_bg2.png'" onmouseout = "this.src = 'res/save_img_bg1.png'" />
+    </div>
+</div>
+    <div style ="width:40px; height:40px;margin-left:10px;margin-top:10px; background-image:url(res/save_tip.png);"></div>
+    <div id = "motion_area_tip">
+    Keep "Ctrl" key down, and drag the mouse with the left button down to carry out the edition.
+    </div>
+    <div style ="width:180px; height:40px; text-align:right; padding-top:30px;" >
+        <img id = "motion_area_exit_button" src = "res/exit_img_bg1.png" title="Exit" onclick="ExitMotionAreaSet()" onmouseover = "this.src = 'res/exit_img_bg2.png'" onmouseout = "this.src = 'res/exit_img_bg1.png'" />
+    </div>
+</div>

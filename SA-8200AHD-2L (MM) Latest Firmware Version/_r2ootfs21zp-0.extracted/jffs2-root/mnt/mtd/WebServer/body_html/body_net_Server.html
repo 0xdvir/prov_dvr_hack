@@ -1,0 +1,38 @@
+﻿<div class = "tip_div">
+    <div class = "tip_img"></div>
+    <span id = "serverconfig_errortips" class = "tip_span"></span>
+</div>
+<div class = "dash_line"></div>
+<div class = "save_bar">
+    <input id = "default_btn" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgAutoReport();"/>
+    <input id = "save_btn" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>
+<ul class = "list_ul">
+<div id = "net_server_config" class = "head_div">Server</div>
+    <li>
+    <table border = "1" class = "main_table">
+        <tr>
+            <td id = "net_server_check_label" class = "label">use</td>
+            <td colspan = "2"><input id = "server_check" type = "checkbox" onchange = "g_bChange = true;" /></td>
+        </tr>
+        <tr>
+            <td id = "net_server_addr_label" class = "label">Server address</td>
+            <td><input type = "text" id = "server_addr" class = "input_text" onkeydown = "return LenCheck(this,event,67);" onkeyup = "return KeyupCheck(this,67);" onchange = "g_bChange = true;" /></td>
+        </tr>
+        <tr>
+            <td id = "net_server_port_label" class = "label">Server Port</td>
+            <td><input type = "text" id = "server_port" class = "input_text" maxlength = "5" onkeypress = "return isNumberInput(this,event);" onchange = "g_bChange = true;InputCheck(this,65535,0)" onkeydown = "return LenCheck(this,event,5);" onkeyup = "return KeyupCheck(this,67);" onchange = "g_bChange = true;" /></td>
+        </tr>
+        <tr>
+            <td id = "net_server_deviceID_label" class = "label">Server Device ID</td>
+            <td><input colspan = "2" type = "text" id = "server_deviceID" class = "input_text" maxlength = "5" onkeypress = "return isNumberInput(this,event);" onchange = "g_bChange = true;InputCheck(this,65535,0)" onkeydown = "return LenCheck(this,event,5);" onkeyup = "return KeyupCheck(this,5);" onchange = "g_bChange = true;" /></td>
+        </tr>
+
+    </table>
+
+    </li>
+</ul>
+<div class = "save_bar">
+    <input id = "default_btn1" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgAutoReport();"/>
+    <input id = "save_btn1" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>

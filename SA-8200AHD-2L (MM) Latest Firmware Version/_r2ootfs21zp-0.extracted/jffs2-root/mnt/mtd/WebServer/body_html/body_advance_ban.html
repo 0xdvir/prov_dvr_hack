@@ -1,0 +1,37 @@
+﻿<div class = "tip_div">
+    <div class = "tip_img"></div>
+    <span id = "advanceconfig_errortips" class = "tip_span"></span>
+</div>
+<div class = "dash_line"></div>
+<div class = "save_bar">
+<input id = "default_btn1" type = "button" value = "Default" class = "cfg_save_btn" onclick ="LoadDefaultCfgAdvance();"/>
+<input id = "save_btn1" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>
+<ul class = "list_ul">
+    <div id = "advance_label" class = "head_div">Block/Allow List</div>
+   <li>
+   <table border = "1" class = "main_table">
+        <tr>
+        <td style="width:363px; text-align:center">
+            <input  type = "radio" name = "ip_list_checked"  value = "0" style =" width:30px;" checked = "checked"  onchange = "g_bChange = true;"/><label id = "black_list">Block List</label> 
+        </td>
+        <td style="width:363px;text-align:center;">
+            <input  type = "radio" name = "ip_list_checked"  value = "1" style =" width:30px;"  onchange = "g_bChange = true;"/><label id = "white_list">Allow List</label> 
+       </td>
+        </tr>
+     
+    </table>
+    </li>
+    <li>
+    <table id = "id_bw_cfg" border = "1" class = "main_table">
+        <tbody>
+        </tbody>
+        
+    </table>
+ 
+    </li>
+</ul>
+<div class = "save_bar">
+<input id = "default_btn" type = "button" value = "Default" class = "cfg_save_btn" onclick ="LoadDefaultCfgAdvance();"/>
+<input id = "save_btn" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>

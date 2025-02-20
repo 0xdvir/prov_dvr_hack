@@ -1,0 +1,57 @@
+<HTML>
+<HEAD>
+<TITLE>Pocket Camera</TITLE>
+<script language="JavaScript">
+var localver = "";
+</script>
+<script language="javascript" src="file://\Program Files\Pocket Camera\localvar.js"></script>
+<script language="javascript">
+	var serverPCamVer = "1.3.1.2";
+	var cabfilename = "WindowsMobile.CAB";
+	var cabfilesize = "560KB";
+	ver = localver;
+
+	if(navigator.appName != "Microsoft Pocket Internet Explorer"  && navigator.appName != "Microsoft IE Mobile" && (navigator.platform.toLowerCase().indexOf("windows mobile")==-1))
+	{
+		//document.write("<br><font color = red size = 4>警告:本网页仅为Microsoft Pocket Internet Explorer提供支持,你正在使用的浏览器是 "+navigator.appName+"。</font><br>");
+		//setTimeout('window.close()', 3 );
+	}
+
+	function Download()
+	{
+		window.open(cabfilename,'','');
+	}
+
+</script>
+</HEAD>
+<BODY>
+<A  href = "download.htm">back</A>&nbsp;&nbsp;||&nbsp;&nbsp;<a href = javascript:window.location.reload()>Refresh</a>
+<script language="JavaScript">
+	if(ver>"0")
+	{
+		document.write("<br>>>Local Version:<a href='file://\\Program Files\\Pocket Camera\\Pcam.exe'>PCam v"+ver+" [Execute]</a> <br>>>Update: ") ;
+	}
+	else
+	{
+		document.write("<br>>><br>>>Update:");
+	}
+	document.write("<A href='javascript:Download()'>PCam v" + serverPCamVer + "</A>");
+<!---->
+</script>
+<p>
+Tip:<br>&nbsp;&nbsp;&nbsp;&nbsp;You will see a message appear like the following after you click the 'Update' URL,please click the "Yes" button:
+    </p>
+<TABLE style="WIDTH: 190px; HEIGHT: 100px" cellSpacing=1 cellPadding=1 width=180  border=0 borderColorDark=black borderColor=gray borderColorLight=blue bgcolor=darkgray align=center>
+  <TR>
+    <TD  bgColor=royalblue border="0"><font color=dimgray>Download</font></TD></TR>
+  <TR>
+    <TD><font color=dimgray>Download <script>document.write(cabfilename)</script> to the 'My Document' folder in Main Memory?</font></TD></TR>
+  <TR>
+    <TD><INPUT id=checkbox1 type=checkbox CHECKED name=checkbox1 title="" readOnly 
+      disabled value=off><font color=dimgray>Open file after download</font></TD></TR>
+  <TR>
+    <TD><b>&nbsp;&nbsp;&nbsp;&nbsp; <INPUT disabled type=button value=&nbsp;&nbsp;Yes  &nbsp;&nbsp; style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px">&nbsp;&nbsp;</b>&nbsp;&nbsp;<font color=dimgray>Change</font>&nbsp;&nbsp;<font color=dimgray>Cancel</font></TD></TR>
+  </TABLE>
+</P>
+</BODY>
+</HTML>

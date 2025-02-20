@@ -1,0 +1,104 @@
+<html>
+
+<head>
+
+<title>DVR Components Download</title>
+
+<script language='JavaScript' type='text/JavaScript'>
+
+    var userAgentString = navigator.userAgent.toLowerCase();
+    var userPlatform = navigator.platform.toLowerCase();
+    if(userAgentString.indexOf("windows ce") != -1
+        || userAgentString.indexOf("ppc") != -1
+        || userAgentString.indexOf("iemobile") != -1
+        || userAgentString.indexOf("windows phone") != -1
+        || userAgentString.indexOf("msiemobile") != -1
+        || (userAgentString.indexOf("htc")!= -1 && userAgentString.indexOf("windows")!= -1))
+        {
+           document.location.href = "PcamEn.htm";
+        }  
+    else if(userAgentString.indexOf("symbianos/9") != -1
+        || userAgentString.indexOf("symbianos/3") != -1
+        || userAgentString.indexOf("series60/3")!= -1
+        || userAgentString.indexOf("series60/4")!= -1
+        || userAgentString.indexOf("series60/5")!= -1)
+        {
+            document.location.href = "3rd.htm";
+        }
+    else if(userAgentString.indexOf("blackberry") != -1)
+        {
+            document.location.href = "wapblackberry.html"
+        }    
+    else if(userAgentString.indexOf("windows nt") != -1
+        || userPlatform.indexOf("win32") != -1)
+        {
+            //chrome给IE加了个叫chromeframe的插件
+           if (userAgentString.indexOf("chromeframe") != -1) 
+           {
+                document.location.href = "webcamera.html";
+           }
+           else if (userAgentString.indexOf("firefox") != -1 ||
+                userAgentString.indexOf("chrome") != -1 ||
+                userAgentString.indexOf("safari") != -1) 
+           {
+                document.location.href = "WebClient.html";
+           }
+           else
+           {
+                document.location.href = "webcamera.html";
+           }
+        }
+    else if(userAgentString.indexOf("macintosh") != -1
+        || userAgentString.indexOf("mac os x 10") != -1
+        || userPlatform.indexOf("macintel") != -1)
+        {
+             document.location.href = "WebClient.html";
+        }
+    else 
+        {
+            
+        }
+</script>
+
+</head>
+
+<style type="text/css">
+<!--
+.STYLE1 {
+	font-size: 12px;
+	font-weight: bold;
+}
+.STYLE2 {font-size: 10px}
+-->
+</style>
+
+<body>
+<body bgcolor="#e0fcaf" >
+<blockquote>
+    <p align="left" class="STYLE1">DVR Components</p>
+</blockquote>
+<hr color="#ff8000">
+<p class="STYLE2">We did not recognize the platform you are<br> 
+  using.You can choose the appropriate link<br> 
+  to download the software.</p>
+<p class="STYLE2"><strong> 
+
+Personal Computer</strong>
+<blockquote class="STYLE2">
+  <p>1.<a href="webcamera.html"><strong>Microsoft Internet Explorer Plugins</a></p>
+  <p>  
+    2.<a href="WebClient.html"><strong>Apple Safari Explorer Plugins</a></p>
+</blockquote>
+<p class="STYLE2"> 
+<strong>Mobile Phone</strong>
+<blockquote>
+  <p class="STYLE2">
+    1.<a href="PcamEn.htm"><strong>Windows Mobile/Pocket PC</a></p>
+  <p class="STYLE2">
+    2.<a href="3rd.htm"><strong>Symbian</a></p>
+  <p class="STYLE2">
+    3.<a href="BlackBerry.htm"><strong>BlackBerry</a></p>
+</blockquote>
+</body>
+
+</html>

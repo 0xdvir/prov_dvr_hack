@@ -1,0 +1,139 @@
+﻿<div class = "tip_div">
+    <div class = "tip_img"></div>
+    <span id = "sensorconfig_errortips" class = "tip_span"></span>
+</div>
+<div class = "dash_line"></div>
+<div class = "save_bar">
+    <input id = "default_btn" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgSensorAlarm()"/>
+    <input id = "save_btn" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>
+<ul class = "list_ul">
+<div id = "sensor_alarm_label" class = "head_div">Sensor alarm</div>
+<li>
+<div>
+<table id = "id_sensor_alarm" border = "1" class = "main_table">
+    <tbody>
+    </tbody>
+</table>
+</div>
+</li>
+<div id = "sensor_all_label" class = "head_div">All</div>
+<li>
+    <table id = "id_sensor_all" border = "1" class = "main_table">
+    <tr>
+        <td><input type = "checkbox" id = "sensor_all_cfg" style = "width:50px;" onchange = "bTrigger = true;" onclick = "var id_sensor_alarm = document.getElementById('id_sensor_alarm');var id_sensor_all = document.getElementById('id_sensor_all');var div_sensor_trigger = document.getElementById('div_sensor_trigger');cfgCopy2All(this,id_sensor_alarm,id_sensor_all),HisDiv(div_sensor_trigger)" /></td>
+        <td><input type = "checkbox" id = "all_sensor_in_enable" style = "width:50px;" onclick = "bTrigger = true;"/></td>
+        <td><input type = "text" name = "all_sensor_in_name" style ="width:155px;" onchange = "bTrigger = true;"/></td>
+        <td>
+            <select id = "all_sensor_in_type" style =" width:85px;" onchange = "bTrigger = true;">
+            </select>
+        </td>
+        <td>
+            <select id = "all_sensor_in_hold_time" style =" width:115px;" onchange = "bTrigger = true;">
+            </select>
+        </td>
+        <td style ="width:224px; text-align:center;">
+            <input id = "sensor_trigger_button" type = "button" value = "Trigger" onclick = "disAllsensor()"/>
+        </td>
+    </tr>
+    </table>
+</li>
+</ul>
+<ul id = "div_sensor_trigger" class = "list_ul" style ="display:none;">
+<div id = "sensor_trigger_label" class = "head_div">Trigger</div>
+<li>
+<div style="width:750px;">
+<table border = "1" class = "main_table" style ="width:750px;">
+    <tr>
+    <td colspan = "3" id = "sensor_index_num">
+    </td>
+    </tr>
+    <tr>
+    <td id = "sensor_buzzer_label" style ="width :205px;">Trigger buzzer</td>
+    <td style ="width :480px;" colspan = "2"><input type = "checkbox" name = "sensor_in_buzzer_ctrl" onchange = "bTrigger = true;"/></td>
+    </tr>
+    <tr>
+        <td id = "sensor_full_screen_alarm_label">Full screen alarm</td>
+        <td colspan = "2">
+            <select id = "sensor_in_to_bigview_ctrl" onchange = "bTrigger = true" style ="width:540px;"></select>
+        </td>
+    </tr>
+    <tr>
+        <td id = "sensor_email_label">E-mail</td>
+        <td colspan = "2">
+            <input type = "checkbox" name = "sensor_in_to_email_ctrl" onchange = "bTrigger = true;" />
+        </td>
+    </tr>
+    <tr>
+    <td id= "sensor_snap_label" colspan = "3" >Snap</td>
+    </tr>
+    <tr>
+        <td colspan = "3" style ="padding:5px;">
+        <table id = "sensor_snap" class = "main_table"> 
+        </table>
+        </td>
+    </tr>
+    <tr>
+    <td id= "sensor_alarmout_label" colspan = "3" >Trigger alarm out</td>
+    </tr>
+    <tr>
+        <td colspan = "3" style ="padding:5px;">
+        <table id = "sensor_trigger_out" class = "main_table"> 
+        </table>
+        </td>
+    </tr>
+    <tr>
+    <td id = "sensor_trigger_rec_label" colspan = "3">Trigger record</td>
+    </tr>
+    <tr>
+    <td colspan = "3" style ="padding:5px;">
+        <table id = "sensor_trigger_record" class = "main_table"> 
+        </table>
+    </td>
+    </tr>
+    <tr>
+    <td id = "sensor_trigger_ptz_label" colspan = "3">Trigger PTZ</td>
+    </tr>
+    <tr>
+    <td colspan = "3" style ="padding:5px; text-align:center;">
+    <table id = "id_sensor_ptz" border = "0" style ="width:738px;border-collapse:collapse;">
+        <tbody>
+        </tbody>
+    </table>
+    </td>
+    </tr>
+    <tr>
+    <td id = "sensor_trigger_ftp_label" colspan = "3">Trigger FTP</td>
+    </tr>
+    <tr>
+    <td colspan = "3" style ="padding:5px; text-align:center;">
+    <table id = "id_sensor_ftp" border = "0" style ="width:738px;border-collapse:collapse;">
+        <tbody>
+        </tbody>
+    </table>
+    </td>
+    </tr>
+    <tr id = "id_cp_sensor">
+        <td id = "sensor_applay_setting_label" style ="width:189px;">Applay setting to</td>
+        <td style ="width:261px; padding:0 5px;">
+            <select name = "ptz_copy" id = "cp_config_sensor"style ="width:260px; margin:0;">
+            </select>
+        </td>
+        <td style ="width:287px; text-align:right;">
+            <input id = "sensor_copy_button" type = "button" value ="copy" onclick = "onCopySave(document.getElementById('cp_config_sensor'));bTrigger = true;"/>
+        </td>
+    </tr>
+    <tr id = "save_bar">
+    <td colspan = "3" style ="text-align:right;">
+        <input id = "sensor_trigger_ok_button" type = "button" value = "OK" onclick = "onSensorPTZSave()"/>
+        <input id = "sensor_trigger_cancel_button" type = "button" value = "Cancel" onclick = "onSensorPTZCancel()"/>
+    </td>
+    </tr>
+</table>
+</div>
+</li>
+</ul>
+<div class = "save_bar">
+    <input id = "default_btn1" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgSensorAlarm()"/>
+    <input id = "save_btn1" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>

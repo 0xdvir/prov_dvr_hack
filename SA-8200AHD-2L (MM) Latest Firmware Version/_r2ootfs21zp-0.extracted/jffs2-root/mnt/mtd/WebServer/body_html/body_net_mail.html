@@ -1,0 +1,65 @@
+﻿<div class = "tip_div">
+    <div class = "tip_img"></div>
+    <span id = "mailconfig_errortips" class = "tip_span"></span>
+</div>
+<div class = "dash_line"></div>
+<div class = "save_bar">
+    <input id = "default_btn" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgMail();"/>
+    <input id = "save_btn" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>
+<ul class = "list_ul">
+<div id = "net_mail_config" class = "head_div">Mail</div>
+    <li>
+    <table border = "1" class = "main_table">
+        <tr>
+            <td id = "net_mail_smtp_label" class = "label">SMTP Server</td>
+            <td><input type = "text" id = "mail_smtp_server" class = "input_text" onkeydown = "return LenCheck(this,event,67);" onkeyup = "return KeyupCheck(this,67);" onchange = "g_bChange = true;" /></td>
+        </tr>
+        <tr>
+            <td id = "net_mail_port_label" class = "label">Port</td>
+            <td><input type = "text" id = "mail_port" class = "input_text" maxlength = "5" onkeypress = "return isNumberInput(this,event);" onchange = "InputCheck(this,65535,0);g_bChange = true" /></td>
+        </tr>
+        <tr>
+            <td id = "net_mail_sll_check_label" class = "label">SLL Check</td>
+            <td><input id = "mail_sll_check" type = "checkbox" onchange = "g_bChange = true;" /></td>
+        </tr>
+        <tr>
+            <td id = "net_mail_sendaddr_label" class = "label">Send Addr</td>
+            <td><input type = "text" id = "mail_send_addr" class = "input_text" onkeydown = "return LenCheck(this,event,67);" onkeyup = "return KeyupCheck(this,67);" onchange = "g_bChange = true;" /></td>
+        </tr>
+        <tr>
+            <td id = "net_mail_password_label" class = "label">Password</td>
+            <td><input type = "password" id = "mail_send_addr_pwd" class = "input_text" maxlength = "35" onchange = "g_bChange = true;" /></td>
+        </tr>
+        <tr>
+            <td id = "net_mail_addr1_label" class = "label">Receive Addr1</td>
+            <td><input type = "text" name = "mail_receive_addr" class = "input_text" onkeydown = "return LenCheck(this,event,67);" onkeyup = "return KeyupCheck(this,67);" onchange = "g_bChange = true;" /></td>
+        </tr>
+        <tr>
+            <td id = "net_mail_addr2_label" class = "label">Receive Addr2</td>
+            <td><input type = "text" name = "mail_receive_addr" class = "input_text" onkeydown = "return LenCheck(this,event,67);" onkeyup = "return KeyupCheck(this,67);" onchange = "g_bChange = true;" /></td>
+        </tr>
+        <tr>
+            <td id = "net_mail_addr3_label" class = "label">Receive Addr3</td>
+            <td><input type = "text" name = "mail_receive_addr" class = "input_text" onkeydown = "return LenCheck(this,event,67);" onkeyup = "return KeyupCheck(this,67);" onchange = "g_bChange = true;" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input id = "net_mail_test_btn" type = "button" value = "Test" onclick = "CheckEmailNow();" /></td>
+        </tr>
+    </table>
+    </li>
+<div id = "net_mail_advanced_label" class = "head_div">Advanced</div>
+    <li>
+    <table border = "1" class = "main_table">
+        <tr>
+            <td id = "net_mail_image_count_label" class = "label">Attaching Image Amount</td>
+            <td style="width:440px"><input  type="checkbox" id = "email_pic_acc" onchange = "g_bChange = true;"></td>
+        </tr>
+    </table>
+    </li>
+</ul>
+<div class = "save_bar">
+    <input id = "default_btn1" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgMail();"/>
+    <input id = "save_btn1" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>

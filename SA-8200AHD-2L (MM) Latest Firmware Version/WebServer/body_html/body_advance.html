@@ -1,0 +1,118 @@
+﻿<div id = "div_advance_nav">
+    <ul style="list-style-type:none;">
+        <li class = "n3 advanceNav" style="text-align:center;">
+            <a id = "manualAlarm_nav" href = "javascript:var manualAlarm_nav = document.getElementById('manualAlarm_nav');GotoManualAlarm();searchNavS(manualAlarm_nav)"></a>
+        </li>
+        <li class = "n1 advanceNav" style="text-align:center;">
+            <a id = "diskmanager_nav" href = "javascript:var diskmanager_nav = document.getElementById('diskmanager_nav');GotoDiskManager();searchNavS(diskmanager_nav)"></a>
+        </li>
+        <li class = "n2 advanceNav" id="upgradeNav" style ="">
+            <a id = "upgrade_nav" href = "javascript:var upgrade_nav = document.getElementById('upgrade_nav');GotoUpgrade();searchNavS(upgrade_nav)"></a>
+        </li>
+    </ul>
+</div>
+<div id = "div_advance_content">
+    <div id = "advance_dismanager_div">
+        <div id = "advance_diskmanager_label" class = "head_div">Disk manager</div>
+        <table id = "advance_diskm_table" class = "main_table" style ="width:690px;">
+            <tr class = "table_head_bgcolor">
+                <td style="width:5%;" id = "enable">&nbsp&nbsp</td>
+                <td style="width:5%;" id = "diskm_id_label">ID</td>
+                <td style="width:15%;" id = "diskm_type_label">Type</td>
+                <td style="width:15%;" id = "diskm_size_label">Size(GB)</td>
+                <td style="width:15%;" id = "diskm_free_label">Free(GB)</td>
+                <td style="width:15%;" id = "diskm_status_label">Status</td>
+                <td style="width:15%;" id = "diskm_property_label">Property</td>
+                <td style="width:15%;" id = "diskm_owner_label">Owner</td>
+            </tr>
+            <tr><td><input style="width:15px;" type="checkbox" name="enable_property" onclick="enabeProperty()"/></td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td><select name="disk_property" onchange="OnChangeDiskProperty()"></select></td><td>&nbsp</td></tr>
+            <tr><td><input style="width:15px;" type="checkbox" name="enable_property" onclick="enabeProperty()"/></td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td><select name="disk_property" onchange="OnChangeDiskProperty()"></select></td><td>&nbsp</td></tr>
+            <tr><td><input style="width:15px;" type="checkbox" name="enable_property" onclick="enabeProperty()"/></td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td><select name="disk_property" onchange="OnChangeDiskProperty()"></select></td><td>&nbsp</td></tr>
+            <tr><td><input style="width:15px;" type="checkbox" name="enable_property" onclick="enabeProperty()"/></td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td><select name="disk_property" onchange="OnChangeDiskProperty()"></select></td><td>&nbsp</td></tr>
+            <tr><td><input style="width:15px;" type="checkbox" name="enable_property" onclick="enabeProperty()"/></td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td><select name="disk_property" onchange="OnChangeDiskProperty()"></select></td><td>&nbsp</td></tr>
+            <tr><td><input style="width:15px;" type="checkbox" name="enable_property" onclick="enabeProperty()"/></td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td><select name="disk_property" onchange="OnChangeDiskProperty()"></select></td><td>&nbsp</td></tr>
+            <tr><td><input style="width:15px;" type="checkbox" name="enable_property" onclick="enabeProperty()"/></td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td><select name="disk_property" onchange="OnChangeDiskProperty()"></select></td><td>&nbsp</td></tr>
+            <tr><td><input style="width:15px;" type="checkbox" name="enable_property" onclick="enabeProperty()"/></td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td><select name="disk_property" onchange="OnChangeDiskProperty()"></select></td><td>&nbsp</td></tr>
+            <tr><td><input style="width:15px;" type="checkbox" name="enable_property" onclick="enabeProperty()"/></td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td><select name="disk_property" onchange="OnChangeDiskProperty()"></select></td><td>&nbsp</td></tr>
+            <tr><td><input style="width:15px;" type="checkbox" name="enable_property" onclick="enabeProperty()"/></td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td><select name="disk_property" onchange="OnChangeDiskProperty()"></select></td><td>&nbsp</td></tr>
+            <tr><td><input style="width:15px;" type="checkbox" name="enable_property" onclick="enabeProperty()"/></td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td><select name="disk_property" onchange="OnChangeDiskProperty()"></select></td><td>&nbsp</td></tr>
+            <tr><td><input style="width:15px;" type="checkbox" name="enable_property" onclick="enabeProperty()"/></td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td><select name="disk_property" onchange="OnChangeDiskProperty()"></select></td><td>&nbsp</td></tr>
+            <tr><td><input style="width:15px;" type="checkbox" name="enable_property" onclick="enabeProperty()"/></td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td><select name="disk_property" onchange="OnChangeDiskProperty()"></select></td><td>&nbsp</td></tr>
+            <tr><td><input style="width:15px;" type="checkbox" name="enable_property" onclick="enabeProperty()"/></td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td><select name="disk_property" onchange="OnChangeDiskProperty()"></select></td><td>&nbsp</td></tr>
+        </table>
+        <div id="disk_progress_table" style ="width:690px; border:solid 1px gray; margin-top:30px; display:none;">
+            <table style="border:none; margin-top:5px; margin-bottom:5px;border-collapse:collapse;">
+                <tr>
+                    <td id="disk_formatted" style ="width:0px; background-color:#6070FF;border:none; display:none;"></td>
+                    <td id="disk_unformatted" style ="width:600px; background-color:#CCCCCC;border:none;"></td>
+                    <td id="disk_format_label" style ="text-align:center; width:90px;border:none;">0%</td>
+                </tr>
+            </table>
+        </div>
+        <div id = "advance_diskm_btn_group" style ="width:690px; margin-top:30px; text-align:right;">
+            <input id = "diskm_refresh_btn" type ="button" value = "Refresh" onclick="GetDiskInfo()"/>
+            <input id = "diskm_apply_btn" type ="button" value = "Apply" disabled="disabled" onclick="ApplyDiskSettings()"/>
+            <input id = "diskm_format_btn" type ="button" value = "Format" disabled="disabled" onclick="FormatDisk()"/>
+        </div>
+    </div>
+    <div id = "advance_upgrade_div" style ="">
+        <div id = "advanced_remote_update_label" class = "head_div">Remote Upgrade</div>
+        <table id = "advance_upgrade_table" class = "main_table" style ="width:690px;">
+            <tr>
+                <td id = "advanced_file_path_label" style ="width:120px;">File Path</td>
+                <td>
+                    <input type = "text" id = "advanced_update_path" disabled="disabled" style ="width:430px;" />
+                    <input type = "button" id = "advanced_update_browse_btn" value = "Browse" style ="margin-left:10px;" onclick = "BrowseFolderUpdate();" />
+                </td>
+            </tr>
+            <tr style ="height:50px; line-height:50px;">
+                <td colspan = "2" style="text-align:center; height: 50px;"><input type = "button" id = "advanced_update_btn" value = "Upgrade" onclick = "Update()" />
+                </td>
+            </tr>
+        </table>
+            <div id = "advance_update_label" style ="display:none" class = "head_div">Upload Progress</div>
+            <div id="update_progress_table" style ="width:690px; border:solid 1px gray;  display:none;">
+            <table style="border:none; margin-top:5px; margin-bottom:5px;border-collapse:collapse;">
+                <tr>
+                    <td id="updated" style ="width:0px; background-color:#6070FF;border:none; display:none;"></td>
+                    <td id="noupdate" style ="width:600px; background-color:#CCCCCC;border:none;"></td>
+                    <td id="update_label" style ="text-align:center; width:90px;border:none;">0%</td>
+                </tr>
+            </table>
+        </div>
+        <div id = "advanced_reset_div" class = "">
+            <div id="advanced_reset_label" class="head_div">System reboot</div>
+            <table  class="main_table" style="width:690px;">
+                <tr style="height:50px; line-height:50px;">
+                    <td colspan="2" style="text-align:center; height: 50px;">
+                        <input type="button" id="advance_reset_btn" value="Reset" onclick="AdvanceReset()"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id = "advance_manual_alarm_div" style = "">
+        
+        <div id = "manual_alarm_label" class = "head_div">Manual Alarm</div>
+            
+        <div>
+            <table id = "id_manual_alarm" border = "1" class = "main_table">
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+            
+        <div id = "manual_alarm_all_label" class = "head_div">All</div>
+            
+        <table id = "id_manual_alarm_all" border = "1" class = "main_table">
+            <tr>
+                <td><input type = "checkbox" id = "manual_alarm_all" style ="width:50px;" onchange = "g_bChange = true;" onclick = "OnClickAll()" /></td>
+                <td style="width:675px;"></td>
+            </tr>
+        </table>
+        <div id = "manual_btn_group" style = "width:690px; margin-top:30px; text-align:right;">
+            <input id = "alarm_btn" type = "button" value = "Alarm"  onclick="OnClickAlarm()"/>
+            <input id = "clear_btn" type = "button" value = "Clear"  onclick = "OnClickClear()" />
+        </div>
+    </div>
+</div>

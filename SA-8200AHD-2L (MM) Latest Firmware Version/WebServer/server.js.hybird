@@ -1,0 +1,4 @@
+NetPort=6036
+NetAddr=""
+ServerType=9
+bUseNat=false

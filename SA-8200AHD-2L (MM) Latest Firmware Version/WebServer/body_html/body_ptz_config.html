@@ -1,0 +1,45 @@
+﻿<div class = "tip_div">
+    <div class = "tip_img"></div>
+    <span id = "ptzconfig_errortips" class = "tip_span"></span>
+</div>
+<div class = "dash_line"></div>
+<div class = "save_bar">
+    <input id = "default_btn" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgPtzBasic()"/>
+    <input id = "save_btn" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>
+<ul class = "list_ul">
+<div id = "ptz_label" class = "head_div">PTZ config</div>
+<li>
+<div>
+<table id = "id_ptz_config" border = "1" class = "main_table">
+    <tbody>
+    </tbody>
+</table>
+</div>
+</li>
+<div id = "ptz_all_label" class = "head_div">All</div>
+<li>
+    <table id = "id_ptz_all" border = "1" class = "main_table">
+    <tr>
+        <td><input id = "ptz_all_cfg" type = "checkbox" style ="width:50px;" onchange = "g_bChange = true;" onclick = "var id_ptz_config = document.getElementById('id_ptz_config');var id_ptz_all = document.getElementById('id_ptz_all');cfgCopy2All(this,id_ptz_config,id_ptz_all)" /></td>
+        <td><input type = "checkbox" name = "all_pzt_enable" onchange = "g_bChange = true;"/></td>
+        <td>
+            <input type = "text" style ="width:174px;" disabled="disabled" />
+        </td>
+        <td>
+            <select id = "all_baud_rate" onchange = "g_bChange = true;" style =" width:162px;" >
+            </select>
+        </td>
+        <td>
+            <select id = "all_protocol" onchange = "g_bChange = true;" style =" width:162px;">
+            </select>
+        </td>
+        <td><input type = "checkbox" onchange = "g_bChange = true;" name = "simulate_cruise_all" /></td>
+    </tr>
+    </table>
+</li>
+</ul>
+<div class = "save_bar">
+    <input id = "default_btn1" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgPtzBasic()"/>
+    <input id = "save_btn1" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>

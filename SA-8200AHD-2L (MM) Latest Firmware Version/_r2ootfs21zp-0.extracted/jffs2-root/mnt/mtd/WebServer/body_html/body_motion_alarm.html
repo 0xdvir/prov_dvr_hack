@@ -1,0 +1,127 @@
+﻿<div class = "tip_div">
+    <div class = "tip_img"></div>
+    <span id = "motionConfig_errortips" class = "tip_span"></span>
+</div>
+<div class = "dash_line"></div>
+<div class = "save_bar">
+    <input id = "default_btn" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgMotion()"/>
+    <input id = "save_btn" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>
+<ul class = "list_ul">
+<div id = "motion_alarm_label" class = "head_div">Motion alarm</div>
+<li>
+<div>
+<table id = "id_motion_alarm" border = "1" class = "main_table">
+    <tbody>
+    </tbody>
+</table>
+</div>    
+</li>
+</ul>
+<ul class = "list_ul">
+<div id = "motion_all_label" class = "head_div">All</div>
+<li>
+    <table id = "id_motion_all" border = "1" class = "main_table">
+    <tr>
+        <td><input type = "checkbox" id = "motion_all_cfg" style = "width:47px;" onchange = "bTrigger = true;" onclick = "var id_motion_alarm = document.getElementById('id_motion_alarm');var id_motion_all = document.getElementById('id_motion_all');cfgCopy2All(this,id_motion_alarm,id_motion_all);var div_motion_trigger = document.getElementById('div_motion_trigger');HisDiv(div_motion_trigger)" /></td>
+        <td><input type = "checkbox" id = "all_motion_enable" onchange = "g_bChange = true;"/></td>
+        <td>
+            <select id = "all_motion_hold_time" onchange = "g_bChange = true;" style =" width:132px;">
+            </select>
+        </td>
+        <td style ="width:225px; text-align:center;">
+            <input id = "motion_trigger_button" type = "button" value = "Trigger" style ="width:145px; height:25px; border:0; background:url(res/145x25_btn.jpg) no-repeat left top;cursor:pointer; display:none;" onclick = "disAllMotion()"/>
+        </td>
+        <td style ="width:225px; text-align:center;">
+            <input id = "motion_area_button" type = "button" value = "Area" style ="width:145px; height:25px; border:0; background:url(res/145x25_btn.jpg) no-repeat left top;cursor:pointer;display:none;"/>
+        </td>
+    </tr>
+    </table>
+</li>
+</ul>
+<ul id = "div_motion_trigger" class = "list_ul" style ="display:none;">
+<li>
+<div id = "motion_trigger_label" class = "head_div">Trigger</div>
+<div  style="width:750px;">
+<table border = "1" class = "main_table" style ="width:750px;">
+    <tr>
+        <td colspan = "3" id = "motion_index_num" >
+        </td>
+    </tr>
+    <tr>
+        <td id = "motion_buzzer_label" style ="width:190px;">Trigger buzzer</td>
+        <td colspan = "2">
+            <input type = "checkbox" name = "motion_to_buzz_ctrl" onchange = "bTrigger = true;"/>
+        </td>
+    </tr>
+    <tr>
+        <td id = "motion_full_screen_alarm_label">Full screen alarm</td>
+        <td colspan = "2">
+            <select id = "motion_to_bigview_ctrl" onchange = "bTrigger = true" style ="width:540px;"></select>
+        </td>
+    </tr>
+    <tr>
+        <td id = "motion_email_label" style="height: 24px">E-mail</td>
+        <td colspan = "2" style="height: 24px">
+            <input type = "checkbox" name="motion_to_email_ctrl" onchange = "bTrigger = true;" />
+        </td>
+    </tr>
+    <tr>
+    <td id = "motion_snap_label" colspan = "3">Snap</td>
+    </tr>
+    <tr>
+    <td colspan = "3" style="padding:5px; height: 31px;">
+        <table id = "motion_snap" class = "main_table"></table>
+    </td>
+    <tr>
+    <td id = "motion_alarmout_label" colspan = "3" >Trigger alarm out</td>
+    </tr>
+    <tr>
+        <td colspan = "3" style ="padding:5px;">
+            <table id = "motion_trigger_out" class = "main_table"></table>
+        </td>
+    </tr>
+    <tr>
+    <td id = "motion_trigger_rec_label" colspan = "3">Trigger record</td>
+    </tr>
+    <tr>
+    <td colspan = "3" style="padding:5px; height: 31px;">
+        <table id = "motion_trigger_record" class = "main_table"></table>
+    </td>
+    </tr>
+    <tr>
+    <td id = "motion_trigger_ptz_label" colspan = "3">Trigger PTZ</td>
+    </tr>
+    <tr>
+    <td colspan = "3" style ="padding:5px; text-align:center;">
+    <table id = "id_motion_ptz" border = "0" style ="width:738px;border-collapse:collapse;">
+        <tbody>
+        </tbody>
+    </table>
+    </td>
+    </tr>
+    <tr>
+    <td id = "motion_trigger_ftp_label" colspan = "3">Trigger FTP</td>
+    </tr>
+    <tr>
+    <td colspan = "3" style ="padding:5px; text-align:center;">
+    <table id = "id_motion_ftp" border = "0" style ="width:738px;border-collapse:collapse;">
+        <tbody>
+        </tbody>
+    </table>
+    </td>
+    </tr>
+    <tr id = "ptz_group_button">
+    <td colspan = "3" style ="text-align:right;">
+        <input id = "motion_trigger_ok_button" type = "button" value = "OK" onclick = "onMotionPTZSave()"/>
+        <input id = "motion_trigger_cancel_button" type = "button" value = "Cancel" onclick = "onMotionPTZCancel()"/>
+    </td>
+    </tr>
+</table>
+</div>
+</li>
+</ul>
+<div class = "save_bar">
+    <input id = "default_btn1" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgMotion()"/>
+    <input id = "save_btn1" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>

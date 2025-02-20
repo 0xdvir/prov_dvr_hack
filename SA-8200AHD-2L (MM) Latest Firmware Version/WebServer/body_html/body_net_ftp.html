@@ -1,0 +1,80 @@
+﻿<div class="tip_div">
+    <div class="tip_img">
+    </div>
+    <span id="ftpconfig_errortips" class="tip_span"></span>
+</div>
+<div class="dash_line">
+</div>
+<div class="save_bar">
+    <input id="default_btn" type="button" value="Default" class="cfg_save_btn" onclick="LoadDefaultFtpCfg();" />
+    <input id="save_btn" type="button" value="Save" class="cfg_save_btn" onclick="OnSaveConfig();" />
+</div>
+<ul class="list_ul">
+    <li><div id="net_ftp_config" class="head_div">FTP</div></li>
+    
+    <li>
+        <table border="1" class="main_table">
+            <tr>
+                <td id="net_ftp_enable_label" class="label">
+                    enable</td>
+                <td>
+                    <input id="net_ftp_enable" type="checkbox" onchange="g_bChange = true;" /></td>
+            </tr>
+            <tr>
+                <td id="net_ftp_address_label" class="label" style="height: 28px">
+                    adress</td>
+                <td >
+                    <input type="text" id="net_ftp_address" class="input_text" onkeydown="return LenCheck(this,event,67);"
+                        onkeyup="return KeyupCheck(this,67);" onchange="g_bChange = true;" /></td>
+            </tr>
+            <tr>
+                <td id="net_ftp_port_label" class="label">
+                    port</td>
+                <td>
+                    <input type="text" id="net_ftp_port" class="input_text" maxlength="5" onkeypress="return isNumberInput(this,event);"
+                        onchange="InputCheck(this,65535,0);g_bChange = true" /></td>
+            </tr>
+            <tr>
+                <td id="net_ftp_anonymous_label" class="label">
+                    Anonymous</td>
+                <td>
+                    <input id="net_ftp_anonymous" type="checkbox" onchange="g_bChange = true;" /></td>
+            </tr>
+            <tr>
+                <td id="net_ftp_username_label" class="label">
+                    User name</td>
+                <td>
+                    <input type="text" id="net_ftp_username" class="input_text" onkeydown="return LenCheck(this,event,67);"
+                        onkeyup="return KeyupCheck(this,67);" onchange="g_bChange = true;" /></td>
+            </tr>
+            <tr>
+                <td id="net_ftp_password_label" class="label">
+                    Password</td>
+                <td>
+                    <input type="password" id="net_ftp_pwd" class="input_text" maxlength="35" onchange="g_bChange = true;" /></td>
+            </tr>
+            <tr>
+                <td id="net_ftp_upload_size_label" class="label">
+                    upload size</td>
+                <td>
+                    <input type="text" id="net_ftp_upload_size" class="input_text" onkeypress="return isNumberInput(this,event);"
+                        onchange="InputCheck(this, 64, 32);g_bChange = true;" maxlength="2"/></td>
+            </tr>
+            
+            <tr>
+                <td id="net_ftp_upload_channel_label" class="label">
+                    upload channel</td>
+            </tr>
+            
+            <tr>
+                <td colspan = "2" style="padding:5px; height: 31px;">
+                   <table id="net_ftp_upload_channel" class="main_table"></table>
+                </td>
+            </tr>
+        </table>
+    </li>
+</ul>
+<div class="save_bar">
+    <input id="default_btn1" type="button" value="Default" class="cfg_save_btn" onclick="LoadDefaultFtpCfg();" />
+    <input id="save_btn1" type="button" value="Save" class="cfg_save_btn" onclick="OnSaveConfig();" />
+</div>

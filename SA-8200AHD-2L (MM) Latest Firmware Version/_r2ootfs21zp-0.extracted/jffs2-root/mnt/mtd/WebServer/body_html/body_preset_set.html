@@ -1,0 +1,26 @@
+﻿<div id = "cfg_preset_set_div">
+<div id = "ptz_advance_preset_label" class = "head_div">Preset</div>
+<div style ="border:solid 1px gray;width:190px; padding-bottom:20px;text-align:center;">
+    <div id="div_preset_channel" style="width:170px;position:relative;margin-top:5px;padding:0 10px; font-weight:bold;text-align:left;">
+        <div style="text-align:left;margin-bottom:5px;">
+            <input type="checkbox" style="width:20px;" onclick="CheckAllChannel(this)"/>
+            <label id="display_all_channel">显示所有通道</label>
+        </div>
+        <div id = "preset_set_channel_label">Channel</div>
+        <div>
+            <select id="preset_set_channel_list" style ="width:168px; margin-top:5px;" onchange="ChangePresetChannel(this.value)">
+            </select>
+        </div>
+    </div>
+    <div id="div_preset" style="position:relative;margin-top:5px;width:170px;padding:0 10px; font-weight:bold;text-align:left;">
+        <div id = "preset_set_preset_label">Preset</div>
+	    <select id="preset_list" style="width:168px; margin-top:5px;" onchange = "PresetSetCC()"></select>
+    </div>
+    <div id="div_ptz_pane" style ="width:180px; margin-top:20px;"></div>	
+</div>
+<div style ="width:150px; margin-top:40px; padding:0px 20px;">
+    <img id="save_preset_id" src = "res/save_img_bg1.png" style ="float:left;" title = "Save" onclick = "SavePresetSet()" onmouseover = "this.src = 'res/save_img_bg2.png'" onmouseout = "this.src = 'res/save_img_bg1.png'" />
+    <img id="exit_preset_id" src = "res/exit_img_bg1.png" style = "float:right;" title = "Exit" onclick="ExitPresetSet()" onmouseover = "this.src = 'res/exit_img_bg2.png'" onmouseout = "this.src = 'res/exit_img_bg1.png'" />
+</div>
+</div>
+

@@ -1,0 +1,25 @@
+﻿<!---<div  style="position:absolute;left:0px;top:10px;width:190px;height:420px;text-align:left;padding:5px;">--->
+<div id = "cfg_trace_set_div">
+<div id = "ptz_advance_track_label" class = "head_div">Track</div>
+<div style ="border:solid 1px gray;width:190px; padding-bottom:20px;text-align:center;">
+    <div id="div_trace_channel" style="width:170px;position:relative;margin-top:5px;padding:0 10px; font-weight:bold;text-align:left;">
+        <div style="text-align:left;margin-bottom:5px;">
+            <input type="checkbox" style="width:20px;" onclick="CheckAllChannel(this)"/>
+            <label id="display_all_channel">显示所有通道</label>
+        </div>
+        <div id = "trace_channel_label">Channel</div>
+        <div>
+            <select id="trace_channel_list" style ="width:168px; margin-top:5px;" onchange="ChangeTraceSet(this.value)">
+            </select>
+        </div>
+    </div>
+
+    <div id="div_ptz_pane" style="width:180px; margin:20px auto;text-align:center;">
+    </div>
+    <input type="button" id="btn_record_trace" style="margin-top:30px;" value="start record" onclick="RecordTrack(true)"/>
+    <input type="button" id="btn_record_trace_stop" style="margin-top:30px;display:none;" value="stop record" onclick="RecordTrack(false)"/>
+</div>
+<div style ="width:190px; height:50px; margin-top:40px; text-align:right;">
+    <img id="exit_trace_id" src = "res/exit_img_bg1.png" style = "float:right;" title = "Exit" onclick="ExitTraceSet()" onmouseover = "this.src = 'res/exit_img_bg2.png'" onmouseout = "this.src = 'res/exit_img_bg1.png'" />
+</div>
+</div>

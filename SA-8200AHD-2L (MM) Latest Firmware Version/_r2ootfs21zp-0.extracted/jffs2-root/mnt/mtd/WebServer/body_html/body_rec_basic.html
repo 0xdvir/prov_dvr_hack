@@ -1,0 +1,66 @@
+﻿<div class = "tip_div">
+    <div class = "tip_img"></div>
+    <span id = "recConfig_errortips" class = "tip_span"></span>
+</div>
+<div class = "dash_line"></div>
+<div class = "save_bar">
+    <input id = "default_btn" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgRecBasic()"/>
+    <input id = "save_btn" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>
+<ul class = "list_ul">
+<div id = "record_time_label" class = "head_div">Record time</div>
+<li>
+<div>
+    <table id = "id_record_channel_cfg" border = "1" class = "main_table" style="width:750px;">
+        <tbody>
+        </tbody>
+    </table>
+</div>
+</li>
+<div id = "record_all_label" class = "head_div">All</div>
+<li>
+    <table id = "id_rec_all" border = "1" class = "main_table" style="width:750px;">
+    <tr>
+        <td style="width:8%;">
+            <input type = "checkbox" id = "rec_all_cfg" style ="width:100%;" onchange = "g_bChange = true;" onclick = "OnRecBasicCheckAll()" />
+        </td>
+        <td style="width:9%;">
+            <input type = "checkbox" id = "all_rec_enable" style =" width:100%;" onchange="g_bChange = true;"/>
+        </td>
+        <td style="width:9%;">
+            <input type = "checkbox" id = "all_rec_has_audio" style =" width:100%;" onchange="g_bChange = true;"/>
+        </td>
+        <td style="width:9%;">
+            <input type = "checkbox" id = "all_rec_redundant" style ="width:100%;" onchange="g_bChange = true;"/>
+        </td>
+        <td style="width:21%;">
+            <select id = "all_pre_alarm_rec_time" style =" width:100%;" onchange="g_bChange = true;">
+            </select>
+        </td>
+        <td style="width:21%;">
+            <select id = "all_post_alarm_rec_time" style =" width:100%;" onchange="g_bChange = true;">
+            </select>
+        </td>
+        <td style="width:21%;">
+            <select id = "all_rec_hold_time" style =" width:100%;" onchange="g_bChange = true;">
+            </select>
+        </td>
+    </tr>
+    </table>
+</li>
+<div id = "record_cfg_label" class = "head_div">Record config</div>
+<li>
+<table  border = "1" class = "main_table">
+<tr>
+    <td id = "record_recyle_record_label" class = "label">Recyle record</td>
+    <td class = "data">
+        <input type = "checkbox"  name = "rec_cycle_if" onchange = "g_bChange = true; g_bRecycle = true;"/>
+    </td>
+</tr>
+</table>
+</li>
+</ul>
+<div class = "save_bar">
+    <input id = "default_btn1" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgRecBasic()"/>
+    <input id = "save_btn1" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>

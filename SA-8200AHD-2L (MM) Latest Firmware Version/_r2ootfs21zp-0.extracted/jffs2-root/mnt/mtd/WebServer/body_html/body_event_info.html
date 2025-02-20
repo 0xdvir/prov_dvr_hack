@@ -1,0 +1,85 @@
+﻿<div id = "info_event_div">
+    <div id = "event_tabel_label" class = "head_div">Event list</div>
+    <table id = "event_info_table" border="1" class = "main_table" style="width:520px;">
+    <tr class = "table_head_bgcolor">
+        <td id="info_event_channel_label" style="width:80px;">CH</td>
+        <td id="info_event_type_label" style="width:120px;">Type</td>
+        <td id="info_event_starttime_label" style="width:145px;">Start time</td>
+        <td id="info_event_endtime_label" style="width:145px;">End time</td>
+    </tr>
+    <tr><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
+    <tr><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
+    <tr><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
+    <tr><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
+    <tr><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
+    <tr><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
+    <tr><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
+    <tr><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
+    <tr><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
+    <tr><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
+    <tr><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
+    <tr><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
+    <tr><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
+    <tr><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
+    <tr><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
+    <tr><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
+    <tr><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
+    <tr><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
+    <tr><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
+    <tr><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
+    </table>
+    <div id="div_page_control" style=" width:520px; margin-top:10px; overflow:hidden;">
+        <span id = "info_event_list_page" style ="width:40px; height:25px; line-height:25px;float:left; text-align:center;">0/0</span>
+        <img id = "info_event_end" src = "res/end.png" class = "f_right" onmousemove = "this.style.cursor = 'pointer'" onclick = "InfoList.Instance().LastPage()" />
+        <img id = "info_event_next" src = "res/next.png" class = "f_right" onmousemove = "this.style.cursor = 'pointer'" onclick = "InfoList.Instance().NextPage()" />
+        <img id = "info_event_previous" src = "res/prev.png" class = "f_right" onmousemove = "this.style.cursor = 'pointer'" onclick = "InfoList.Instance().PrevPage()" />
+        <img id = "info_event_first" src = "res/first.png" class = "f_right" onmousemove = "this.style.cursor = 'pointer'" onclick = "InfoList.Instance().FirstPage()" />
+    </div>
+    <div id = "div_export_path" style="margin-top:5px;">
+        <div id = "export_path_label" style="height:20px;line-height:20px;text-align:left; margin-bottom:5px;">Export Path</div>
+        <div style="height: 20px;line-height:20px;">
+            <input type = "text" id = "export_path" style ="width:320px;float:left; height:20px; line-height:20px;" onchange = "g_eventLogPath = this.value;"/>
+		    <input id = "path_browse_button" type = "button" value="Browse" style="float:left; margin-left:10px;" onclick="var export_path = document.getElementById('export_path'); g_eventLogPath = BrowseFolder_NoSave(export_path);"/>
+		    <input id = "export_button" type = "button" value = "Export" name="start_export" style="float:right;"; onclick="EventExport()"/>
+        </div>
+        <div style ="clear:both;"></div>
+    </div>
+</div>
+<div id = "event_info_right">
+    <div id="event_info_search_div" style="width:200px; height:50px; margin-top:5px; text-align:center;">
+        <img id="info_event_search_button" src = "res/search_btn1.jpg" title = "Search" onclick="SearchEventInfo()" onmouseover = "this.src = 'res/search_btn2.jpg'" onmouseout = "this.src = 'res/search_btn1.jpg'" />
+        <div id = "info_event_search_label" style ="width:195px; font:bold 16px;display:none;">Search</div>
+    </div>
+    <div style ="width:193px; height:120px; border:solid 1px #000;margin: 5px auto; padding: 0;text-align:center;">
+        	<div style ="width:150px; height:60px; margin:5px 0 0 20px;text-align:left;">
+        	    <span id = "info_event_stime_label" style ="width:150px; font:bold 14px;">Start time</span>
+        	    <span id="info_event_sdate_span" style ="display:block;"></span>
+                <span id="info_event_stime_span"></span>
+        	</div>
+        	<div style ="width:150px; height:50px; margin-left:20px;text-align:left;">
+        	    <span id = "info_event_etime_label" style ="width:150px; font:bold 14px;">End time</span>
+        	    <span id="info_event_edate_span" style ="display:block;"></span>
+                <span id="info_event_etime_span"></span>
+        	</div>
+    </div>
+    <div style ="width:180px; position:relative;margin: 10px auto;padding:10px; text-align:center; border:solid 1px #000;">
+            <div style="text-align:left;padding-left:10px;">
+                <input id = "event_motion" type="checkbox" style="width: 20px;" checked = "checked" />
+                <label id="info_event_motion_label">Motion</label>
+            </div>
+            <div style="text-align:left;padding-left:10px;">
+                <input id = "event_sensor" type="checkbox" style="width: 20px;" checked = "checked" onclick="OnCheckSensor()" />
+                <label id="info_event_sensor_label">Sensor</label>
+            </div>             
+            <div style="text-align:left;padding-left:10px;">
+                <input id = "event_vloss" type="checkbox" style="width: 20px;" checked = "checked" />
+                <label id="info_event_vloss_label">Video loss</label>
+            </div>
+    </div>
+    <div style="margin-top:10px;text-align:center;">
+        <div id = "event_info_ch" style ="margin-bottom:5px;text-align:left;">Channel</div>
+        <table id="id_event_channel" class = "main_table_2" style ="width:216px;text-align:center;">
+        </table>
+    </div>
+</div>
+<div style ="clear:both;"></div>

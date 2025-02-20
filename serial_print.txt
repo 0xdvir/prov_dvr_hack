@@ -1,0 +1,3064 @@
+\xFF
+
+
+U-Boot 2010.06 (Jun 19 2014 - 11:30:32)
+
+DRAM:  256 MiB
+Check spi flash controller v300. found
+Spi(cs1) ID: 0x01 0x20 0x18 0x03 0x01 0x00
+Spi(cs1): Block:64KB Chip:16MB Name:"S25FL128P-1"
+In:    serial
+Out:   serial
+Err:   serial
+current hi352xx version 201406191112
+current used param offset 11111111111111111
+current do_check_flash_boot_param
+current prod net 100m
+init gpio led setting
+dev 0 set background color!
+dev 2 set background color!
+dev 0 opened!
+dev 2 opened!
+jpeg decoding ...
+<<addr=0x80080000, size=0xe0ae, vobuf=0x8fd00000>>
+mmu_enable
+<<imgwidth=480, imgheight=320, linebytes=960>>
+decode success!!!!
+dev 0 set background color!
+dev 2 set background color!
+dev 0 opened!
+vo hd 0 end
+dev 2 opened!
+vo cvbs end
+graphic layer 0 opened!
+graphic layer 2 opened!
+USB:   scanning bus for devices... 1 USB Device(s) found
+0 Storage Device(s) found
+judge ddr init
+user init finish.
+Hit any key to stop autoboot:  1 \x08\x08\x08 0
+16384 KiB hi_sfc at 0:0 is now current device
+
+## Booting kernel from Legacy Image at 82000000 ...
+   Image Name:   Linux-3.0.8
+   Image Type:   ARM Linux Kernel Image (uncompressed)
+   Data Size:    2141408 Bytes = 2 MiB
+   Load Address: 80008000
+   Entry Point:  80008000
+   Loading Kernel Image ... OK
+OK
+
+Starting kernel ...
+
+Uncompressing Linux... done, booting the kernel.
+Linux version 3.0.8 (lzg@localhost.localdomain) (gcc version 4.4.1 (Hisilicon_v100(gcc4.4-290+uclibc_0.9.32.1+eabi+linuxpthread)) ) #8 Wed Aug 21 12:07:13 CST 2013
+CPU: ARMv7 Processor [413fc090] revision 0 (ARMv7), cr=10c53c7f
+CPU: VIPT nonaliasing data cache, VIPT aliasing instruction cache
+Machine: godarm
+Memory policy: ECC disabled, Data cache writeback
+Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 40640
+Kernel command line: mem=160M console=ttyAMA0,115200 root=/dev/mtdblock2 rootfstype=jffs2 mtdparts=hi_sfc:768K(boot),2304K(dvh110000),13M(rootfs)
+PID hash table entries: 1024 (order: 0, 4096 bytes)
+Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)
+Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)
+Memory: 160MB = 160MB total
+Memory: 157996k/157996k available, 5844k reserved, 0K highmem
+Virtual kernel memory layout:
+    vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+    fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+    DMA     : 0xffc00000 - 0xffe00000   (   2 MB)
+    vmalloc : 0xca800000 - 0xfe000000   ( 824 MB)
+    lowmem  : 0xc0000000 - 0xca000000   ( 160 MB)
+    modules : 0xbf000000 - 0xc0000000   (  16 MB)
+      .init : 0xc0008000 - 0xc0027000   ( 124 kB)
+      .text : 0xc0027000 - 0xc03cd000   (3736 kB)
+      .data : 0xc03ce000 - 0xc03eae80   ( 116 kB)
+       .bss : 0xc03eaea4 - 0xc0437cc8   ( 308 kB)
+SLUB: Genslabs=13, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+NR_IRQS:128 nr_irqs:128 128
+sched_clock: 32 bits at 170MHz, resolution 5ns, wraps every 25264ms
+sched_clock: wrong multiply/shift: 394758024>>26 vs calculated 3158064188>>29
+sched_clock: fix multiply/shift to avoid scheduler hiccups
+Console: colour dummy device 80x30
+Calibrating delay loop... 2033.25 BogoMIPS (lpj=10166272)
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 512
+CPU: Testing write buffer coherency: ok
+NET: Registered protocol family 16
+Serial: AMBA PL011 UART driver
+uart:0: ttyAMA0 at MMIO 0x20080000 (irq = 40) is a PL011 rev2
+console [ttyAMA0] enabled
+uart:1: ttyAMA1 at MMIO 0x20090000 (irq = 41) is a PL011 rev2
+bio: create slab <bio-0> at 0
+SCSI subsystem initialized
+usbcore: registered new interface driver usbfs
+usbcore: registered new interface driver hub
+usbcore: registered new device driver usb
+Switching to clocksource timer1
+NET: Registered protocol family 2
+IP route cache hash table entries: 2048 (order: 1, 8192 bytes)
+TCP established hash table entries: 8192 (order: 4, 65536 bytes)
+TCP bind hash table entries: 8192 (order: 3, 32768 bytes)
+TCP: Hash tables configured (established 8192 bind 8192)
+TCP reno registered
+UDP hash table entries: 256 (order: 0, 4096 bytes)
+UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+NET: Registered protocol family 1
+NetWinder Floating Point Emulator V0.97 (double precision)
+L2cache cache controller enabled
+JFFS2 version 2.2. (NAND) \xC2\xA9 2001-2006 Red Hat, Inc.
+msgmni has been set to 308
+Block layer SCSI generic (bsg) driver version 0.4 loaded (major 254)
+io scheduler noop registered
+io scheduler deadline registered (default)
+io scheduler cfq registered
+brd: module loaded
+loop: module loaded
+ahci: SSS flag set, parallel bus scan disabled
+ahci ahci.0: AHCI 0001.0200 32 slots 2 ports 3 Gbps 0x3 impl platform mode
+ahci ahci.0: flags: ncq sntf stag pm led clo only pmp pio slum part ccc sxs boh
+scsi0 : ahci_platform
+scsi1 : ahci_platform
+ata1: SATA max UDMA/133 mmio [mem 0x10080000-0x1008ffff] port 0x100 irq 68
+ata2: SATA max UDMA/133 mmio [mem 0x10080000-0x1008ffff] port 0x180 irq 68
+Spi id table Version 1.22
+Hisilicon Spi Flash Controller V300 New Device Driver, Version 1.10
+Check Spi Flash Controller V300 New.
+Found
+Spi(cs1) ID: 0x01 0x20 0x18 0x03 0x01 0x00
+Spi(cs1):
+Block:64KB
+Chip:16MB
+Name:"S25FL128P-1"
+3 cmdlinepart partitions found on MTD device hi_sfc
+Creating 3 MTD partitions on "hi_sfc":
+0x000000000000-0x0000000c0000 : "boot"
+0x0000000c0000-0x000000300000 : "dvh110000"
+0x000000300000-0x000001000000 : "rootfs"
+Fixed MDIO Bus: probed
+PPP generic driver version 2.4.2
+PPP Deflate Compression module registered
+PPP BSD Compression module registered
+PPP MPPE Compression module registered
+NET: Registered protocol family 24
+ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+hiusb-ehci hiusb-ehci.0: HIUSB EHCI
+hiusb-ehci hiusb-ehci.0: new USB bus registered, assigned bus number 1
+hiusb-ehci hiusb-ehci.0: irq 63, io mem 0x100b0000
+hiusb-ehci hiusb-ehci.0: USB 0.0 started, EHCI 1.00
+hub 1-0:1.0: USB hub found
+hub 1-0:1.0: 2 ports detected
+ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+hiusb-ohci hiusb-ohci.0: HIUSB OHCI
+hiusb-ohci hiusb-ohci.0: new USB bus registered, assigned bus number 2
+hiusb-ohci hiusb-ohci.0: irq 64, io mem 0x100a0000
+hub 2-0:1.0: USB hub found
+hub 2-0:1.0: 2 ports detected
+Initializing USB Mass Storage driver...
+usbcore: registered new interface driver usb-storage
+USB Mass Storage support registered.
+usbcore: registered new interface driver usbserial
+USB Serial support registered for generic
+usbcore: registered new interface driver usbserial_generic
+usbserial: USB Serial Driver core
+USB Serial support registered for GSM modem (1-port)
+usbcore: registered new interface driver option
+option: v0.7.2:USB Driver for GSM modems
+USB Serial support registered for pl2303
+usbcore: registered new interface driver pl2303
+pl2303: Prolific PL2303 USB to serial adaptor driver
+mousedev: PS/2 mouse device common for all mice
+usbcore: registered new interface driver usbhid
+usbhid: USB HID core driver
+TCP cubic registered
+Initializing XFRM netlink socket
+NET: Registered protocol family 10
+IPv6 over IPv4 tunneling driver
+NET: Registered protocol family 17
+NET: Registered protocol family 15
+Registering the dns_resolver key type
+registered taskstats version 1
+\xF8ata1: SATA link down (SStatus 0 SControl 300)
+ata2: SATA link down (SStatus 0 SControl 300)
+VFS: Mounted root (jffs2 filesystem) on device 31:2.
+Freeing init memory: 124K
+
+            _ _ _ _ _ _ _ _ _ _ _ _
+            \  _  _   _  _ _ ___
+            / /__/ \ |_/
+           / __   /  -  _ ___
+          / /  / /  / /
+  _ _ _ _/ /  /  \_/  \_ ______
+___________\___\__________________
+
+[RCS]: /etc/init.d/S00devs
+[RCS]: /etc/init.d/S01udev
+Jan  1 00:00:04 udevd (450): /proc/450/oom_adj is deprecated, please use /proc/450/oom_score_adj instead.
+udevd[450]: main: error opening /dev/null: No such file or directory
+[RCS]: /etc/init.d/S80network
+[RCS]: /etc/init.d/S81toe
+tar: can't open '/hitoe/gfs3521.tar.gz': No such file or directory
+insmod: can't read '/dev/gnfsdrv/stmmac.ko': No such file or directory
+insmod: can't read '/dev/gnfsdrv/sunrpc.ko': No such file or directory
+insmod: can't read '/dev/gnfsdrv/auth_rpcgss.ko': No such file or directory
+insmod: can't read '/dev/gnfsdrv/lockd.ko': No such file or directory
+insmod: can't read '/dev/gnfsdrv/nfs_acl.ko': No such file or directory
+insmod: can't read '/dev/gnfsdrv/nfs.ko': No such file or directory
+rm: can't remove '/hitoe/gfs3521.tar.gz': No such file or directory
+No need to recovery program from USB
+clkcfg_hi3521.sh
+extdrv/
+extdrv/sunrpc.ko
+extdrv/nvp6124.ko
+extdrv/es8323.ko
+extdrv/wdt.ko
+extdrv/tp2802.ko
+extdrv/nvp6114_ex.ko
+extdrv/nvp1918.ko
+extdrv/ds1307.ko
+extdrv/lockd.ko
+extdrv/crypto_memory.ko
+extdrv/hi_ir.ko
+extdrv/ncdecoder.ko
+extdrv/gpioi2c.ko
+extdrv/nfs.ko
+extdrv/auth_rpcgss.ko
+extdrv/gpio2x_sh4101b.ko
+extdrv/ssp.ko
+extdrv/stmmac.ko
+extdrv/nfs_acl.ko
+extdrv/fgpio.ko
+hi3521_adec.ko
+hi3521_aenc.ko
+hi3521_ai.ko
+hi3521_ao.ko
+hi3521_base.ko
+hi3521_chnl.ko
+hi3521_dsu.ko
+hi3521_group.ko
+hi3521_h264e.ko
+hi3521_hdmi.ko
+hi3521_ive.ko
+hi3521_jpege.ko
+hi3521_pciv_fmw.ko
+hi3521_pciv.ko
+hi3521_rc.ko
+hi3521_region.ko
+hi3521_sio.ko
+hi3521_sys.ko
+hi3521_tde.ko
+hi3521_vda.ko
+hi3521_vdec.ko
+hi3521_venc.ko
+hi3521_vfmw.ko
+hi3521_viu.ko
+hi3521_vou.ko
+hi3521_vpss.ko
+hidmac.ko
+hifb.ko
+hiuser.ko
+jpeg.ko
+load3521
+mmz.ko
+pinmux_16D1_LCD_hi3521.sh
+pinmux_hi3521_16D1.sh
+pinmux_hi3521_1XHD_7XD1.sh
+pinmux_hi3521_2X1080P.sh
+pinmux_hi3521_4X720P.sh
+sysctl_hi3521_hisi.sh
+sysctl_hi3521.sh
+vcmp.ko
+SDK_TYPE type is 16d1
+*** Board tools : ver0.0.1_20120501  ***
+[debug]: {source/utils/cmdshell.c:166}cmdstr:himm
+0x20110168: 0x00000004 --> 0x00003FF2
+[END]
+Hisilicon Media Memory Zone Manager
+Hisilicon Watchdog Timer: 0.01 initialized. default_margin=60 sec (nowayout= 0, nodeamon= 1)
+current 3521 watchdog version 201206290939
+hi3521_base: module license 'Proprietary' taints kernel.
+Disabling lock debugging due to kernel taint
+Hisilicon UMAP device driver interface: v3.00
+load sys.ko ...OK!
+Load tde.ko ...OK!
+load venc.ko ...OK!
+load group.ko ...OK!
+load chnl.ko ...OK!
+load h264e.ko ...OK!
+load rc.ko ...OK!
+load jpege.ko ...OK!
+load viu.ko ...OK!
+load vou.ko ....OK!
+load vpss.ko ....OK!
+load vda.ko ....OK!
+load region.ko ....OK!
+load vdec.ko ....OK
+load vhd firmware.ko OK
+load hdmi.ko ....OK!
+Load jpeg6b.ko success.         (SDK_VERSION:[jpeg6bv1.0] Build Time:[Sep 23 2014, 14:33:06])
+i2c 3521 version : 201305091131
+current chip numbers = 0
+insmod: can't insert 'extdrv/nvp1918.ko': Operation not permitted
+current no chip 1108, id = 0
+insmod: can't insert 'extdrv/ncdecoder.ko': Operation not permitted
+keybaord 3521 gpio init version : 201207021054
+HISI_IRDA-MF @Hi3520v100R001_C_0_2_0 2011-04-29 14:05:20
+hiir: init 3521 ok. ver 201206290939 =Jun 29 2012, 09:50:03.
+version - 3521 :201310190913+->TD3515
+TVT 35xx CryptoMemory Device Driver v1.0.0: Oct 19 2013 10:17:21
+++++++++g_chip_type = 0
+3521  rtc Device Driver 201206290939 v1.0.0
+tp2802 not exist ++++SSSS++++
+insmod: can't insert 'extdrv/tp2802.ko': Operation not permitted
+nvp6114 Device ID Error... ff 10
+nvp6114 Device ID Error... ff 10
+nvp6114 Device ID Error... ff 10
+nvp6114 Device ID Error... ff 10
+nvp6114 not exist ++++SSSS++++
+insmod: can't insert 'extdrv/nvp6114_ex.ko': Operation not permitted
+nvp6124 Device (0x60) ID OK... 85
+nvp6124 Device (0x62) ID OK... 85
+NVP6124 Driver Ver030  2015.11.10-14:02(compile-time Nov 10 2015 14:10:41)
+*** Board tools : ver0.0.1_20120501  ***
+[debug]: {soues8323 not exist ++++SSSS++++
+rce/utils/cmdshell.c:166}cmdstr:himm
+0x20030094: 0x000015D2 --> 0x00001502
+[END]
+insmod: can't insert 'extdrv/es8323.ko': Operation not permitted
+current product used hisi sysctl_hi3521.sh
+STMMAC driver:
+        platform registration...
+        done!
+Set system config register 0x200300ec with value 0x003f003f
+        done!
+        DWMAC1000 - user ID: 0x10, Synopsys ID: 0x36
+        Enhanced descriptor structure
+MACADDR in get is 0:0:0:0:0:0
+        no valid MAC address for MAC 0;please, use ifconfig or nwhwconfig!
+        eth0 - (dev. name: stmmaceth - id: 0, IRQ #119
+        IO base addr: 0xcf100000)
+STMMAC MII Bus: probed
+eth0: PHY ID 00008201 at 1 IRQ -6 (1:01) active
+stmmac_reset: RESET COMPLETE!
+
+**************************************************
+*  TNK driver built on Sep 12 2012 at 19:34:42
+*  TNK driver mode is BYPASS
+**************************************************
+stmmac: Rx Checksum Offload Engine supported
+current net is not poe
+current sys kernel has config net
+RPC: Registered named UNIX socket transport module.
+RPC: Registered udp transport module.
+RPC: Registered tcp transport module.
+RPC: Registered tcp NFSv4.1 backchannel transport module.
+ln: /mnt/mtd/ui/code_table.dat: File exists
+Arabic/
+Arabic/WebKit_load.xml
+Arabic/cfg_ptz_advance.xml
+Arabic/cfg_net_stream.xml
+Arabic/cfg_ptz.xml
+Arabic/cfg_record_stream.xml
+Arabic/cfg_rec_snap.xml
+Arabic/cfg_rec_osd.xml
+Arabic/cfg_record.xml
+Arabic/info_net.xml
+Arabic/time_search.xml
+Arabic/cfg_motion_area.xml
+Arabic/backup.xml
+Arabic/cfg_net_mail.xml
+Arabic/cfg_schedule.xml
+Arabic/cfg_advance_ban.xml
+Arabic/cfg_net_autoreport.xml
+Arabic/cfg_basic.xml
+Arabic/search_nav.xml
+Arabic/cfg_net_nat_autoreport.xml
+Arabic/advance.xml
+Arabic/cfg_track_set.xml
+Arabic/cfg_device.xml
+Arabic/playback.xml
+Arabic/live.xml
+Arabic/info_online.xml
+Arabic/info_event.xml
+Arabic/cfg_alarmout.xml
+Arabic/cfg_net_wireless.xml
+Arabic/cfg_motion_alarm.xml
+Arabic/WebKit_update.xml
+Arabic/cfg_live.xml
+Arabic/cfg_net_ftp.xml
+Arabic/main_menu.xml
+Arabic/cfg_net.xml
+Arabic/cfg_index.xml
+Arabic/cfg_user.xml
+Arabic/info_basic.xml
+Arabic/cfg_other_alarm.xml
+Arabic/info_log.xml
+Arabic/login.xml
+Arabic/file_manage.xml
+Arabic/cfg_sensor_alarm.xml
+Arabic/cfg_vloss_alarm.xml
+Arabic/cfg_local.xml
+Arabic/cfg_preset_set.xml
+Arabic/cfg_advance.xml
+Arabic/info_index.xml
+Arabic/event_search.xml
+Arabic/string.js
+bulgarian/
+bulgarian/WebKit_load.xml
+bulgarian/cfg_ptz_advance.xml
+bulgarian/cfg_net_stream.xml
+bulgarian/cfg_ptz.xml
+bulgarian/cfg_record_stream.xml
+bulgarian/cfg_rec_snap.xml
+bulgarian/cfg_rec_osd.xml
+bulgarian/manual_alarm.xml
+bulgarian/cfg_record.xml
+bulgarian/info_net.xml
+bulgarian/time_search.xml
+bulgarian/cfg_motion_area.xml
+bulgarian/backup.xml
+bulgarian/cfg_net_mail.xml
+bulgarian/cfg_schedule.xml
+bulgarian/cfg_advance_ban.xml
+bulgarian/cfg_net_autoreport.xml
+bulgarian/cfg_basic.xml
+bulgarian/search_nav.xml
+bulgarian/cfg_net_nat_autoreport.xml
+bulgarian/advance.xml
+bulgarian/cfg_track_set.xml
+bulgarian/cfg_device.xml
+bulgarian/playback.xml
+bulgarian/live.xml
+bulgarian/info_online.xml
+bulgarian/info_event.xml
+bulgarian/cfg_alarmout.xml
+bulgarian/cfg_net_wireless.xml
+bulgarian/cfg_motion_alarm.xml
+bulgarian/WebKit_update.xml
+bulgarian/cfg_live.xml
+bulgarian/cfg_net_ftp.xml
+bulgarian/main_menu.xml
+bulgarian/cfg_net.xml
+bulgarian/cfg_index.xml
+bulgarian/cfg_user.xml
+bulgarian/info_basic.xml
+bulgarian/cfg_other_alarm.xml
+bulgarian/info_log.xml
+bulgarian/login.xml
+bulgarian/file_manage.xml
+bulgarian/cfg_sensor_alarm.xml
+bulgarian/cfg_vloss_alarm.xml
+bulgarian/cfg_local.xml
+bulgarian/cfg_preset_set.xml
+bulgarian/cfg_advance.xml
+bulgarian/info_index.xml
+bulgarian/event_search.xml
+bulgarian/string.js
+chinese_cht/
+chinese_cht/WebKit_load.xml
+chinese_cht/cfg_ptz_advance.xml
+chinese_cht/cfg_net_stream.xml
+chinese_cht/cfg_ptz.xml
+chinese_cht/cfg_record_stream.xml
+chinese_cht/cfg_rec_snap.xml
+chinese_cht/cfg_rec_osd.xml
+chinese_cht/manual_alarm.xml
+chinese_cht/cfg_record.xml
+chinese_cht/info_net.xml
+chinese_cht/time_search.xml
+chinese_cht/cfg_motion_area.xml
+chinese_cht/backup.xml
+chinese_cht/cfg_net_mail.xml
+chinese_cht/cfg_schedule.xml
+chinese_cht/cfg_advance_ban.xml
+chinese_cht/cfg_net_autoreport.xml
+chinese_cht/cfg_basic.xml
+chinese_cht/search_nav.xml
+chinese_cht/cfg_net_nat_autoreport.xml
+chinese_cht/advance.xml
+chinese_cht/cfg_track_set.xml
+chinese_cht/cfg_device.xml
+chinese_cht/playback.xml
+chinese_cht/live.xml
+chinese_cht/info_online.xml
+chinese_cht/info_event.xml
+chinese_cht/cfg_alarmout.xml
+chinese_cht/cfg_net_wireless.xml
+chinese_cht/cfg_motion_alarm.xml
+chinese_cht/WebKit_update.xml
+chinese_cht/cfg_live.xml
+chinese_cht/cfg_net_ftp.xml
+chinese_cht/main_menu.xml
+chinese_cht/cfg_net.xml
+chinese_cht/cfg_index.xml
+chinese_cht/cfg_user.xml
+chinese_cht/info_basic.xml
+chinese_cht/cfg_other_alarm.xml
+chinese_cht/info_log.xml
+chinese_cht/login.xml
+chinese_cht/file_manage.xml
+chinese_cht/cfg_sensor_alarm.xml
+chinese_cht/cfg_vloss_alarm.xml
+chinese_cht/cfg_local.xml
+chinese_cht/cfg_preset_set.xml
+chinese_cht/cfg_advance.xml
+chinese_cht/info_index.xml
+chinese_cht/event_search.xml
+chinese_cht/string.js
+chinese_prc/
+chinese_prc/WebKit_load.xml
+chinese_prc/cfg_ptz_advance.xml
+chinese_prc/cfg_net_stream.xml
+chinese_prc/cfg_ptz.xml
+chinese_prc/cfg_record_stream.xml
+chinese_prc/cfg_rec_snap.xml
+chinese_prc/cfg_rec_osd.xml
+chinese_prc/manual_alarm.xml
+chinese_prc/cfg_record.xml
+chinese_prc/info_net.xml
+chinese_prc/time_search.xml
+chinese_prc/cfg_motion_area.xml
+chinese_prc/backup.xml
+chinese_prc/cfg_net_mail.xml
+chinese_prc/cfg_schedule.xml
+chinese_prc/cfg_advance_ban.xml
+chinese_prc/cfg_net_autoreport.xml
+chinese_prc/cfg_basic.xml
+chinese_prc/search_nav.xml
+chinese_prc/cfg_net_nat_autoreport.xml
+chinese_prc/advance.xml
+chinese_prc/cfg_track_set.xml
+chinese_prc/cfg_device.xml
+chinese_prc/playback.xml
+chinese_prc/live.xml
+chinese_prc/info_online.xml
+chinese_prc/info_event.xml
+chinese_prc/cfg_alarmout.xml
+chinese_prc/cfg_net_wireless.xml
+chinese_prc/cfg_motion_alarm.xml
+chinese_prc/WebKit_update.xml
+chinese_prc/cfg_live.xml
+chinese_prc/cfg_net_ftp.xml
+chinese_prc/main_menu.xml
+chinese_prc/cfg_net.xml
+chinese_prc/cfg_index.xml
+chinese_prc/cfg_user.xml
+chinese_prc/info_basic.xml
+chinese_prc/cfg_other_alarm.xml
+chinese_prc/info_log.xml
+chinese_prc/login.xml
+chinese_prc/file_manage.xml
+chinese_prc/cfg_sensor_alarm.xml
+chinese_prc/cfg_vloss_alarm.xml
+chinese_prc/cfg_local.xml
+chinese_prc/cfg_preset_set.xml
+chinese_prc/cfg_advance.xml
+chinese_prc/info_index.xml
+chinese_prc/event_search.xml
+chinese_prc/string.js
+Czech/
+Czech/WebKit_load.xml
+Czech/cfg_ptz_advance.xml
+Czech/cfg_net_stream.xml
+Czech/cfg_ptz.xml
+Czech/cfg_record_stream.xml
+Czech/cfg_rec_snap.xml
+Czech/cfg_rec_osd.xml
+Czech/manual_alarm.xml
+Czech/cfg_record.xml
+Czech/info_net.xml
+Czech/time_search.xml
+Czech/cfg_motion_area.xml
+Czech/backup.xml
+Czech/cfg_net_mail.xml
+Czech/cfg_schedule.xml
+Czech/cfg_advance_ban.xml
+Czech/cfg_net_autoreport.xml
+Czech/cfg_basic.xml
+Czech/search_nav.xml
+Czech/cfg_net_nat_autoreport.xml
+Czech/advance.xml
+Czech/cfg_track_set.xml
+Czech/cfg_device.xml
+Czech/playback.xml
+Czech/live.xml
+Czech/info_online.xml
+Czech/info_event.xml
+Czech/cfg_alarmout.xml
+Czech/cfg_net_wireless.xml
+Czech/cfg_motion_alarm.xml
+Czech/WebKit_update.xml
+Czech/cfg_live.xml
+Czech/cfg_net_ftp.xml
+Czech/main_menu.xml
+Czech/cfg_net.xml
+Czech/cfg_index.xml
+Czech/cfg_user.xml
+Czech/info_basic.xml
+Czech/cfg_other_alarm.xml
+Czech/info_log.xml
+Czech/login.xml
+Czech/file_manage.xml
+Czech/cfg_sensor_alarm.xml
+Czech/cfg_vloss_alarm.xml
+Czech/cfg_local.xml
+Czech/cfg_preset_set.xml
+Czech/cfg_advance.xml
+Czech/info_index.xml
+Czech/event_search.xml
+Czech/string.js
+Danish/
+Danish/WebKit_load.xml
+Danish/cfg_ptz_advance.xml
+Danish/cfg_net_stream.xml
+Danish/cfg_ptz.xml
+Danish/cfg_record_stream.xml
+Danish/cfg_rec_snap.xml
+Danish/cfg_rec_osd.xml
+Danish/cfg_record.xml
+Danish/info_net.xml
+Danish/time_search.xml
+Danish/cfg_motion_area.xml
+Danish/backup.xml
+Danish/cfg_net_mail.xml
+Danish/cfg_schedule.xml
+Danish/cfg_advance_ban.xml
+Danish/cfg_net_autoreport.xml
+Danish/cfg_basic.xml
+Danish/search_nav.xml
+Danish/cfg_net_nat_autoreport.xml
+Danish/advance.xml
+Danish/cfg_track_set.xml
+Danish/cfg_device.xml
+Danish/playback.xml
+Danish/live.xml
+Danish/info_online.xml
+Danish/info_event.xml
+Danish/cfg_alarmout.xml
+Danish/cfg_net_wireless.xml
+Danish/cfg_motion_alarm.xml
+Danish/WebKit_update.xml
+Danish/cfg_live.xml
+Danish/cfg_net_ftp.xml
+Danish/main_menu.xml
+Danish/cfg_net.xml
+Danish/cfg_index.xml
+Danish/cfg_user.xml
+Danish/info_basic.xml
+Danish/cfg_other_alarm.xml
+Danish/info_log.xml
+Danish/login.xml
+Danish/file_manage.xml
+Danish/cfg_sensor_alarm.xml
+Danish/cfg_vloss_alarm.xml
+Danish/cfg_local.xml
+Danish/cfg_preset_set.xml
+Danish/cfg_advance.xml
+Danish/info_index.xml
+Danish/event_search.xml
+Danish/string.js
+Dutch/
+Dutch/WebKit_load.xml
+Dutch/cfg_ptz_advance.xml
+Dutch/cfg_net_stream.xml
+Dutch/cfg_ptz.xml
+Dutch/cfg_record_stream.xml
+Dutch/cfg_rec_snap.xml
+Dutch/cfg_rec_osd.xml
+Dutch/cfg_record.xml
+Dutch/info_net.xml
+Dutch/time_search.xml
+Dutch/cfg_motion_area.xml
+Dutch/backup.xml
+Dutch/cfg_net_mail.xml
+Dutch/cfg_schedule.xml
+Dutch/cfg_advance_ban.xml
+Dutch/cfg_net_autoreport.xml
+Dutch/cfg_basic.xml
+Dutch/search_nav.xml
+Dutch/cfg_net_nat_autoreport.xml
+Dutch/advance.xml
+Dutch/cfg_track_set.xml
+Dutch/cfg_device.xml
+Dutch/playback.xml
+Dutch/live.xml
+Dutch/info_online.xml
+Dutch/info_event.xml
+Dutch/cfg_alarmout.xml
+Dutch/cfg_net_wireless.xml
+Dutch/cfg_motion_alarm.xml
+Dutch/WebKit_update.xml
+Dutch/cfg_live.xml
+Dutch/cfg_net_ftp.xml
+Dutch/main_menu.xml
+Dutch/cfg_net.xml
+Dutch/cfg_index.xml
+Dutch/cfg_user.xml
+Dutch/info_basic.xml
+Dutch/cfg_other_alarm.xml
+Dutch/info_log.xml
+Dutch/login.xml
+Dutch/file_manage.xml
+Dutch/cfg_sensor_alarm.xml
+Dutch/cfg_vloss_alarm.xml
+Dutch/cfg_local.xml
+Dutch/cfg_preset_set.xml
+Dutch/cfg_advance.xml
+Dutch/info_index.xml
+Dutch/event_search.xml
+Dutch/string.js
+english_us/
+english_us/WebKit_load.xml
+english_us/cfg_ptz_advance.xml
+english_us/cfg_net_stream.xml
+english_us/cfg_ptz.xml
+english_us/cfg_record_stream.xml
+english_us/cfg_rec_snap.xml
+english_us/cfg_rec_osd.xml
+english_us/manual_alarm.xml
+english_us/cfg_record.xml
+english_us/info_net.xml
+english_us/time_search.xml
+english_us/cfg_motion_area.xml
+english_us/backup.xml
+english_us/cfg_net_mail.xml
+english_us/cfg_schedule.xml
+english_us/cfg_advance_ban.xml
+english_us/cfg_net_autoreport.xml
+english_us/cfg_basic.xml
+english_us/search_nav.xml
+english_us/cfg_net_nat_autoreport.xml
+english_us/advance.xml
+english_us/cfg_track_set.xml
+english_us/cfg_device.xml
+english_us/playback.xml
+english_us/live.xml
+english_us/info_online.xml
+english_us/info_event.xml
+english_us/cfg_alarmout.xml
+english_us/cfg_net_wireless.xml
+english_us/cfg_motion_alarm.xml
+english_us/WebKit_update.xml
+english_us/cfg_live.xml
+english_us/cfg_net_ftp.xml
+english_us/main_menu.xml
+english_us/cfg_net.xml
+english_us/cfg_index.xml
+english_us/cfg_user.xml
+english_us/info_basic.xml
+english_us/cfg_other_alarm.xml
+english_us/info_log.xml
+english_us/login.xml
+english_us/file_manage.xml
+english_us/cfg_sensor_alarm.xml
+english_us/cfg_vloss_alarm.xml
+english_us/cfg_local.xml
+english_us/cfg_preset_set.xml
+english_us/cfg_advance.xml
+english_us/info_index.xml
+english_us/event_search.xml
+english_us/string.js
+farsi/
+farsi/WebKit_load.xml
+farsi/cfg_ptz_advance.xml
+farsi/cfg_net_stream.xml
+farsi/cfg_ptz.xml
+farsi/cfg_record_stream.xml
+farsi/cfg_rec_snap.xml
+farsi/cfg_rec_osd.xml
+farsi/cfg_record.xml
+farsi/info_net.xml
+farsi/time_search.xml
+farsi/cfg_motion_area.xml
+farsi/backup.xml
+farsi/cfg_net_mail.xml
+farsi/cfg_schedule.xml
+farsi/cfg_advance_ban.xml
+farsi/cfg_net_autoreport.xml
+farsi/cfg_basic.xml
+farsi/search_nav.xml
+farsi/cfg_net_nat_autoreport.xml
+farsi/advance.xml
+farsi/cfg_track_set.xml
+farsi/cfg_device.xml
+farsi/playback.xml
+farsi/live.xml
+farsi/info_online.xml
+farsi/info_event.xml
+farsi/cfg_alarmout.xml
+farsi/cfg_net_wireless.xml
+farsi/cfg_motion_alarm.xml
+farsi/WebKit_update.xml
+farsi/cfg_live.xml
+farsi/cfg_net_ftp.xml
+farsi/main_menu.xml
+farsi/cfg_net.xml
+farsi/cfg_index.xml
+farsi/cfg_user.xml
+farsi/info_basic.xml
+farsi/cfg_other_alarm.xml
+farsi/info_log.xml
+farsi/login.xml
+farsi/file_manage.xml
+farsi/cfg_sensor_alarm.xml
+farsi/cfg_vloss_alarm.xml
+farsi/cfg_local.xml
+farsi/cfg_preset_set.xml
+farsi/cfg_advance.xml
+farsi/info_index.xml
+farsi/event_search.xml
+farsi/string.js
+Finnish/
+Finnish/WebKit_load.xml
+Finnish/cfg_ptz_advance.xml
+Finnish/cfg_net_stream.xml
+Finnish/cfg_ptz.xml
+Finnish/cfg_record_stream.xml
+Finnish/cfg_rec_snap.xml
+Finnish/cfg_rec_osd.xml
+Finnish/cfg_record.xml
+Finnish/info_net.xml
+Finnish/time_search.xml
+Finnish/cfg_motion_area.xml
+Finnish/backup.xml
+Finnish/cfg_net_mail.xml
+Finnish/cfg_schedule.xml
+Finnish/cfg_advance_ban.xml
+Finnish/cfg_net_autoreport.xml
+Finnish/cfg_basic.xml
+Finnish/search_nav.xml
+Finnish/cfg_net_nat_autoreport.xml
+Finnish/advance.xml
+Finnish/cfg_track_set.xml
+Finnish/cfg_device.xml
+Finnish/playback.xml
+Finnish/live.xml
+Finnish/info_online.xml
+Finnish/info_event.xml
+Finnish/cfg_alarmout.xml
+Finnish/cfg_net_wireless.xml
+Finnish/cfg_motion_alarm.xml
+Finnish/WebKit_update.xml
+Finnish/cfg_live.xml
+Finnish/cfg_net_ftp.xml
+Finnish/main_menu.xml
+Finnish/cfg_net.xml
+Finnish/cfg_index.xml
+Finnish/cfg_user.xml
+Finnish/info_basic.xml
+Finnish/cfg_other_alarm.xml
+Finnish/info_log.xml
+Finnish/login.xml
+Finnish/file_manage.xml
+Finnish/cfg_sensor_alarm.xml
+Finnish/cfg_vloss_alarm.xml
+Finnish/cfg_local.xml
+Finnish/cfg_preset_set.xml
+Finnish/cfg_advance.xml
+Finnish/info_index.xml
+Finnish/event_search.xml
+Finnish/string.js
+french_fr/
+french_fr/WebKit_load.xml
+french_fr/cfg_ptz_advance.xml
+french_fr/cfg_net_stream.xml
+french_fr/cfg_ptz.xml
+french_fr/cfg_record_stream.xml
+french_fr/cfg_rec_snap.xml
+french_fr/cfg_rec_osd.xml
+french_fr/manual_alarm.xml
+french_fr/cfg_record.xml
+french_fr/info_net.xml
+french_fr/time_search.xml
+french_fr/cfg_motion_area.xml
+french_fr/backup.xml
+french_fr/cfg_net_mail.xml
+french_fr/cfg_schedule.xml
+french_fr/cfg_advance_ban.xml
+french_fr/cfg_net_autoreport.xml
+french_fr/cfg_basic.xml
+french_fr/search_nav.xml
+french_fr/cfg_net_nat_autoreport.xml
+french_fr/advance.xml
+french_fr/cfg_track_set.xml
+french_fr/cfg_device.xml
+french_fr/playback.xml
+french_fr/live.xml
+french_fr/info_online.xml
+french_fr/info_event.xml
+french_fr/cfg_alarmout.xml
+french_fr/cfg_net_wireless.xml
+french_fr/cfg_motion_alarm.xml
+french_fr/WebKit_update.xml
+french_fr/cfg_live.xml
+french_fr/cfg_net_ftp.xml
+french_fr/main_menu.xml
+french_fr/cfg_net.xml
+french_fr/cfg_index.xml
+french_fr/cfg_user.xml
+french_fr/info_basic.xml
+french_fr/cfg_other_alarm.xml
+french_fr/info_log.xml
+french_fr/login.xml
+french_fr/file_manage.xml
+french_fr/cfg_sensor_alarm.xml
+french_fr/cfg_vloss_alarm.xml
+french_fr/cfg_local.xml
+french_fr/cfg_preset_set.xml
+french_fr/cfg_advance.xml
+french_fr/info_index.xml
+french_fr/event_search.xml
+french_fr/string.js
+germany/
+germany/WebKit_load.xml
+germany/cfg_ptz_advance.xml
+germany/cfg_net_stream.xml
+germany/cfg_ptz.xml
+germany/cfg_record_stream.xml
+germany/cfg_rec_snap.xml
+germany/cfg_rec_osd.xml
+germany/manual_alarm.xml
+germany/cfg_record.xml
+germany/info_net.xml
+germany/time_search.xml
+germany/cfg_motion_area.xml
+germany/backup.xml
+germany/cfg_net_mail.xml
+germany/cfg_schedule.xml
+germany/cfg_advance_ban.xml
+germany/cfg_net_autoreport.xml
+germany/cfg_basic.xml
+germany/search_nav.xml
+germany/cfg_net_nat_autoreport.xml
+germany/advance.xml
+germany/cfg_track_set.xml
+germany/cfg_device.xml
+germany/playback.xml
+germany/live.xml
+germany/info_online.xml
+germany/info_event.xml
+germany/cfg_alarmout.xml
+germany/cfg_net_wireless.xml
+germany/cfg_motion_alarm.xml
+germany/WebKit_update.xml
+germany/cfg_live.xml
+germany/cfg_net_ftp.xml
+germany/main_menu.xml
+germany/cfg_net.xml
+germany/cfg_index.xml
+germany/cfg_user.xml
+germany/info_basic.xml
+germany/cfg_other_alarm.xml
+germany/info_log.xml
+germany/login.xml
+germany/file_manage.xml
+germany/cfg_sensor_alarm.xml
+germany/cfg_vloss_alarm.xml
+germany/cfg_local.xml
+germany/cfg_preset_set.xml
+germany/cfg_advance.xml
+germany/info_index.xml
+germany/event_search.xml
+germany/string.js
+greek/
+greek/WebKit_load.xml
+greek/cfg_ptz_advance.xml
+greek/cfg_net_stream.xml
+greek/cfg_ptz.xml
+greek/cfg_record_stream.xml
+greek/cfg_rec_snap.xml
+greek/cfg_rec_osd.xml
+greek/manual_alarm.xml
+greek/cfg_record.xml
+greek/info_net.xml
+greek/time_search.xml
+greek/cfg_motion_area.xml
+greek/backup.xml
+greek/cfg_net_mail.xml
+greek/cfg_schedule.xml
+greek/cfg_advance_ban.xml
+greek/cfg_net_autoreport.xml
+greek/cfg_basic.xml
+greek/search_nav.xml
+greek/cfg_net_nat_autoreport.xml
+greek/advance.xml
+greek/cfg_track_set.xml
+greek/cfg_device.xml
+greek/playback.xml
+greek/live.xml
+greek/info_online.xml
+greek/info_event.xml
+greek/cfg_alarmout.xml
+greek/cfg_net_wireless.xml
+greek/cfg_motion_alarm.xml
+greek/WebKit_update.xml
+greek/cfg_live.xml
+greek/cfg_net_ftp.xml
+greek/main_menu.xml
+greek/cfg_net.xml
+greek/cfg_index.xml
+greek/cfg_user.xml
+greek/info_basic.xml
+greek/cfg_other_alarm.xml
+greek/info_log.xml
+greek/login.xml
+greek/file_manage.xml
+greek/cfg_sensor_alarm.xml
+greek/cfg_vloss_alarm.xml
+greek/cfg_local.xml
+greek/cfg_preset_set.xml
+greek/cfg_advance.xml
+greek/info_index.xml
+greek/event_search.xml
+greek/string.js
+hebrew/
+hebrew/WebKit_load.xml
+hebrew/cfg_ptz_advance.xml
+hebrew/cfg_net_stream.xml
+hebrew/cfg_ptz.xml
+hebrew/cfg_record_stream.xml
+hebrew/cfg_rec_snap.xml
+hebrew/cfg_rec_osd.xml
+hebrew/manual_alarm.xml
+hebrew/cfg_record.xml
+hebrew/info_net.xml
+hebrew/time_search.xml
+hebrew/cfg_motion_area.xml
+hebrew/backup.xml
+hebrew/cfg_net_mail.xml
+hebrew/cfg_schedule.xml
+hebrew/cfg_advance_ban.xml
+hebrew/cfg_net_autoreport.xml
+hebrew/cfg_basic.xml
+hebrew/search_nav.xml
+hebrew/cfg_net_nat_autoreport.xml
+hebrew/advance.xml
+hebrew/cfg_track_set.xml
+hebrew/cfg_device.xml
+hebrew/playback.xml
+hebrew/live.xml
+hebrew/info_online.xml
+hebrew/info_event.xml
+hebrew/cfg_alarmout.xml
+hebrew/cfg_net_wireless.xml
+hebrew/cfg_motion_alarm.xml
+hebrew/WebKit_update.xml
+hebrew/cfg_live.xml
+hebrew/cfg_net_ftp.xml
+hebrew/main_menu.xml
+hebrew/cfg_net.xml
+hebrew/cfg_index.xml
+hebrew/cfg_user.xml
+hebrew/info_basic.xml
+hebrew/cfg_other_alarm.xml
+hebrew/info_log.xml
+hebrew/login.xml
+hebrew/file_manage.xml
+hebrew/cfg_sensor_alarm.xml
+hebrew/cfg_vloss_alarm.xml
+hebrew/cfg_local.xml
+hebrew/cfg_preset_set.xml
+hebrew/cfg_advance.xml
+hebrew/info_index.xml
+hebrew/event_search.xml
+hebrew/string.js
+Hungarian/
+Hungarian/WebKit_load.xml
+Hungarian/cfg_ptz_advance.xml
+Hungarian/cfg_net_stream.xml
+Hungarian/cfg_ptz.xml
+Hungarian/cfg_record_stream.xml
+Hungarian/cfg_rec_snap.xml
+Hungarian/cfg_rec_osd.xml
+Hungarian/manual_alarm.xml
+Hungarian/cfg_record.xml
+Hungarian/info_net.xml
+Hungarian/time_search.xml
+Hungarian/cfg_motion_area.xml
+Hungarian/backup.xml
+Hungarian/cfg_net_mail.xml
+Hungarian/cfg_schedule.xml
+Hungarian/cfg_advance_ban.xml
+Hungarian/cfg_net_autoreport.xml
+Hungarian/cfg_basic.xml
+Hungarian/search_nav.xml
+Hungarian/cfg_net_nat_autoreport.xml
+Hungarian/advance.xml
+Hungarian/cfg_track_set.xml
+Hungarian/cfg_device.xml
+Hungarian/playback.xml
+Hungarian/live.xml
+Hungarian/info_online.xml
+Hungarian/info_event.xml
+Hungarian/cfg_alarmout.xml
+Hungarian/cfg_net_wireless.xml
+Hungarian/cfg_motion_alarm.xml
+Hungarian/WebKit_update.xml
+Hungarian/cfg_live.xml
+Hungarian/cfg_net_ftp.xml
+Hungarian/main_menu.xml
+Hungarian/cfg_net.xml
+Hungarian/cfg_index.xml
+Hungarian/cfg_user.xml
+Hungarian/info_basic.xml
+Hungarian/cfg_other_alarm.xml
+Hungarian/info_log.xml
+Hungarian/login.xml
+Hungarian/file_manage.xml
+Hungarian/cfg_sensor_alarm.xml
+Hungarian/cfg_vloss_alarm.xml
+Hungarian/cfg_local.xml
+Hungarian/cfg_preset_set.xml
+Hungarian/cfg_advance.xml
+Hungarian/info_index.xml
+Hungarian/event_search.xml
+Hungarian/string.js
+indonesian/
+indonesian/WebKit_load.xml
+indonesian/cfg_ptz_advance.xml
+indonesian/cfg_net_stream.xml
+indonesian/cfg_ptz.xml
+indonesian/cfg_record_stream.xml
+indonesian/cfg_rec_snap.xml
+indonesian/cfg_rec_osd.xml
+indonesian/manual_alarm.xml
+indonesian/cfg_record.xml
+indonesian/info_net.xml
+indonesian/time_search.xml
+indonesian/cfg_motion_area.xml
+indonesian/backup.xml
+indonesian/cfg_net_mail.xml
+indonesian/cfg_schedule.xml
+indonesian/cfg_advance_ban.xml
+indonesian/cfg_net_autoreport.xml
+indonesian/cfg_basic.xml
+indonesian/search_nav.xml
+indonesian/cfg_net_nat_autoreport.xml
+indonesian/advance.xml
+indonesian/cfg_track_set.xml
+indonesian/cfg_device.xml
+indonesian/playback.xml
+indonesian/live.xml
+indonesian/info_online.xml
+indonesian/info_event.xml
+indonesian/cfg_alarmout.xml
+indonesian/cfg_net_wireless.xml
+indonesian/cfg_motion_alarm.xml
+indonesian/WebKit_update.xml
+indonesian/cfg_live.xml
+indonesian/cfg_net_ftp.xml
+indonesian/main_menu.xml
+indonesian/cfg_net.xml
+indonesian/cfg_index.xml
+indonesian/cfg_user.xml
+indonesian/info_basic.xml
+indonesian/cfg_other_alarm.xml
+indonesian/info_log.xml
+indonesian/login.xml
+indonesian/file_manage.xml
+indonesian/cfg_sensor_alarm.xml
+indonesian/cfg_vloss_alarm.xml
+indonesian/cfg_local.xml
+indonesian/cfg_preset_set.xml
+indonesian/cfg_advance.xml
+indonesian/info_index.xml
+indonesian/event_search.xml
+indonesian/string.js
+italian/
+italian/WebKit_load.xml
+italian/cfg_ptz_advance.xml
+italian/cfg_net_stream.xml
+italian/cfg_ptz.xml
+italian/cfg_record_stream.xml
+italian/cfg_rec_snap.xml
+italian/cfg_rec_osd.xml
+italian/manual_alarm.xml
+italian/cfg_record.xml
+italian/info_net.xml
+italian/time_search.xml
+italian/cfg_motion_area.xml
+italian/backup.xml
+italian/cfg_net_mail.xml
+italian/cfg_schedule.xml
+italian/cfg_advance_ban.xml
+italian/cfg_net_autoreport.xml
+italian/cfg_basic.xml
+italian/search_nav.xml
+italian/cfg_net_nat_autoreport.xml
+italian/advance.xml
+italian/cfg_track_set.xml
+italian/cfg_device.xml
+italian/playback.xml
+italian/live.xml
+italian/info_online.xml
+italian/info_event.xml
+italian/cfg_alarmout.xml
+italian/cfg_net_wireless.xml
+italian/cfg_motion_alarm.xml
+italian/WebKit_update.xml
+italian/cfg_live.xml
+italian/cfg_net_ftp.xml
+italian/main_menu.xml
+italian/cfg_net.xml
+italian/cfg_index.xml
+italian/cfg_user.xml
+italian/info_basic.xml
+italian/cfg_other_alarm.xml
+italian/info_log.xml
+italian/login.xml
+italian/file_manage.xml
+italian/cfg_sensor_alarm.xml
+italian/cfg_vloss_alarm.xml
+italian/cfg_local.xml
+italian/cfg_preset_set.xml
+italian/cfg_advance.xml
+italian/info_index.xml
+italian/event_search.xml
+italian/string.js
+japanese/
+japanese/WebKit_load.xml
+japanese/cfg_ptz_advance.xml
+japanese/cfg_net_stream.xml
+japanese/cfg_ptz.xml
+japanese/cfg_record_stream.xml
+japanese/cfg_rec_snap.xml
+japanese/cfg_rec_osd.xml
+japanese/manual_alarm.xml
+japanese/cfg_record.xml
+japanese/info_net.xml
+japanese/time_search.xml
+japanese/cfg_motion_area.xml
+japanese/backup.xml
+japanese/cfg_net_mail.xml
+japanese/cfg_schedule.xml
+japanese/cfg_advance_ban.xml
+japanese/cfg_net_autoreport.xml
+japanese/cfg_basic.xml
+japanese/search_nav.xml
+japanese/cfg_net_nat_autoreport.xml
+japanese/advance.xml
+japanese/cfg_track_set.xml
+japanese/cfg_device.xml
+japanese/playback.xml
+japanese/live.xml
+japanese/info_online.xml
+japanese/info_event.xml
+japanese/cfg_alarmout.xml
+japanese/cfg_net_wireless.xml
+japanese/cfg_motion_alarm.xml
+japanese/WebKit_update.xml
+japanese/cfg_live.xml
+japanese/cfg_net_ftp.xml
+japanese/main_menu.xml
+japanese/cfg_net.xml
+japanese/cfg_index.xml
+japanese/cfg_user.xml
+japanese/info_basic.xml
+japanese/cfg_other_alarm.xml
+japanese/info_log.xml
+japanese/login.xml
+japanese/file_manage.xml
+japanese/cfg_sensor_alarm.xml
+japanese/cfg_vloss_alarm.xml
+japanese/cfg_local.xml
+japanese/cfg_preset_set.xml
+japanese/cfg_advance.xml
+japanese/info_index.xml
+japanese/event_search.xml
+japanese/string.js
+Lithuania/
+Lithuania/WebKit_load.xml
+Lithuania/cfg_ptz_advance.xml
+Lithuania/cfg_net_stream.xml
+Lithuania/cfg_ptz.xml
+Lithuania/cfg_record_stream.xml
+Lithuania/cfg_rec_snap.xml
+Lithuania/cfg_rec_osd.xml
+Lithuania/manual_alarm.xml
+Lithuania/cfg_record.xml
+Lithuania/info_net.xml
+Lithuania/time_search.xml
+Lithuania/cfg_motion_area.xml
+Lithuania/backup.xml
+Lithuania/cfg_net_mail.xml
+Lithuania/cfg_schedule.xml
+Lithuania/cfg_advance_ban.xml
+Lithuania/cfg_net_autoreport.xml
+Lithuania/cfg_basic.xml
+Lithuania/search_nav.xml
+Lithuania/cfg_net_nat_autoreport.xml
+Lithuania/advance.xml
+Lithuania/cfg_track_set.xml
+Lithuania/cfg_device.xml
+Lithuania/playback.xml
+Lithuania/live.xml
+Lithuania/info_online.xml
+Lithuania/info_event.xml
+Lithuania/cfg_alarmout.xml
+Lithuania/cfg_net_wireless.xml
+Lithuania/cfg_motion_alarm.xml
+Lithuania/WebKit_update.xml
+Lithuania/cfg_live.xml
+Lithuania/cfg_net_ftp.xml
+Lithuania/main_menu.xml
+Lithuania/cfg_net.xml
+Lithuania/cfg_index.xml
+Lithuania/cfg_user.xml
+Lithuania/info_basic.xml
+Lithuania/cfg_other_alarm.xml
+Lithuania/info_log.xml
+Lithuania/login.xml
+Lithuania/file_manage.xml
+Lithuania/cfg_sensor_alarm.xml
+Lithuania/cfg_vloss_alarm.xml
+Lithuania/cfg_local.xml
+Lithuania/cfg_preset_set.xml
+Lithuania/cfg_advance.xml
+Lithuania/info_index.xml
+Lithuania/event_search.xml
+Lithuania/string.js
+Norwegian/
+Norwegian/WebKit_load.xml
+Norwegian/cfg_ptz_advance.xml
+Norwegian/cfg_net_stream.xml
+Norwegian/cfg_ptz.xml
+Norwegian/cfg_record_stream.xml
+Norwegian/cfg_rec_snap.xml
+Norwegian/cfg_rec_osd.xml
+Norwegian/cfg_record.xml
+Norwegian/info_net.xml
+Norwegian/time_search.xml
+Norwegian/cfg_motion_area.xml
+Norwegian/backup.xml
+Norwegian/cfg_net_mail.xml
+Norwegian/cfg_schedule.xml
+Norwegian/cfg_advance_ban.xml
+Norwegian/cfg_net_autoreport.xml
+Norwegian/cfg_basic.xml
+Norwegian/search_nav.xml
+Norwegian/cfg_net_nat_autoreport.xml
+Norwegian/advance.xml
+Norwegian/cfg_track_set.xml
+Norwegian/cfg_device.xml
+Norwegian/playback.xml
+Norwegian/live.xml
+Norwegian/info_online.xml
+Norwegian/info_event.xml
+Norwegian/cfg_alarmout.xml
+Norwegian/cfg_net_wireless.xml
+Norwegian/cfg_motion_alarm.xml
+Norwegian/WebKit_update.xml
+Norwegian/cfg_live.xml
+Norwegian/cfg_net_ftp.xml
+Norwegian/main_menu.xml
+Norwegian/cfg_net.xml
+Norwegian/cfg_index.xml
+Norwegian/cfg_user.xml
+Norwegian/info_basic.xml
+Norwegian/cfg_other_alarm.xml
+Norwegian/info_log.xml
+Norwegian/login.xml
+Norwegian/file_manage.xml
+Norwegian/cfg_sensor_alarm.xml
+Norwegian/cfg_vloss_alarm.xml
+Norwegian/cfg_local.xml
+Norwegian/cfg_preset_set.xml
+Norwegian/cfg_advance.xml
+Norwegian/info_index.xml
+Norwegian/event_search.xml
+Norwegian/string.js
+polish/
+polish/WebKit_load.xml
+polish/cfg_ptz_advance.xml
+polish/cfg_net_stream.xml
+polish/cfg_ptz.xml
+polish/cfg_record_stream.xml
+polish/cfg_rec_snap.xml
+polish/cfg_rec_osd.xml
+polish/manual_alarm.xml
+polish/cfg_record.xml
+polish/info_net.xml
+polish/time_search.xml
+polish/cfg_motion_area.xml
+polish/backup.xml
+polish/cfg_net_mail.xml
+polish/cfg_schedule.xml
+polish/cfg_advance_ban.xml
+polish/cfg_net_autoreport.xml
+polish/cfg_basic.xml
+polish/search_nav.xml
+polish/cfg_net_nat_autoreport.xml
+polish/advance.xml
+polish/cfg_track_set.xml
+polish/cfg_device.xml
+polish/playback.xml
+polish/live.xml
+polish/info_online.xml
+polish/info_event.xml
+polish/cfg_alarmout.xml
+polish/cfg_net_wireless.xml
+polish/cfg_motion_alarm.xml
+polish/WebKit_update.xml
+polish/cfg_live.xml
+polish/cfg_net_ftp.xml
+polish/main_menu.xml
+polish/cfg_net.xml
+polish/cfg_index.xml
+polish/cfg_user.xml
+polish/info_basic.xml
+polish/cfg_other_alarm.xml
+polish/info_log.xml
+polish/login.xml
+polish/file_manage.xml
+polish/cfg_sensor_alarm.xml
+polish/cfg_vloss_alarm.xml
+polish/cfg_local.xml
+polish/cfg_preset_set.xml
+polish/cfg_advance.xml
+polish/info_index.xml
+polish/event_search.xml
+polish/string.js
+portuguese/
+portuguese/WebKit_load.xml
+portuguese/cfg_ptz_advance.xml
+portuguese/cfg_net_stream.xml
+portuguese/cfg_ptz.xml
+portuguese/cfg_record_stream.xml
+portuguese/cfg_rec_snap.xml
+portuguese/cfg_rec_osd.xml
+portuguese/manual_alarm.xml
+portuguese/cfg_record.xml
+portuguese/info_net.xml
+portuguese/time_search.xml
+portuguese/cfg_motion_area.xml
+portuguese/backup.xml
+portuguese/cfg_net_mail.xml
+portuguese/cfg_schedule.xml
+portuguese/cfg_advance_ban.xml
+portuguese/cfg_net_autoreport.xml
+portuguese/cfg_basic.xml
+portuguese/search_nav.xml
+portuguese/cfg_net_nat_autoreport.xml
+portuguese/advance.xml
+portuguese/cfg_track_set.xml
+portuguese/cfg_device.xml
+portuguese/playback.xml
+portuguese/live.xml
+portuguese/info_online.xml
+portuguese/info_event.xml
+portuguese/cfg_alarmout.xml
+portuguese/cfg_net_wireless.xml
+portuguese/cfg_motion_alarm.xml
+portuguese/WebKit_update.xml
+portuguese/cfg_live.xml
+portuguese/cfg_net_ftp.xml
+portuguese/main_menu.xml
+portuguese/cfg_net.xml
+portuguese/cfg_index.xml
+portuguese/cfg_user.xml
+portuguese/info_basic.xml
+portuguese/cfg_other_alarm.xml
+portuguese/info_log.xml
+portuguese/login.xml
+portuguese/file_manage.xml
+portuguese/cfg_sensor_alarm.xml
+portuguese/cfg_vloss_alarm.xml
+portuguese/cfg_local.xml
+portuguese/cfg_preset_set.xml
+portuguese/cfg_advance.xml
+portuguese/info_index.xml
+portuguese/event_search.xml
+portuguese/string.js
+Romanian/
+Romanian/WebKit_load.xml
+Romanian/cfg_ptz_advance.xml
+Romanian/cfg_net_stream.xml
+Romanian/cfg_ptz.xml
+Romanian/cfg_record_stream.xml
+Romanian/cfg_rec_snap.xml
+Romanian/cfg_rec_osd.xml
+Romanian/cfg_record.xml
+Romanian/info_net.xml
+Romanian/time_search.xml
+Romanian/cfg_motion_area.xml
+Romanian/backup.xml
+Romanian/cfg_net_mail.xml
+Romanian/cfg_schedule.xml
+Romanian/cfg_advance_ban.xml
+Romanian/cfg_net_autoreport.xml
+Romanian/cfg_basic.xml
+Romanian/search_nav.xml
+Romanian/cfg_net_nat_autoreport.xml
+Romanian/advance.xml
+Romanian/cfg_track_set.xml
+Romanian/cfg_device.xml
+Romanian/playback.xml
+Romanian/live.xml
+Romanian/info_online.xml
+Romanian/info_event.xml
+Romanian/cfg_alarmout.xml
+Romanian/cfg_net_wireless.xml
+Romanian/cfg_motion_alarm.xml
+Romanian/WebKit_update.xml
+Romanian/cfg_live.xml
+Romanian/cfg_net_ftp.xml
+Romanian/main_menu.xml
+Romanian/cfg_net.xml
+Romanian/cfg_index.xml
+Romanian/cfg_user.xml
+Romanian/info_basic.xml
+Romanian/cfg_other_alarm.xml
+Romanian/info_log.xml
+Romanian/login.xml
+Romanian/file_manage.xml
+Romanian/cfg_sensor_alarm.xml
+Romanian/cfg_vloss_alarm.xml
+Romanian/cfg_local.xml
+Romanian/cfg_preset_set.xml
+Romanian/cfg_advance.xml
+Romanian/info_index.xml
+Romanian/event_search.xml
+Romanian/string.js
+russian_ru/
+russian_ru/WebKit_load.xml
+russian_ru/cfg_ptz_advance.xml
+russian_ru/cfg_net_stream.xml
+russian_ru/cfg_ptz.xml
+russian_ru/cfg_record_stream.xml
+russian_ru/cfg_rec_snap.xml
+russian_ru/cfg_rec_osd.xml
+russian_ru/manual_alarm.xml
+russian_ru/cfg_record.xml
+russian_ru/info_net.xml
+russian_ru/time_search.xml
+russian_ru/cfg_motion_area.xml
+russian_ru/backup.xml
+russian_ru/cfg_net_mail.xml
+russian_ru/cfg_schedule.xml
+russian_ru/cfg_advance_ban.xml
+russian_ru/cfg_net_autoreport.xml
+russian_ru/cfg_basic.xml
+russian_ru/search_nav.xml
+russian_ru/cfg_net_nat_autoreport.xml
+russian_ru/advance.xml
+russian_ru/cfg_track_set.xml
+russian_ru/cfg_device.xml
+russian_ru/playback.xml
+russian_ru/live.xml
+russian_ru/info_online.xml
+russian_ru/info_event.xml
+russian_ru/cfg_alarmout.xml
+russian_ru/cfg_net_wireless.xml
+russian_ru/cfg_motion_alarm.xml
+russian_ru/WebKit_update.xml
+russian_ru/cfg_live.xml
+russian_ru/cfg_net_ftp.xml
+russian_ru/main_menu.xml
+russian_ru/cfg_net.xml
+russian_ru/cfg_index.xml
+russian_ru/cfg_user.xml
+russian_ru/info_basic.xml
+russian_ru/cfg_other_alarm.xml
+russian_ru/info_log.xml
+russian_ru/login.xml
+russian_ru/file_manage.xml
+russian_ru/cfg_sensor_alarm.xml
+russian_ru/cfg_vloss_alarm.xml
+russian_ru/cfg_local.xml
+russian_ru/cfg_preset_set.xml
+russian_ru/cfg_advance.xml
+russian_ru/info_index.xml
+russian_ru/event_search.xml
+russian_ru/string.js
+Spanish/
+Spanish/WebKit_load.xml
+Spanish/cfg_ptz_advance.xml
+Spanish/cfg_net_stream.xml
+Spanish/cfg_ptz.xml
+Spanish/cfg_record_stream.xml
+Spanish/cfg_rec_snap.xml
+Spanish/cfg_rec_osd.xml
+Spanish/manual_alarm.xml
+Spanish/cfg_record.xml
+Spanish/info_net.xml
+Spanish/time_search.xml
+Spanish/cfg_motion_area.xml
+Spanish/backup.xml
+Spanish/cfg_net_mail.xml
+Spanish/cfg_schedule.xml
+Spanish/cfg_advance_ban.xml
+Spanish/cfg_net_autoreport.xml
+Spanish/cfg_basic.xml
+Spanish/search_nav.xml
+Spanish/cfg_net_nat_autoreport.xml
+Spanish/advance.xml
+Spanish/cfg_track_set.xml
+Spanish/cfg_device.xml
+Spanish/playback.xml
+Spanish/live.xml
+Spanish/info_online.xml
+Spanish/info_event.xml
+Spanish/cfg_alarmout.xml
+Spanish/cfg_net_wireless.xml
+Spanish/cfg_motion_alarm.xml
+Spanish/WebKit_update.xml
+Spanish/cfg_live.xml
+Spanish/cfg_net_ftp.xml
+Spanish/main_menu.xml
+Spanish/cfg_net.xml
+Spanish/cfg_index.xml
+Spanish/cfg_user.xml
+Spanish/info_basic.xml
+Spanish/cfg_other_alarm.xml
+Spanish/info_log.xml
+Spanish/login.xml
+Spanish/file_manage.xml
+Spanish/cfg_sensor_alarm.xml
+Spanish/cfg_vloss_alarm.xml
+Spanish/cfg_local.xml
+Spanish/cfg_preset_set.xml
+Spanish/cfg_advance.xml
+Spanish/info_index.xml
+Spanish/event_search.xml
+Spanish/string.js
+Swedish/
+Swedish/WebKit_load.xml
+Swedish/cfg_ptz_advance.xml
+Swedish/cfg_net_stream.xml
+Swedish/cfg_ptz.xml
+Swedish/cfg_record_stream.xml
+Swedish/cfg_rec_snap.xml
+Swedish/cfg_rec_osd.xml
+Swedish/cfg_record.xml
+Swedish/info_net.xml
+Swedish/time_search.xml
+Swedish/cfg_motion_area.xml
+Swedish/backup.xml
+Swedish/cfg_net_mail.xml
+Swedish/cfg_schedule.xml
+Swedish/cfg_advance_ban.xml
+Swedish/cfg_net_autoreport.xml
+Swedish/cfg_basic.xml
+Swedish/search_nav.xml
+Swedish/cfg_net_nat_autoreport.xml
+Swedish/advance.xml
+Swedish/cfg_track_set.xml
+Swedish/cfg_device.xml
+Swedish/playback.xml
+Swedish/live.xml
+Swedish/info_online.xml
+Swedish/info_event.xml
+Swedish/cfg_alarmout.xml
+Swedish/cfg_net_wireless.xml
+Swedish/cfg_motion_alarm.xml
+Swedish/WebKit_update.xml
+Swedish/cfg_live.xml
+Swedish/cfg_net_ftp.xml
+Swedish/main_menu.xml
+Swedish/cfg_net.xml
+Swedish/cfg_index.xml
+Swedish/cfg_user.xml
+Swedish/info_basic.xml
+Swedish/cfg_other_alarm.xml
+Swedish/info_log.xml
+Swedish/login.xml
+Swedish/file_manage.xml
+Swedish/cfg_sensor_alarm.xml
+Swedish/cfg_vloss_alarm.xml
+Swedish/cfg_local.xml
+Swedish/cfg_preset_set.xml
+Swedish/cfg_advance.xml
+Swedish/info_index.xml
+Swedish/event_search.xml
+Swedish/string.js
+thai/
+thai/WebKit_load.xml
+thai/cfg_ptz_advance.xml
+thai/cfg_net_stream.xml
+thai/cfg_ptz.xml
+thai/cfg_record_stream.xml
+thai/cfg_rec_snap.xml
+thai/cfg_rec_osd.xml
+thai/manual_alarm.xml
+thai/cfg_record.xml
+thai/info_net.xml
+thai/time_search.xml
+thai/cfg_motion_area.xml
+thai/backup.xml
+thai/cfg_net_mail.xml
+thai/cfg_schedule.xml
+thai/cfg_advance_ban.xml
+thai/cfg_net_autoreport.xml
+thai/cfg_basic.xml
+thai/search_nav.xml
+thai/cfg_net_nat_autoreport.xml
+thai/advance.xml
+thai/cfg_track_set.xml
+thai/cfg_device.xml
+thai/playback.xml
+thai/live.xml
+thai/info_online.xml
+thai/info_event.xml
+thai/cfg_alarmout.xml
+thai/cfg_net_wireless.xml
+thai/cfg_motion_alarm.xml
+thai/WebKit_update.xml
+thai/cfg_live.xml
+thai/cfg_net_ftp.xml
+thai/main_menu.xml
+thai/cfg_net.xml
+thai/cfg_index.xml
+thai/cfg_user.xml
+thai/info_basic.xml
+thai/cfg_other_alarm.xml
+thai/info_log.xml
+thai/login.xml
+thai/file_manage.xml
+thai/cfg_sensor_alarm.xml
+thai/cfg_vloss_alarm.xml
+thai/cfg_local.xml
+thai/cfg_preset_set.xml
+thai/cfg_advance.xml
+thai/info_index.xml
+thai/event_search.xml
+thai/string.js
+turkish_tr/
+turkish_tr/WebKit_load.xml
+turkish_tr/cfg_ptz_advance.xml
+turkish_tr/cfg_net_stream.xml
+turkish_tr/cfg_ptz.xml
+turkish_tr/cfg_record_stream.xml
+turkish_tr/cfg_rec_snap.xml
+turkish_tr/cfg_rec_osd.xml
+turkish_tr/manual_alarm.xml
+turkish_tr/cfg_record.xml
+turkish_tr/info_net.xml
+turkish_tr/time_search.xml
+turkish_tr/cfg_motion_area.xml
+turkish_tr/backup.xml
+turkish_tr/cfg_net_mail.xml
+turkish_tr/cfg_schedule.xml
+turkish_tr/cfg_advance_ban.xml
+turkish_tr/cfg_net_autoreport.xml
+turkish_tr/cfg_basic.xml
+turkish_tr/search_nav.xml
+turkish_tr/cfg_net_nat_autoreport.xml
+turkish_tr/advance.xml
+turkish_tr/cfg_track_set.xml
+turkish_tr/cfg_device.xml
+turkish_tr/playback.xml
+turkish_tr/live.xml
+turkish_tr/info_online.xml
+turkish_tr/info_event.xml
+turkish_tr/cfg_alarmout.xml
+turkish_tr/cfg_net_wireless.xml
+turkish_tr/cfg_motion_alarm.xml
+turkish_tr/WebKit_update.xml
+turkish_tr/cfg_live.xml
+turkish_tr/cfg_net_ftp.xml
+turkish_tr/main_menu.xml
+turkish_tr/cfg_net.xml
+turkish_tr/cfg_index.xml
+turkish_tr/cfg_user.xml
+turkish_tr/info_basic.xml
+turkish_tr/cfg_other_alarm.xml
+turkish_tr/info_log.xml
+turkish_tr/login.xml
+turkish_tr/file_manage.xml
+turkish_tr/cfg_sensor_alarm.xml
+turkish_tr/cfg_vloss_alarm.xml
+turkish_tr/cfg_local.xml
+turkish_tr/cfg_preset_set.xml
+turkish_tr/cfg_advance.xml
+turkish_tr/info_index.xml
+turkish_tr/event_search.xml
+turkish_tr/string.js
+vietnamese/
+vietnamese/WebKit_load.xml
+vietnamese/cfg_ptz_advance.xml
+vietnamese/cfg_net_stream.xml
+vietnamese/cfg_ptz.xml
+vietnamese/cfg_record_stream.xml
+vietnamese/cfg_rec_snap.xml
+vietnamese/cfg_rec_osd.xml
+vietnamese/cfg_record.xml
+vietnamese/info_net.xml
+vietnamese/time_search.xml
+vietnamese/cfg_motion_area.xml
+vietnamese/backup.xml
+vietnamese/cfg_net_mail.xml
+vietnamese/cfg_schedule.xml
+vietnamese/cfg_advance_ban.xml
+vietnamese/cfg_net_autoreport.xml
+vietnamese/cfg_basic.xml
+vietnamese/search_nav.xml
+vietnamese/cfg_net_nat_autoreport.xml
+vietnamese/advance.xml
+vietnamese/cfg_track_set.xml
+vietnamese/cfg_device.xml
+vietnamese/playback.xml
+vietnamese/live.xml
+vietnamese/info_online.xml
+vietnamese/info_event.xml
+vietnamese/cfg_alarmout.xml
+vietnamese/cfg_net_wireless.xml
+vietnamese/cfg_motion_alarm.xml
+vietnamese/WebKit_update.xml
+vietnamese/cfg_live.xml
+vietnamese/cfg_net_ftp.xml
+vietnamese/main_menu.xml
+vietnamese/cfg_net.xml
+vietnamese/cfg_index.xml
+vietnamese/cfg_user.xml
+vietnamese/info_basic.xml
+vietnamese/cfg_other_alarm.xml
+vietnamese/info_log.xml
+vietnamese/login.xml
+vietnamese/file_manage.xml
+vietnamese/cfg_sensor_alarm.xml
+vietnamese/cfg_vloss_alarm.xml
+vietnamese/cfg_local.xml
+vietnamese/cfg_preset_set.xml
+vietnamese/cfg_advance.xml
+vietnamese/info_index.xml
+vietnamese/event_search.xml
+vietnamese/string.js
+ln: /mnt/mtd/WebServer/language: File exists
+arabic.dat
+bulgarian.dat
+chinese_b.dat
+chinese_s.dat
+czech.dat
+danish.dat
+dutch.dat
+english.dat
+french.dat
+german.dat
+greece.dat
+hebrew.dat
+hungary.dat
+indonesia.dat
+italy.dat
+japanese.dat
+lithuania.dat
+norway.dat
+persian.dat
+polish.dat
+portuguese.dat
+russian.dat
+spaish.dat
+swedish.dat
+thai.dat
+turkey.dat
+vietnamese.dat
+cp: can't stat '/mnt/mtd/libApiNetSocket.so.lzma': No such file or directory
+cp: can't stat '/mnt/mtd/libApiServer.so.lzma': No such file or directory
+cp: can't stat '/mnt/mtd/libApiShareLib.so.lzma': No such file or directory
+cp: can't stat '/mnt/mtd/libApiuuid.so.lzma': No such file or directory
+unlzma: libApiNetSocket.so.lzma: No such file or directory
+unlzma: libApiServer.so.lzma: No such file or directory
+unlzma: libApiShareLib.so.lzma: No such file or directory
+unlzma: libApiuuid.so.lzma: No such file or directory
+ln: /mnt/mtd/mkisofs: File exists
+ln: /mnt/mtd/growisofs: File exists
+rm: can't remove '/mnt/mtd/preupgrade.sh': No such file or directory
+rm: can't remove '/mnt/mtdMACADDR in set is 74:f8:db:52:57:ec
+/productcheck': ADDRCONF(NETDEV_UP): eth0: link is not ready
+No such file or directory
+ln: /mnt/mtd/WebServer/logo: File exists
+Auto login as root ...
+(none) login: xdvr.cpp, 706, pid = 954, tid=954
+PUB_common.cpp, 1934, pid = 954, tid=955
+check OK!
+read xyz vlaue *=* 10746
+eth0 MAC Address 74:f8:db:52:57:ec
+product_id = 10746
+LocalDevice.cpp,4631,new crytoinfo
+#############xdvr.cpp,730,productID:10746
+productID:10746,subProductID:12
+xdvr.cpp,751,programeId:13,subProductID:12.xdvr.cpp,778,IL03 g_bProIdequeSubProdID:1
+######################xdvr.cpp,815,no change CVBS Resolution
+hdtype=0
+GetVideoFormatFromFlash:LocalDevice.cpp:4351, Get video format from flash
+current flash param ==
+------get 1------current param type == 4069
+------get 1------current param type == 4066
+product Item (Product.cpp,463)from programe
+------get 1------current param type == 4068
+------get 1------current param type == 4073
+Product.cpp,29783,info.function[FUNC_NO_ALARM_CTRL/bitCount]:bc9dffc
+------get 1------current param type == 4072
+------get 1------current param type == 4071
+LocalDevice.cpp,4581,GetKeyBoardNameFromFlash:Q23
+xdvr.cpp,880,ChangeKeyBoardType keyboardType:0
+xdvr.cpp,893,local keyboardtype;0
+il03 have LANGUAGE_FRENCH
+Intial CLanguagePack succ!
+------get 1------current param type == 4070
+Initial ReadDDdns ok
+Inital config manager succ
+ConfigEx.cpp,2398, first check NCFG_ITEM_ENCODE_MAJOR maxRate:1200,totalRate:1600
+ ConfigEx.cpp,2402, no need change NCFG_ITEM_ENCODE_MAJOR
+CVBS_ChangeParam********************************************************
+##xdvr.cpp,1319,videoout res flash == config
+main:xdvr.cpp:1548, videoPbChnnNum=0x00000008
+AdjustCVBSVo:LocalDevice.cpp:5090, dislW=720, dispH=576
+change cvbs output size 720,576
+pFrameRateData ----------------- 0,0
+sdk set cvbs support
+current product used chip *****++++ HISI3521 ++++*****
+------get 1------current param type == 4083
+------get 1------current param type == 4084
+current read param in kernel version 0 = 53a259c3, 1 = 52143d1c, 2 = 581be9a3
+ DVR SDK VERSION : *** Nov 16 2015 16:29:38 ***
+ DVR SDK VERSION : *** 201511161550 ***
+current alloc buf variant len = 195584
+alloc frame queue cnt 50,8,1155000
+current jiffts value = 100
+****----TD2708AS-S dvr sub version = 0
++++this is IL03 VERSIONS
+alloc m_pb_buf_addr = 40eb1008, 2097152
+alloc m_compress_buf_addr 410b3008, 54525952
+all used mem len 57221120
+------get 1------current param type == 4066
+current hardware version : DASBA len : 5
+current keyboard +++++++ type 1, get pos 8
+mcusim run_prog_pos = 6, alarm 0,0, spot 0, buzzer 0
+current product 3515 keyboard se 0
+current jpeg set vale = 1
+
+alloc var buffer add 445b2008, len 332728, PCIV_FONT_DOT_PARAM = 2400
+alloc mem font param 22714,32,726848
+Current TD2708AS_S DVR Product Param Init == sub ver 0
+current decode chip number = 1
+open /dev/rt5616_dev failed
+--open /dev/nvp6114dev failed
+open /dev/nvp6124 success
+nvp6114a_outport_1mux_chseq
+
+
+6124_mode_setting_ch[0] change 0xff to 0x3
+
+
+
+6124_mode_setting_ch[1] change 0xff to 0x3
+
+
+
+6124_mode_setting_ch[2] change 0xff to 0x3
+
+
+
+6124_mode_setting_ch[3] change 0xff to 0x3
+
+
+
+6124_mode_setting_ch[4] change 0xff to 0x3
+
+
+
+6124_mode_setting_ch[5] change 0xff to 0x3
+
+
+
+6124_mode_setting_ch[6] change 0xff to 0x3
+
+
+
+6124_mode_setting_ch[7] change 0xff to 0x3
+
+NVP6124_AfeReset done
+
+[IOC_VDEC_SET_VIDEO_MODE]::hardware==255 mode==2 product==2::
+
+nvp6114a_set_portmode chip 0 portsel 0 portmode 7 setting
+nvp6114a_set_portmode chip 0 portsel 1 portmode 7 setting
+nvp6114a_set_portmode chip 1 portsel 0 portmode 7 setting
+nvp6114a_set_portmode chip 1 portsel 1 portmode 7 setting
+start vi vo device ......
+current chip workmode = 9999
+ViMsk=f,VoMsk=1,b_pal=1 b_vag_mod=0,b_cpu_slave=0
+b_cascade_master=0,b_used_pip=0,iWorkMode=9999,vo_img_width=1920,vo_img_height=1080
+product_type=2704205,flag_dec_mem_is_used_pip=0,flag_dec_mem_is_used_doublefrm=0
+hdmi start force mode =-----------> HI_HDMI_FORCE_HDMI
+HDMI start success.
+init channel param ----------
+start vi channel ......
+mode bgc enable no interrup detect ==== ViChn 4
+mode bgc enable no interrup detect ==== ViChn 5
+mode bgc enable no interrup detect ==== ViChn 0
+mode bgc enable no interrup detect ==== ViChn 1
+mode bgc enable no interrup detect ==== ViChn 12
+mode bgc enable no interrup detect ==== ViChn 13
+mode bgc enable no interrup detect ==== ViChn 8
+mode bgc enable no interrup detect ==== ViChn 9
+start venc group ......
+start venc net group .....
+start venc local ......
+start venc net ......
+change venc 16 rc param
+change venc 17 rc param
+change venc 18 rc param
+change venc 19 rc param
+start vdec ......
+current vdec 0 display buf num 2
+current vdec 1 display buf num 2
+current vdec 2 display buf num 2
+current vdec 3 display buf num 2
+current vdec 4 display buf num 2
+current vdec 5 display buf num 2
+current vdec 6 display buf num 2
+current vdec 32 display buf num 2
+start cascade vi ......
+start tde ......
+start framebuf G0 ......
+current set fb width 1920, height 1080
+fb width 1920, height 1080, len 8294400, 3840
+start framebuf HC0 ......
+current set fb width 32, height 32
+fb width 32, height 32, len 32768, 128
+get current color 0 val 50, color martix 0
+get current color 1 val 50, color martix 0
+get current color 2 val 50, color martix 0
+get current color 3 val 50, color martix 0
+sdvr initialize success
+AEC_Init error framelen(320)
+[Func]:MPI_AI_AecInit [Line]:369 [Info]:aec open fail.
+LocalDevice.cpp,208,ext_device_init
+get time is:00-01-01 1 00:00:40
+thread_route_encode_video_net_device, thread id = 970
+thread_route_audio_capture, thread id = 971
+thread_vedio_type_check, thread id = 969
+thread_route_video_playbck, thread id = 972
+thread_route_video_pb_local, thread id = 973
+thread_vedio_loss_check, thread id = 968
+thread_route_audio_playback, thread id = 974
+thread_route_vda_md, thread id = 975
+thread_route_check_other_thread, thread id = 976
+thread_route_encode_video_local_device, thread id = 967
+thread_route_mouse_process, thread id = 977
+thread_route_keyboard_process, thread id = 978
+thread_route_ir_process, thread id = 979
+thread_route_feed_wdg, thread id = 980
+thread_route_capture_jpeg, thread id = 981
+thread_route_encode_video_frame, thread id = 966
+thread_route_slave_cpu_check_time, thread id = 982
+RTC Time:0-1-1 0:0:28
+Build Time to RTC Time:16-7-7 12:49:32
+##read chip type:28673  is other chip
+###LocalDevice.cpp,344,485CS
+####################3LocalDevice.cpp,358 CLocalDevice::Initial
+,Initial local device succ!
+fb w = 1920, h = 1080
+The mem is :4147200
+The line_length is :3840
+The xres is :1920
+The yres is :1080
+bits_per_pixel is :16
+advance.bmp
+advance_f.bmp
+alarm.bmp
+alarm_f.bmp
+alarm_out.bmp
+alarm_out_f.bmp
+all.bmp
+all_f.bmp
+anchor_cam_para.bmp
+anchor_cam_para_f.bmp
+anchor_coc.bmp
+anchor_coc_f.bmp
+anchor_roi.bmp
+anchor_roi_f.bmp
+arrow_left.bmp
+arrow_left_f.bmp
+backup.bmp
+backup_copy.bmp
+backup_copy_f.bmp
+backup_copy_n.bmp
+backup_f.bmp
+basic_config.bmp
+basic_config_f.bmp
+btn_add.bmp
+btn_add_f.bmp
+btn.bmp
+btn_bottom.bmp
+btn_bottom_f.bmp
+btn_dec.bmp
+btn_dec_f.bmp
+btn_del.bmp
+btn_del_f.bmp
+btn_down.bmp
+btn_down_f.bmp
+btn_f.bmp
+btn_modify.bmp
+btn_modify_f.bmp
+btn_top.bmp
+btn_top_f.bmp
+btn_up.bmp
+btn_up_f.bmp
+check.bmp
+check_f.bmp
+check_n.bmp
+check_no.bmp
+check_no_f.bmp
+check_no_n.bmp
+clear.bmp
+clear_f.bmp
+combo_btn_down.bmp
+combo_btn_down_f.bmp
+combo_btn_down_n.bmp
+combo_btn_left.bmp
+combo_btn_left_f.bmp
+combo_btn_left_n.bmp
+combo_btn_right.bmp
+combo_btn_right_f.bmp
+combo_btn_right_n.bmp
+config.bmp
+config_f.bmp
+custom.bmp
+custom_f.bmp
+cut_end.bmp
+cut_end_f.bmp
+cut_end_n.bmp
+cut_start.bmp
+cut_start_f.bmp
+cut_start_n.bmp
+date_btn_calendar.bmp
+date_btn_calendar_f.bmp
+device.bmp
+device_f.bmp
+dialog.bmp
+dialog_child.bmp
+disk.bmp
+disk_f.bmp
+dlg_flex_l.bmp
+dlg_flex_l_f.bmp
+dlg_flex_r.bmp
+dlg_flex_r_f.bmp
+edit.bmp
+edit_f.bmp
+erase.bmp
+erase_f.bmp
+error.bmp
+event.bmp
+event_f.bmp
+exit2.bmp
+exit2_f.bmp
+exit3.bmp
+exit3_f.bmp
+exit4.bmp
+exit4_f.bmp
+exit.bmp
+exit_f.bmp
+fast_forward.bmp
+fast_forward_f.bmp
+fast_forward_n.bmp
+font.dat
+goto.bmp
+goto_f.bmp
+icon_cfg_blacklist.bmp
+icon_cfg_man.bmp
+icon_cfg_reset.bmp
+icon_exit.bmp
+icon_info.bmp
+info.bmp
+info_f.bmp
+listex_btn_left.bmp
+listex_btn_left_f.bmp
+listex_btn_leftmost.bmp
+listex_btn_leftmost_f.bmp
+listex_btn_right.bmp
+listex_btn_rightmost.bmp
+listex_btn_rightmost_f.bmp
+listex_right_f.bmp
+list_header.bmp
+live_audio.bmp
+live.bmp
+live_f.bmp
+live_motion_big.bmp
+live_motion.bmp
+live_ptz.bmp
+live_snap_tip.bmp
+live_snap_tip_fail.bmp
+lock.bmp
+log.bmp
+log_f.bmp
+logoff.bmp
+logoff_f.bmp
+manual_alarm.bmp
+manual_alarm_f.bmp
+mini_map.bmp
+mini_map_f.bmp
+motion.bmp
+motion_f.bmp
+network.bmp
+network_f.bmp
+next_frame.bmp
+next_frame_f.bmp
+next_frame_n.bmp
+next_section.bmp
+next_section_f.bmp
+ok.bmp
+ok_f.bmp
+online_user.bmp
+online_user_f.bmp
+other_alarm.bmp
+other_alarm_f.bmp
+pause.bmp
+pause_f.bmp
+pause_n.bmp
+play_1a12.bmp
+play_1a12_f.bmp
+play_1a12_n.bmp
+play_1a5.bmp
+play_1a5_f.bmp
+play_1a5_n.bmp
+play_1a7.bmp
+play_1a7_f.bmp
+play_1a7_n.bmp
+play_1x1.bmp
+play_1x1_f.bmp
+play_1x1_n.bmp
+play_2x2.bmp
+play_2x2_f.bmp
+play_2x2_n.bmp
+play_2x3.bmp
+play_2x3_f.bmp
+play_2x3_n.bmp
+play_3x3.bmp
+play_3x3_f.bmp
+play_3x3_n.bmp
+play_4x4.bmp
+play_4x4_f.bmp
+play_4x4_n.bmp
+play_audio.bmp
+play_audio_f.bmp
+play_audio_m.bmp
+play_audio_m_f.bmp
+play_audio_n.bmp
+play_bg.bmp
+play.bmp
+player_hide.bmp
+player_hide_f.bmp
+play_f.bmp
+play_live.bmp
+play_live_f.bmp
+play_live_n.bmp
+play_move.bmp
+play_move_f.bmp
+play_n.bmp
+play_triangle.bmp
+play_triangle_f.bmp
+play_zoom.bmp
+play_zoom_f.bmp
+play_zoom_n.bmp
+pop_split.bmp
+pop_split_f.bmp
+pop_split_n.bmp
+prev_section.bmp
+prev_section_f.bmp
+progress1.bmp
+progress2.bmp
+progress_n.bmp
+ptz.bmp
+ptz_brush_off.bmp
+ptz_brush_off_f.bmp
+ptz_brush_on.bmp
+ptz_brush_on_f.bmp
+ptz_ctrl_bk.bmp
+ptz_down.bmp
+ptz_down_f.bmp
+ptz_down_left.bmp
+ptz_down_left_f.bmp
+ptz_down_right.bmp
+ptz_down_right_f.bmp
+ptz_f.bmp
+ptz_lamp_off.bmp
+ptz_lamp_off_f.bmp
+ptz_lamp_on.bmp
+ptz_lamp_on_f.bmp
+ptz_left.bmp
+ptz_left_f.bmp
+ptz_right.bmp
+ptz_right_f.bmp
+ptz_stop.bmp
+ptz_stop_f.bmp
+ptz_up.bmp
+ptz_up_f.bmp
+ptz_up_left.bmp
+ptz_up_left_f.bmp
+ptz_up_right.bmp
+ptz_up_right_f.bmp
+qrcode.bmp
+qrcode_f.bmp
+question.bmp
+radio.bmp
+radio_f.bmp
+radio_n.bmp
+radio_no.bmp
+radio_no_f.bmp
+radio_no_n.bmp
+record.bmp
+record_f.bmp
+resources.bmp
+resources_f.bmp
+reward.bmp
+reward_f.bmp
+reward_n.bmp
+save.bmp
+save_f.bmp
+schedule.bmp
+schedule_f.bmp
+scroll_bottom.bmp
+scroll_bottom_f.bmp
+scroll_btn.bmp
+scroll_btn_f.bmp
+scroll_btn_v.bmp
+insert master vi chn  4 0 user pic int:0 lost:0 u32ChnFrmRate = 0
+scroll_btn_v_f.bmp
+scroll_left.bmp
+scroll_left_f.bmp
+scroll_right.bmp
+scroll_right_f.bmp
+scroll_top.bmp
+scroll_top_f.bmp
+search_1x1.bmp
+search_1x1_f.bmp
+search_1x1_n.bmp
+search_1x1_sel.bmp
+search_2x2.bmp
+search_2x2_f.bmp
+search_2x2_n.bmp
+search_2x2_sel.bmp
+search_2x3.bmp
+search_2x3_f.bmp
+search_2x3_n.bmp
+search_2x3_sel.bmp
+search_3x3.bmp
+search_3x3_f.bmp
+search_3x3_n.bmp
+search_3x3_sel.bmp
+search_4x4.bmp
+search_4x4_f.bmp
+search_4x4_n.bmp
+search_4x4_sel.bmp
+search.bmp
+search_f.bmp
+search_play.bmp
+search_play_f.bmp
+sensor.bmp
+sensor_f.bmp
+set_color.bmp
+set_color_f.bmp
+set_color_n.bmp
+shutdown.bmp
+shutdown_f.bmp
+Slider_bk.bmp
+Slider_box.bmp
+Slider_box_f.bmp
+Slider_box_n.bmp
+Slider_box_v.bmp
+Slider_box_v_f.bmp
+snap.bmp
+snap_f.bmp
+snap_n.bmp
+stop.bmp
+stop_f.bmp
+stop_n.bmp
+system.bmp
+system_f.bmp
+tab.bmp
+tab_check.bmp
+tab_f.bmp
+tip_info.bmp
+insert master vi chn  5 0 user pic int:0 lost:0 u32ChnFrmRate = 0
+tool_1a12.bmp
+tool_1a12_f.bmp
+tool_1a5.bmp
+tool_1a5_f.bmp
+tool_1a7.bmp
+tool_1a7_f.bmp
+tool_1x1.bmp
+tool_1x1_f.bmp
+tool_2x2.bmp
+tool_2x2_f.bmp
+tool_2x3.bmp
+tool_2x3_f.bmp
+tool_3x3.bmp
+tool_3x3_f.bmp
+tool_4x4.bmp
+tool_4x4_f.bmp
+tool_5x5.bmp
+tool_5x5_f.bmp
+tool_6x6.bmp
+tool_6x6_f.bmp
+tool_arm.bmp
+tool_arm_f.bmp
+tool_audio.bmp
+tool_audio_f.bmp
+tool_audio_mute.bmp
+tool_audio_mute_f.bmp
+toolbar.bmp
+tool_coc.bmp
+tool_coc_f.bmp
+tool_dwell.bmp
+tool_dwell_f.bmp
+tool_dwell_no.bmp
+tool_dwell_no_f.bmp
+tool_edit.bmp
+tool_edit_f.bmp
+tool_hide.bmp
+tool_hide_f.bmp
+tool_menu.bmp
+tool_menu_f.bmp
+tool_pip.bmp
+tool_pip_f.bmp
+tool_play.bmp
+tool_play_f.bmp
+tool_ptz.bmp
+tool_ptz_f.bmp
+tool_rec.bmp
+tool_rec_f.bmp
+tool_set_cam_para.bmp
+tool_set_cam_para_f.bmp
+tool_set_color.bmp
+tool_set_color_f.bmp
+tool_snap.bmp
+tool_snap_f.bmp
+tool_sysinfo.bmp
+tool_sysinfo_f.bmp
+tool_triangle.bmp
+tool_triangle_f.bmp
+tool_winedit.bmp
+tool_winedit_f.bmp
+tool_zoom.bmp
+tool_zoom_f.bmp
+user.bmp
+user_f.bmp
+videoloss.bmp
+videoloss_f.bmp
+waitting.bmp
+warning.bmp
+insert master vi chn  0 0 user pic int:0 lost:0 u32ChnFrmRate = 0
+insert master vi chn  1 0 user pic int:0 lost:0 u32ChnFrmRate = 0
+Start flash screen ok!
+------get 1------current param type == 4065
+xdvr.cpp, 465, pid = 954, tid = 999 start flash screen.
+macflash:74:F8:DB:52:57:EC MAC=37343a46383a44423a35323a35373a4543
+macfile:74:F8:DB:52:57:EC MAC=37343a46383a44423a35323a35373a4543
+bRestartForCheckMac:xdvr.cpp:358, running at here, lenFile=17, lenFlash=17
+videoflash:1
+videofile:1
+------get 1------current param type == 4075
+insert master vi chn  12 0 user pic int:0 lost:0 u32ChnFrmRate = 0
+insert master vi chn  13 0 user pic int:0 lost:0 u32ChnFrmRate = 0
+insert master vi chn  8 0 user pic int:0 lost:0 u32ChnFrmRate = 0
+insert master vi chn  9 0 user pic int:0 lost:0 u32ChnFrmRate = 0
+Initial message man succ
+cur language is in language list
+arabic.dat
+bulgarian.dat
+chinese_b.dat
+chinese_s.dat
+czech.dat
+danish.dat
+dutch.dat
+english.dat
+french.dat
+german.dat
+greece.dat
+hebrew.dat
+hungary.dat
+indonesia.dat
+italy.dat
+japanese.dat
+lithuania.dat
+norway.dat
+persian.dat
+polish.dat
+portuguese.dat
+russian.dat
+spaish.dat
+swedish.dat
+thai.dat
+turkey.dat
+vietnamese.dat
+MainFrame.cpp,11130,start dog
+MainFrame.cpp,11160,set chnn:0, waterMack
+MainFrame.cpp,11160,set chnn:1, waterMack
+MainFrame.cpp,11160,set chnn:2, waterMack
+MainFrame.cpp,11160,set chnn:3, waterMack
+MainFrame.cpp,11160,set chnn:4, waterMack
+MainFrame.cpp,11160,set chnn:5, waterMack
+MainFrame.cpp,11160,set chnn:6, waterMack
+MainFrame.cpp,11160,set chnn:7, waterMack
+MainFrame.cpp,11163,kill dog
+Setup warter mark
+CDOperationMan.cpp,63
+Initial CD-Rom man succ
+dvrId:74f8db5257ec0000
+Initial diskmanager succ
+RepairSystime:MainFrame.cpp:9149, not need repair system time:file end time=0, current time=1467895774
+Initial reclog manager succ
+Initial log manager succ
+Inital liveStreamRecord manager succ
+Inital record manager succ
+Initial smtp manager succ
+Initial m_pSnapPictureMan manager succ
+Inital stream proc succ
+Inital data server proc succ
+Inital netReader succ
+Initial backupman succ
+Initial smtp manager succ
+Initial alarm out manager succ
+Initial motion manager succ
+Initial sensor in manager succ
+Initial video loss manager succ
+Initial video loss manager succ
+Initial alarm manager succ
+Initial ptz manager succ
+Initial fake curise succ
+Initial pinyin input succ
+Initial display man succ
+Initial UpnpMan man succ
+Initial config set manager succ
+Initial:MainFrame.cpp:938, my mac=74f8db5257ec
+get the str = 012-494c3033
+Initial():MainFrame.cpp:961, initial the alloc NIC IP succ
+Initial():MainFrame.cpp:985, initial the DDNS manager succ
+LocalTimeSYNNTPServer:TZoneDZoneCfg.cpp:138, Running at here, use sync time
+LocalTimeSYNNTPServer:TZoneDZoneCfg.cpp:155, the first time sys will hapen after 40226 second
+ReclogManEx.cpp,1214,diskSize:128
+@@@@@@ConfigSetMan.cpp,840, Initial CMessageMan::Instance()->SetChannelVisible:1
+@@@@@@ConfigSetMan.cpp,841, td3521 uses obsolete (PF_INET,SOCK_PACKET)
+Initial m_pLocalDeviceMan->SetCamVisible:1
+AdjustCVBSVo:LocalDevice.cpp:5090, dislW=720, dispH=576
+change cvbs output size 720,576
+cur setting cvbs out image size 720,576
+Action false  NetReader.cpp  124
+2       ConfigSetMan.cpp,982,IST-2IDT,M3.5.5/2,M10.5.0/2
+ConfigSetMan.cpp,3359,NCFG_ITEM_JPEG_PERIOD:2
+ConfigSetMan.cpp,3366,NCFG_ITEM_JPEG_SIZE:2
+ConfigSetMan.cpp,3396,NCFG_ITEM_JPEG_QUALITY:4 ==> 3
+ConfigSetMan.cpp,3404,NCFG_ITEM_JPEG_SNAP_NUM:3
+########SmtpMan.cpp,535,m_snapImgNum:3
+SetVideoSize:LocalDevice.cpp:2442, set chnn:00 local video size:64
+SetFrameRateQuality:LocalDevice.cpp:2555, set chnn:00 local rate:25, encode:2, bitstream:2048, quality:5
+SetVideoSize:LocalDevice.cpp:2442, set chnn:01 local video size:64
+SetFrameRateQuality:LocalDevice.cpp:2555, set chnn:01 local rate:25, encode:2, bitstream:2048, quality:5
+SetVideoSize:LocalDevice.cpp:2442, set chnn:02 local video size:64
+SetFrameRateQuality:LocalDevice.cpp:2555, set chnn:02 local rate:25, encode:2, bitstream:2048, quality:5
+SetVideoSize:LocalDevice.cpp:2442, set chnn:03 local video size:64
+SetFrameRateQuality:LocalDevice.cpp:2555, set chnn:03 local rate:25, encode:2, bitstream:2048, quality:5
+SetVideoSize:LocalDevice.cpp:2442, set chnn:04 local video size:16384
+SetFrameRateQuality:LocalDevice.cpp:2555, set chnn:04 local rate:25, encode:2, bitstream:4096, quality:5
+SetVideoSize:LocalDevice.cpp:2442, set chnn:05 local video size:16384
+SetFrameRateQuality:LocalDevice.cpp:2555, set chnn:05 local rate:25, encode:2, bitstream:4096, quality:5
+SetVideoSize:LocalDevice.cpp:2442, set chnn:06 local video size:64
+SetFrameRateQuality:LocalDevice.cpp:2555, set chnn:06 local rate:25, encode:2, bitstream:2048, quality:5
+SetVideoSize:LocalDevice.cpp:2442, set chnn:07 local video size:64
+SetFrameRateQuality:LocalDevice.cpp:2555, set chnn:07 local rate:25, encode:2, bitstream:2048, quality:5
+(NetInterface.cpp 220) Attention: no ip binded to interface eth0
+route: SIOCADDRT: File exists
+CMD : route add -net 224.0.0.0 netmask 240.0.0.0 dev eth0 execute fail
+route: SIOCADDRT: File exists
+CMD : route add -net 224.0.0.0 netmask 240.0.0.0 dev eth0 execute fail
+########SmtpMan.cpp,551,m_bSnapImg:0
+ChangeNatServerInfo:NetServer.cpp:303, Set nat server=www.provisionisr-nat.com, port=8989
+EffecCruiseCfg:ConfigSetMan.cpp:3662, set the curise
+EffecCruiseCfg:ConfigSetMan.cpp:3662, set the curise
+EffecCruiseCfg:ConfigSetMan.cpp:3662, set the curise
+EffecCruiseCfg:ConfigSetMan.cpp:3662, set the curise
+EffecCruiseCfg:ConfigSetMan.cpp:3662, set the curise
+EffecCruiseCfg:ConfigSetMan.cpp:3662, set the curise
+EffecCruiseCfg:ConfigSetMan.cpp:3662, set the curise
+EffecCruiseCfg:ConfigSetMan.cpp:3662, set the curise
+Setup config succ
+Initial main frame succ
+disknum=0
+------get 1------current param type == 4066
+Initial network Server succ
+xdvr.cpp,2436,host:192.168.1.200,dwPort:2009,ID:0
+------get 1------current param type == 4066
+bright=128, hue=128, sat=128, contrast=128Product.cpp,30285,info.function[FUNC_NO_ALARM_CTRL/bitCount]:bc9fffc
+###@@@@@@@@@@@#######Product.cpp,30483,
+kernelVersion:E6J3-D8L4,
+hardwareVersion:10746.12.15.Q23-DASBA,
+firmwareVersion:3.4.5.P-3521-13,
+SDK version:3521,
+MCUVersion:---,
+mac:74f8db5257ec
+maxIPCTransferChnnNum = 1
+Initial Web Server succ
+entry while clear buf ............
+DVRTimer.cpp, 198, Timer thread pid = 954, tid=1021
+RecordMan.cpp, 1058, pid = 954, tid=1022
+MainFrame.cpp, 1922, pid = 954, tid=1020
+end while clear buf ............
+ clear buffer ------------------ end
+StreamProc.cpp,429,PUB_CreateThreadEx(StreamThread, (void *)this, &m_bStream, 50);
+Start:MainFrame.cpp:1496, Start upnpMan sucss
+MainFrame.cpp, 10750, check vi pid = 954, tid=1039
+UpnpMan.cpp 453 upnp man pid = 954
+MainFrame.cpp, 10501, feed dog pid = 954, tid=1037
+MainFrame.cpp, 11053, pid = 954, tid=1036
+MainFrame.cpp, 10798, pid = 954, tid=1035
+MainFrame.cpp, 10632, timer pid = 954, tid = 1034
+Set RTC Time:16-7-7 12:49:41
+RTC dayofweek 5
+DdnsManager.cpp, 720, pid = 954, tid=1033
+DisplayMan.cpp, 1898, pid = 954, tid=1032
+AlarmMan.cpp, 298, pid = 954, tid=1031
+AlarmMan.cpp, 143, pid = 954, tid=1030
+FakeCurise.cpp, 242, pid = 954, tid=1029
+SmtpMan.cpp,1151,SendMailThread pid=954, tid=1028
+NetReader.cpp, 570, pid = 954, tid=1027
+DataSerProc.cpp, 126, pid = 954, tid=1026
+StreamProc.cpp, 2725, pid = 954, tid=1025
+StreamProc.cpp, 1231, pid = 954, tid=1024
+StreamProc.cpp, 947, pid = 954, tid=1023
+##############MainFrame.cpp,10615, SetLcdScreemStatus:1
+Start main frame succ
+Start:NetServer.cpp:446, the device number=74f8db5257ec
+NetServer.cpp:353, product:10746, port:2000, web:100, ver:3.4.5.P-3521-13, s:www.provisionisr-nat.com:8989
+2016-07-07 15:49:45  NatListenProc.cpp(178): INFO: CNatListenProc StartListen ok!
+Start network Server succ
+NatMultiNetNat.cpp, 658, pid = 954, tid=1044
+SWL_MultiNetComm.cpp, 728, pid = 954, tid=1041
+2016-07-07 15:49:45  NatUpnpMapper.cpp(412): INFO: CNatUpnpMapper thread start ... pid=954, tid=1049
+NetServer.cpp, 1187, pid = 954, tid=1040
+2016-07-07 15:49:45  NatTraversalDevicePeer.cpp(88): INFO: CNatTraversalDevicePeer::CNatDnsParser thread start ... pid=954, tid=1046
+SWL_ListenProcEx.cpp, 137, pid = 954, tid=1042
+NetServer.cpp, 1017, pid = 954, tid=1043
+2016-07-07 15:49:45  NatTraversalDevicePeer.cpp(88): INFO: CNatTraversalDevicePeer::CNatDnsParser thread start ... pid=954, tid=1045
+2016-07-07 15:49:45  NatServerListFetcher.cpp(162): INFO: CNatServerListFetcher thread pid = 954
+NetServer.cpp, 3065, pid = 954, tid=1051
+2016-07-07 15:49:45  NatListenManager.cpp(528): INFO: CNatListenManager thread pid = 954
+2016-07-07 15:49:45  NatDevicePeer.cpp(623): INFO: CNatDevicePeer thread start ... pid=954, tid=1047
+SetExKeyboardType:ExternalKeyboard.cpp:106, The external 485 keyboard is TVT_MY1003
+Start device succ
+ExternalKeyboard.cpp, 136, pid = 954, tid=1056
+2016-07-07 15:49:53  NatUpnpClient.cpp(56): INFO: CNatUpnpClient::Initial() upnpDiscover() failed! code=0
+1761 xdvr
+Start local window succ
+------get 1------current param type == 4066
+bright=128, hue=128, sat=128, contrast=128Product.cpp,30285,info.function[FUNC_NO_ALARM_CTRL/bitCount]:bc9fffc
+###@@@@@@@@@@@#######Product.cpp,30483,
+kernelVersion:E6J3-D8L4,
+hardwareVersion:10746.12.15.Q23-DASBA,
+firmwareVersion:3.4.5.P-3521-13,
+SDK version:3521,
+MCUVersion:---,
+mac:74f8db5257ec
+advance.bmp
+advance_f.bmp
+alarm.bmp
+alarm_f.bmp
+alarm_out.bmp
+alarm_out_f.bmp
+all.bmp
+all_f.bmp
+anchor_cam_para.bmp
+anchor_cam_para_f.bmp
+anchor_coc.bmp
+anchor_coc_f.bmp
+anchor_roi.bmp
+anchor_roi_f.bmp
+arrow_left.bmp
+arrow_left_f.bmp
+backup.bmp
+backup_copy.bmp
+backup_copy_f.bmp
+backup_copy_n.bmp
+backup_f.bmp
+basic_config.bmp
+basic_config_f.bmp
+btn_add.bmp
+btn_add_f.bmp
+btn.bmp
+btn_bottom.bmp
+btn_bottom_f.bmp
+btn_dec.bmp
+btn_dec_f.bmp
+btn_del.bmp
+btn_del_f.bmp
+btn_down.bmp
+btn_down_f.bmp
+btn_f.bmp
+btn_modify.bmp
+btn_modify_f.bmp
+btn_top.bmp
+btn_top_f.bmp
+btn_up.bmp
+btn_up_f.bmp
+check.bmp
+check_f.bmp
+check_n.bmp
+check_no.bmp
+check_no_f.bmp
+check_no_n.bmp
+clear.bmp
+clear_f.bmp
+combo_btn_down.bmp
+combo_btn_down_f.bmp
+combo_btn_down_n.bmp
+combo_btn_left.bmp
+combo_btn_left_f.bmp
+combo_btn_left_n.bmp
+combo_btn_right.bmp
+combo_btn_right_f.bmp
+combo_btn_right_n.bmp
+config.bmp
+config_f.bmp
+custom.bmp
+custom_f.bmp
+cut_end.bmp
+cut_end_f.bmp
+cut_end_n.bmp
+cut_start.bmp
+cut_start_f.bmp
+cut_start_n.bmp
+date_btn_calendar.bmp
+date_btn_calendar_f.bmp
+device.bmp
+device_f.bmp
+dialog.bmp
+dialog_child.bmp
+disk.bmp
+disk_f.bmp
+dlg_flex_l.bmp
+dlg_flex_l_f.bmp
+dlg_flex_r.bmp
+dlg_flex_r_f.bmp
+edit.bmp
+edit_f.bmp
+erase.bmp
+erase_f.bmp
+error.bmp
+event.bmp
+event_f.bmp
+exit2.bmp
+exit2_f.bmp
+exit3.bmp
+exit3_f.bmp
+exit4.bmp
+exit4_f.bmp
+exit.bmp
+exit_f.bmp
+fast_forward.bmp
+fast_forward_f.bmp
+fast_forward_n.bmp
+font.dat
+goto.bmp
+goto_f.bmp
+icon_cfg_blacklist.bmp
+icon_cfg_man.bmp
+icon_cfg_reset.bmp
+icon_exit.bmp
+icon_info.bmp
+info.bmp
+info_f.bmp
+listex_btn_left.bmp
+listex_btn_left_f.bmp
+listex_btn_leftmost.bmp
+listex_btn_leftmost_f.bmp
+listex_btn_right.bmp
+listex_btn_rightmost.bmp
+listex_btn_rightmost_f.bmp
+listex_right_f.bmp
+list_header.bmp
+live_audio.bmp
+live.bmp
+live_f.bmp
+live_motion_big.bmp
+live_motion.bmp
+live_ptz.bmp
+live_snap_tip.bmp
+live_snap_tip_fail.bmp
+lock.bmp
+log.bmp
+log_f.bmp
+logoff.bmp
+logoff_f.bmp
+manual_alarm.bmp
+manual_alarm_f.bmp
+mini_map.bmp
+mini_map_f.bmp
+motion.bmp
+motion_f.bmp
+network.bmp
+network_f.bmp
+next_frame.bmp
+next_frame_f.bmp
+next_frame_n.bmp
+next_section.bmp
+next_section_f.bmp
+ok.bmp
+ok_f.bmp
+online_user.bmp
+online_user_f.bmp
+other_alarm.bmp
+other_alarm_f.bmp
+pause.bmp
+pause_f.bmp
+pause_n.bmp
+play_1a12.bmp
+play_1a12_f.bmp
+play_1a12_n.bmp
+play_1a5.bmp
+play_1a5_f.bmp
+play_1a5_n.bmp
+play_1a7.bmp
+play_1a7_f.bmp
+play_1a7_n.bmp
+play_1x1.bmp
+play_1x1_f.bmp
+play_1x1_n.bmp
+play_2x2.bmp
+play_2x2_f.bmp
+play_2x2_n.bmp
+play_2x3.bmp
+play_2x3_f.bmp
+play_2x3_n.bmp
+play_3x3.bmp
+play_3x3_f.bmp
+play_3x3_n.bmp
+play_4x4.bmp
+play_4x4_f.bmp
+play_4x4_n.bmp
+play_audio.bmp
+play_audio_f.bmp
+play_audio_m.bmp
+play_audio_m_f.bmp
+play_audio_n.bmp
+play_bg.bmp
+play.bmp
+player_hide.bmp
+player_hide_f.bmp
+play_f.bmp
+play_live.bmp
+play_live_f.bmp
+play_live_n.bmp
+play_move.bmp
+play_move_f.bmp
+play_n.bmp
+play_triangle.bmp
+play_triangle_f.bmp
+play_zoom.bmp
+play_zoom_f.bmp
+play_zoom_n.bmp
+pop_split.bmp
+pop_split_f.bmp
+pop_split_n.bmp
+prev_section.bmp
+prev_section_f.bmp
+progress1.bmp
+progress2.bmp
+progress_n.bmp
+ptz.bmp
+ptz_brush_off.bmp
+ptz_brush_off_f.bmp
+ptz_brush_on.bmp
+ptz_brush_on_f.bmp
+ptz_ctrl_bk.bmp
+ptz_down.bmp
+ptz_down_f.bmp
+ptz_down_left.bmp
+ptz_down_left_f.bmp
+ptz_down_right.bmp
+ptz_down_right_f.bmp
+ptz_f.bmp
+ptz_lamp_off.bmp
+ptz_lamp_off_f.bmp
+ptz_lamp_on.bmp
+ptz_lamp_on_f.bmp
+ptz_left.bmp
+ptz_left_f.bmp
+ptz_right.bmp
+ptz_right_f.bmp
+ptz_stop.bmp
+ptz_stop_f.bmp
+ptz_up.bmp
+ptz_up_f.bmp
+ptz_up_left.bmp
+ptz_up_left_f.bmp
+ptz_up_right.bmp
+ptz_up_right_f.bmp
+qrcode.bmp
+qrcode_f.bmp
+question.bmp
+radio.bmp
+radio_f.bmp
+radio_n.bmp
+radio_no.bmp
+radio_no_f.bmp
+radio_no_n.bmp
+record.bmp
+record_f.bmp
+resources.bmp
+resources_f.bmp
+reward.bmp
+reward_f.bmp
+reward_n.bmp
+save.bmp
+save_f.bmp
+schedule.bmp
+schedule_f.bmp
+scroll_bottom.bmp
+scroll_bottom_f.bmp
+scroll_btn.bmp
+scroll_btn_f.bmp
+scroll_btn_v.bmp
+scroll_btn_v_f.bmp
+scroll_left.bmp
+scroll_left_f.bmp
+scroll_right.bmp
+scroll_right_f.bmp
+scroll_top.bmp
+scroll_top_f.bmp
+search_1x1.bmp
+search_1x1_f.bmp
+search_1x1_n.bmp
+search_1x1_sel.bmp
+search_2x2.bmp
+search_2x2_f.bmp
+search_2x2_n.bmp
+search_2x2_sel.bmp
+search_2x3.bmp
+search_2x3_f.bmp
+search_2x3_n.bmp
+search_2x3_sel.bmp
+search_3x3.bmp
+search_3x3_f.bmp
+search_3x3_n.bmp
+search_3x3_sel.bmp
+search_4x4.bmp
+search_4x4_f.bmp
+search_4x4_n.bmp
+search_4x4_sel.bmp
+search.bmp
+search_f.bmp
+search_play.bmp
+search_play_f.bmp
+sensor.bmp
+sensor_f.bmp
+set_color.bmp
+set_color_f.bmp
+set_color_n.bmp
+shutdown.bmp
+shutdown_f.bmp
+Slider_bk.bmp
+Slider_box.bmp
+Slider_box_f.bmp
+Slider_box_n.bmp
+Slider_box_v.bmp
+Slider_box_v_f.bmp
+snap.bmp
+snap_f.bmp
+snap_n.bmp
+stop.bmp
+stop_f.bmp
+stop_n.bmp
+system.bmp
+system_f.bmp
+tab.bmp
+tab_check.bmp
+tab_f.bmp
+tip_info.bmp
+tool_1a12.bmp
+tool_1a12_f.bmp
+tool_1a5.bmp
+tool_1a5_f.bmp
+tool_1a7.bmp
+tool_1a7_f.bmp
+tool_1x1.bmp
+tool_1x1_f.bmp
+tool_2x2.bmp
+tool_2x2_f.bmp
+tool_2x3.bmp
+tool_2x3_f.bmp
+tool_3x3.bmp
+tool_3x3_f.bmp
+tool_4x4.bmp
+tool_4x4_f.bmp
+tool_5x5.bmp
+tool_5x5_f.bmp
+tool_6x6.bmp
+tool_6x6_f.bmp
+tool_arm.bmp
+tool_arm_f.bmp
+tool_audio.bmp
+tool_audio_f.bmp
+tool_audio_mute.bmp
+tool_audio_mute_f.bmp
+toolbar.bmp
+tool_coc.bmp
+tool_coc_f.bmp
+tool_dwell.bmp
+tool_dwell_f.bmp
+tool_dwell_no.bmp
+tool_dwell_no_f.bmp
+tool_edit.bmp
+tool_edit_f.bmp
+tool_hide.bmp
+tool_hide_f.bmp
+tool_menu.bmp
+tool_menu_f.bmp
+tool_pip.bmp
+tool_pip_f.bmp
+tool_play.bmp
+tool_play_f.bmp
+tool_ptz.bmp
+tool_ptz_f.bmp
+tool_rec.bmp
+tool_rec_f.bmp
+tool_set_cam_para.bmp
+tool_set_cam_para_f.bmp
+tool_set_color.bmp
+tool_set_color_f.bmp
+tool_snap.bmp
+tool_snap_f.bmp
+tool_sysinfo.bmp
+tool_sysinfo_f.bmp
+tool_triangle.bmp
+tool_triangle_f.bmp
+tool_winedit.bmp
+tool_winedit_f.bmp
+tool_zoom.bmp
+tool_zoom_f.bmp
+user.bmp
+user_f.bmp
+videoloss.bmp
+videoloss_f.bmp
+waitting.bmp
+warning.bmp
+LocalDevice.cpp,1633, device=1 ext_set_voutdev_color,br:160,co:139,sa:142,hu:126
+LocalUIMan.cpp, 264, pid = 954, tid=1077
+xdvr.cpp, 683, pid = 954, end flash screen.
+Stop flash screen!
+Start, IPCDecDisplayMan.cpp, 30
+
+Start Web Server succ
+webserver.cpp, 1287, pid = 954, tid=1080
+webserver.cpp, 1553, pid = 954, tid=1079
+webserver.cpp, 1442, pid = 954, tid=1078
+MainFrame.cpp,2003,g_bProIdequeSubProdID:1
+------get 1------current param type == 4066
+bright=128, hue=128, sat=128, contrast=128Product.cpp,30285,info.function[FUNC_NO_ALARM_CTRL/bitCount]:bc9fffc
+###@@@@@@@@@@@#######Product.cpp,30483,
+kernelVersion:E6J3-D8L4,
+hardwareVersion:10746.12.15.Q23-DASBA,
+firmwareVersion:3.4.5.P-3521-13,
+SDK version:3521,
+MCUVersion:---,
+mac:74f8db5257ec
+MainFrame.cpp,2113, LOCAL_CLIENT_ID logo in m_pLocalDeviceMan->SetCamVisible(true)
+LocalDevice.cpp,1414,no need close live audio.
+setAudioAuto:1
+liveNum:8,m_bOpenAudio:0,m_bAudioAuto:1,audioChannel:1
+Set do dwell enable=1.
+liveNum:8,m_bOpenAudio:0,m_bAudioAuto:1,audioChannel:1
+2016-07-07 15:50:15  NatServerListFetcher.cpp(465): INFO: CNatServerListFetcher FetchListFromServ Download url(http://www.provisionisr-nat.com/NatServer/NatServerList.xml) failed!
+2016-07-07 15:50:15  NatServerListFetcher.cpp(215): INFO: CNatServerListFetcher fetch NatServerList failed!
+liveNum:8,m_bOpenAudio:0,m_bAudioAuto:1,audioChannel:1
+2016-07-07 15:50:23  NatUpnpClient.cpp(56): INFO: CNatUpnpClient::Initial() upnpDiscover() failed! code=0

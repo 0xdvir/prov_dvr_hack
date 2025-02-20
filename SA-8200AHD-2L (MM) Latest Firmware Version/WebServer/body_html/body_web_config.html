@@ -1,0 +1,120 @@
+﻿<div class = "tip_div">
+    <div class = "tip_img"></div>
+    <span id = "webconfig_errortips" class = "tip_span"></span>
+</div>
+<div class = "dash_line"></div>
+<div class = "save_bar">
+    <input id = "default_btn" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultLocalcfg();"/>
+    <input id = "save_btn" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveWebCfg();" />
+</div>
+<ul class = "list_ul">
+<div id = "local_config_label" class = "head_div">Local Config</div>
+  <li>
+  <table border = "1" class = "main_table" style ="margin-right:20px;">
+  <tr>
+      <td id = "local_view_label" colspan = "2" style ="font-weight:bold;">Local View</td>
+  </tr>
+  <tr>
+      <td id= "live_snap_path_label" style = "width:200px;">Snap Path</td>
+      <td>
+         <input id = "live_snap_path" type = "text" name="live_snap_path" style ="width:420px;" onchange = "g_bChange = true;" readonly="readOnly" />
+         <input id = "live_snap_browse_btn" type = "button" value = "Browse" onclick = "var live_snap_path = document.getElementById('live_snap_path');BrowseFolder(live_snap_path);" style ="margin-left:10px;" />
+      </td>
+  </tr>
+  <tr>
+      <td id = "live_snap_amount">Snap Amount</td>
+      <td>
+          <select name = "live_snap_count" style ="width:530px;" onchange = "g_bChange = true;">
+            <option value = "1">1</option>
+            <option value = "2">2</option>
+            <option value = "3">3</option>
+            <option value = "4">4</option>
+            <option value = "5">5</option>
+            <option value = "6">6</option>
+            <option value = "7">7</option>
+            <option value = "8">8</option>
+            <option value = "9">9</option>
+            <option value = "10">10</option>
+            <option value = "11">11</option>
+            <option value = "12">12</option>
+            <option value = "13">13</option>
+            <option value = "14">14</option>
+            <option value = "15">15</option>
+            <option value = "16">16</option>
+            <option value = "17">17</option>
+            <option value = "18">18</option>
+            <option value = "19">19</option>
+            <option value = "20">20</option>
+          </select>
+      </td>
+  </tr>
+  <tr>
+      <td id = "remote_playback_label" colspan = "2" style ="font-weight:bold;">Remote Playback</td>
+  </tr>
+  <tr>
+      <td id= "play_snap_path_label">Snap Path</td>
+      <td>
+         <input id = "play_snap_path" name = "PB_snap_path" type = "text" style ="width:420px;" onchange = "g_bChange = true;" readonly="readOnly" />
+         <input id = "play_snap_browse_btn" type = "button" value = "Browse" onclick = "var play_snap_path = document.getElementById('play_snap_path');BrowseFolder(play_snap_path);" style ="margin-left:10px;" />
+      </td>
+  </tr>
+  <tr>
+      <td id = "play_snap_amount">Snap Amount</td>
+      <td>
+          <select name = "PB_snap_count" style ="width:530px;" onchange = "g_bChange = true;">
+            <option value = "1">1</option>
+            <option value = "2">2</option>
+            <option value = "3">3</option>
+            <option value = "4">4</option>
+            <option value = "5">5</option>
+            <option value = "6">6</option>
+            <option value = "7">7</option>
+            <option value = "8">8</option>
+            <option value = "9">9</option>
+            <option value = "10">10</option>
+            <option value = "11">11</option>
+            <option value = "12">12</option>
+            <option value = "13">13</option>
+            <option value = "14">14</option>
+            <option value = "15">15</option>
+            <option value = "16">16</option>
+            <option value = "17">17</option>
+            <option value = "18">18</option>
+            <option value = "19">19</option>
+            <option value = "20">20</option>  
+          </select>
+      </td>
+  </tr>
+  <tr id="tr_local_record">
+    <td id = "local_record_label" colspan = "2" style ="font-weight:bold;">Local Record</td>
+  </tr>
+  <tr id="tr_local_rec_save_path">
+      <td id= "local_rec_save_path">Save Path</td>
+      <td>
+         <input id = "local_rec_path" name = "record_clip_path" type = "text" style ="width:420px;" onchange = "g_bChange = true;" readonly="readOnly" />
+         <input id = "local_rec_browse_btn" type = "button" value = "Browse" onclick = "BrowseFolder(document.getElementById('local_rec_path'));" style ="margin-left:10px;" />
+      </td>
+  </tr>
+  <tr id="tr_local_rec_channel">
+    <td id = "local_rec_channel" colspan = "2">Record Channel</td>
+  </tr>
+  <tr id="tr_local_rec_ch">
+    <td colspan = "2" style ="padding:5px;">
+        <table id = "local_rec_ch" class = "main_table" style ="width:738px;"></table>
+    </td>
+  </tr>
+  <tr id="tr_rec_audio_channel">
+    <td id = "local_rec_audio_channel" colspan = "2">Record Audio Channel</td>
+  </tr>
+  <tr id="tr_rec_audio_ch">
+    <td colspan = "2" style ="padding:5px;">
+        <table id = "local_rec_audio_ch" class = "main_table" style ="width:738px;"></table>
+    </td>
+  </tr>
+  </table>
+  </li>
+</ul>
+<div class = "save_bar">
+    <input id = "default_btn1" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultLocalcfg();"/>
+    <input id = "save_btn1" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveWebCfg();" />
+</div>

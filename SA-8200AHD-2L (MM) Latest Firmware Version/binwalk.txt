@@ -1,0 +1,23 @@
+dvir@dvir:~/Documents/dvr_hack/SA-8200AHD-2L (MM) Latest Firmware Version$ binwalk r2ootfs21zp 
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+0             0x0             uImage header, header size: 64 bytes, header CRC: 0xED01F26E, created: 2016-11-04 01:51:31, image size: 12159352 bytes, Data Address: 0x0, Entry Point: 0x0, data CRC: 0x7284399C, OS: Linux, CPU: ARM, image type: Filesystem Image, compression type: none, image name: "hirootfs"
+64            0x40            JFFS2 filesystem, little endian
+
+dvir@dvir:~/Documents/dvr_hack/SA-8200AHD-2L (MM) Latest Firmware Version$ binwalk k2ern21zp 
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+0             0x0             uImage header, header size: 64 bytes, header CRC: 0x228D330F, created: 2013-08-21 04:07:56, image size: 2141472 bytes, Data Address: 0x0, Entry Point: 0x0, data CRC: 0xE4910E0F, OS: Linux, CPU: ARM, image type: Filesystem Image, compression type: none, image name: "hirootfs"
+64            0x40            uImage header, header size: 64 bytes, header CRC: 0x66FEE669, created: 2013-08-21 04:07:16, image size: 2141408 bytes, Data Address: 0x80008000, Entry Point: 0x80008000, data CRC: 0x639E74FE, OS: Linux, CPU: ARM, image type: OS Kernel Image, compression type: none, image name: "Linux-3.0.8"
+128           0x80            Linux kernel ARM boot executable zImage (little-endian)
+22232         0x56D8          gzip compressed data, maximum compression, from Unix, last modified: 1970-01-01 00:00:00 (null date)
+
+dvir@dvir:~/Documents/dvr_hack/SA-8200AHD-2L (MM) Latest Firmware Version$ binwalk u2boot21zp 
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+0             0x0             uImage header, header size: 64 bytes, header CRC: 0x74D5014F, created: 2014-06-19 03:32:19, image size: 223100 bytes, Data Address: 0x0, Entry Point: 0x0, data CRC: 0xE801AF67, OS: Linux, CPU: ARM, image type: Firmware Image, compression type: none, image name: "hiboot"
+172812        0x2A30C         CRC32 polynomial table, little endian
+

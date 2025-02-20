@@ -1,0 +1,197 @@
+﻿<div style="width: 765px;">
+    <div class="tip_div">
+        <div class="tip_img">
+        </div>
+        <span id="userconfig_errortips" class="tip_span"></span>
+    </div>
+    <div class="dash_line">
+    </div>
+    <ul class="list_ul">
+        <div id="user_label" class="head_div">User list</div>
+        <li>
+            <table id="table_user"  class="main_table" style="width: 750px;">
+            </table>
+        </li>
+        <li>
+        <div id="div_page_control" style=" width:750px; margin-top:10px;overflow:hidden;">
+                <span id = "user_list_page" style ="width:40px; height:30px; line-height:30px;float:left; text-align:center;">0/0</span>
+                <img id = "user_end" src = "res/end.png" class = "f_right" onmousemove = "this.style.cursor = 'pointer'" onclick = "UserList.Instance().LastPage()" />
+                <img id = "user_next" src = "res/next.png" class = "f_right" onmousemove = "this.style.cursor = 'pointer'" onclick = "UserList.Instance().NextPage()" />
+                <img id = "user_previous" src = "res/prev.png" class = "f_right" onmousemove = "this.style.cursor = 'pointer'" onclick = "UserList.Instance().PrevPage()" />
+                <img id = "user_first" src = "res/first.png" class = "f_right" onmousemove = "this.style.cursor = 'pointer'" onclick = "UserList.Instance().FirstPage()" />
+            </div>
+        </li>
+    </ul>
+    <div class="dash_line">
+    </div>
+    <ul class="list_ul">
+        <li style="width: 750px;">
+            <div id="user_button_group" style="margin-top:10px;margin-bottom: 5px; text-align: center;">
+                <input type="button" id="user_add_label" value="Add" onclick="OnAddUser()" />
+                <input type="button" id="user_del_button" value="Delete" onclick="OnDelUser()" />
+                <input type="button" id="user_modify_button" value="Modify" onclick="OnModifyUser()" />
+                <input type="button" id="user_modpwd_label" style="background: url(res/145x25_btn.jpg);
+                    width: 145px;" value="ModifyPwd" onclick="OnModPwd()" />
+            </div>
+        </li>
+    </ul>
+    <ul id="user_info_pane" class="list_ul" style="display: none;">
+        <div id="user_cfg_label" class="head_div">
+            User config</div>
+        <li style="width: 750px;">
+            <table border="1" class="main_table" style="width: 750px; margin-bottom: 10px;">
+                <tr>
+                    <td id="user_username_label" class="label">
+                        User name</td>
+                    <td class="data">
+                        <input type="text" name="user_name" class="input_text" onkeydown = "return LenCheck(this,event,const_username_max_len);" onkeyup = "return KeyupCheck(this,const_username_max_len);" onchange = "g_bChange = true;"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="user_password_label" class="label">
+                        Password</td>
+                    <td class="data">
+                        <input type="password" name="new_password" class="input_text" onkeydown = "return LenCheck(this,event,const_password_max_len);" onkeyup = "return KeyupCheck(this,const_password_max_len);" onchange = "g_bChange = true;"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="user_confirmpwd_label" class="label">
+                        Confirm password</td>
+                    <td class="data">
+                        <input type="password" name="confirm_password" class="input_text" onkeydown = "return LenCheck(this,event,const_password_max_len);" onkeyup = "return KeyupCheck(this,const_password_max_len);" onchange = "g_bChange = true;"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="user_usertype_label" class="label">
+                        User type</td>
+                    <td class="data">
+                        <select name="user_group" class="td_select" onchange="OnChangeUserType(this)">
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="user_bindingMAC_label" class="label">Binding PC MAC address</td>
+                    <td>
+                        <input type="checkbox" style="width: 20px" name="enable_mac" onclick="OnCheckBindMac()" />
+                    </td>
+                </tr>
+                <tr>
+                    <td id="user_MACaddress_label" class="label">
+                        PC MAC address</td>
+                    <td>
+                        <span id="user_mac"></span>
+                    </td>
+                </tr>
+            </table>
+            <fieldset style="width: 745px;">
+                <legend id="user_config_label">User config</legend>
+                <table id="user_authority" style="margin: 0;">
+                    <tr>
+                        <td style ="border:0;">
+                            <input type="checkbox" name="chk_oper_auth" id="logview_auth" value="128" /><label id="user_logview_label">Log view</label></td>
+                        <td style ="border:0;">
+                            <input type="checkbox" name="chk_oper_auth" id="cfg_auth" value="256" /><label id="user_cfgmanager_label">config manager</label></td>
+                        <td style ="border:0;">
+                            <input type="checkbox" name="chk_oper_auth" id="shutdown_auth" value="512" /><label id="user_shutdown_label">Shut down</label></td>
+                        <td style ="border:0;">
+                            <input type="checkbox" name="chk_oper_auth" id="data_auth" value="2048" /><label id="user_datamanager_label">data manager</label></td>
+                    </tr>
+                    <tr>
+                        <td style ="border:0;">
+                            <input type="checkbox" name="chk_oper_auth" id="disk_auth" value="4096" /><label id="user_diskmanager_label">disk manager</label></td>
+                        <td style ="border:0;">
+                            <input type="checkbox" name="chk_oper_auth" id="rlogin_auth" value="8192" /><label id="user_login_label">remote login</label></td>
+                        <td style ="border:0;">
+                            <input type="checkbox" name="chk_oper_auth" id="talk_auth" value="1024" /><label id="user_audiotalk_label">Audio talk</label></td>
+                        <td style ="border:0;">
+                            <input type="checkbox" name="chk_oper_auth" id="net_device_auth" value="32768" /><label id="net_device_man_label">net device manager</label></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <table id="user_auth_group" border="0" style="width: 750px;">
+                <tr>
+                    <td style ="border:0;">
+                        <input type="checkbox" name="chk_oper_auth" value="4" style="margin: 10px 0 0 0; width: 20px;" />
+                        <label id="user_record_label">Record</label>
+                        <table id="user_record_auth" class="user_check_tabel">
+                        </table>
+                    </td>
+                    <td style ="border:0;">
+                        <input type="checkbox" name="chk_oper_auth" value="8" style="margin: 10px 0 0 0; width: 20px;" />
+                        <label id="user_playback_label">playback</label>
+                        <table id="user_playback_auth" class="user_check_tabel">
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style ="border:0;">
+                        <input type="checkbox" name="chk_oper_auth" value="16" style="margin: 10px 0 0 0; width: 20px;" />
+                        <label id="user_backup_label">backup</label>
+                        <table id="user_backup_auth" class="user_check_tabel">
+                        </table>
+                    </td>
+                    <td style ="border:0;">
+                        <input type="checkbox" name="chk_oper_auth" value="2" style="margin: 10px 0 0 0; width: 20px;" />
+                        <label id="user_localview_label">Local view</label>
+                        <table id="user_localview_auth" class="user_check_tabel">
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style ="border:0;">
+                        <input type="checkbox" name="chk_oper_auth" id="rview_auth" value="64" style="margin: 10px 0 0 0;width: 20px;" />
+                        <label id="user_remoteview_label">Remote view</label>
+                        <table id="user_remoteview_auth" class="user_check_tabel">
+                        </table>
+                    </td>
+                    <td id="id_ptz" style ="border:0;">
+                        <input type="checkbox" name="chk_oper_auth" value="32" style="margin: 10px 0 0 0; width: 20px;" />
+                        <label id="user_ptzctrl_label">PTZ control</label>
+                        <table id="user_ptzctrl_auth" class="user_check_tabel">
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <div id="btn_group_add" style="text-align: right; margin: 20px 27px 0 0;">
+                <input type="button" id="user_ok_button" value="OK" onclick="OnAddUserOK()" />
+                <input type="button" id="user_cancel_button" value="Cancel" onclick="OnUserCancel()" />
+            </div>
+            <div id="btn_group_modify" style="text-align: right; margin:20px 27px 0 0;">
+                <input type="button" id="user_mod_ok_button" value="OK" onclick="OnModifyUserOK()" />
+                <input type="button" id="user_mod_cancel_button" value="Cancel" onclick="OnUserCancel()" />
+            </div>
+        </li>
+    </ul>
+    <ul id="modify_password" class="list_ul" style="width: 750px; display: none;">
+        <div id="user_mod_pwd" class="head_div">Modify password</div>
+        <li style="width: 750px;">
+            <table border="1" class="main_table" style="width: 750px;">
+                <tr>
+                    <td id="mod_pwd_username_label" class="label">User name</td>
+                    <td class="data">
+                        <input id="mod_pwd_username" class="input_text" disabled = "disabled"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="user_pwd_old_label" class="label">Old password</td>
+                    <td class="data">
+                        <input id="mod_old_pwd" type="password" class="input_text" onkeydown = "return LenCheck(this,event,const_password_max_len);" onkeyup = "return KeyupCheck(this,const_password_max_len);" onchange = "g_bChange = true;"/></td>
+                </tr>
+                <tr>
+                    <td id="user_pwd_new_label" class="label">New password</td>
+                    <td class="data">
+                        <input id="mod_new_pwd" type="password" class="input_text" onkeydown = "return LenCheck(this,event,const_password_max_len);" onkeyup = "return KeyupCheck(this,const_password_max_len);" onchange = "g_bChange = true;"/></td>
+                </tr>
+                <tr>
+                    <td id="user_pwd_confirm_label" class="label">Confirm password</td>
+                    <td class="data">
+                        <input id="mod_confirm_pwd" type="password" class="input_text" onkeydown = "return LenCheck(this,event,const_password_max_len);" onkeyup = "return KeyupCheck(this,const_password_max_len);" onchange = "g_bChange = true;"/></td>
+                </tr>
+            </table>
+            <div id="btn_group_modpwd" style="text-align: right;">
+                <input type="button" id="mod_pwd_ok_button" value="OK" onclick="OnModPwdOK()" />
+                <input type="button" id="mod_pwd_cancel_button" value="Cancel" onclick="OnModPwdCancel()" />
+            </div>
+        </li>
+    </ul>
+</div>

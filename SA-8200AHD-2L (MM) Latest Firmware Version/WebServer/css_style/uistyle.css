@@ -1,0 +1,96 @@
+﻿
+/*zld 2010/10/19 uistyle*/
+/*public*/
+.head_div{width:150px; color:White; background:url(../res/list_head.png) no-repeat left top; height:27px; margin-top:20px; line-height:27px; padding-left:5px;
+	      _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../res/list_head.png');_background-image:none; /*IE6*/}
+
+.tip_img{width:40px; height:40px; background-image:url(../res/save_tip.png); _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../res/save_tip.png');_background-image:none;}
+.save_bar{width:750px; height:27px; border:0; margin:5px 0 10px 15px; padding:0; background-color:#AFD5FA;}/*061D51*/
+.cfg_save_btn{border:0; float:right; height:27px; background-color:Transparent; margin:0; padding:0;cursor:pointer; width:110px; color:#000000;}/*FFFFFF*/
+.dash_line{width:750px; height:1px; margin-left:15px; padding:0; margin-top:5px; border-top:dashed 1px #72B1FF;}
+
+/*td border visible*/
+#div_config_body td,
+#div_info_body td,
+#event_list td,
+#pb_file_list td,
+#file_list td,
+#advance_diskm_table td,#advance_upgrade_table td, #id_manual_alarm td,
+#table_device_manage td
+{border:solid 1px gray;}
+
+.calendar_bgcolor{width:202px;border:solid 1px #0066FF; background-color:#EDF2FC}/*日历控件背景061D51和border颜色*/
+.calendar_bgcolor_pop{width:227px;border:solid 1px #0066FF; background-color:#EDF2FC}/*日历控件背景061D51和border颜色*/
+.Calendar_Div{border-bottom:solid 1px #0066FF; background-color:#C7D8FA;}/*061D51*/
+.calendar_close_bgcolor{border:solid 1px #0066FF;}/*,,corlor:关闭按钮的颜色*/
+/*.calendar_close_bgcolor{border-bottom:1px solid #0066FF; background-color:#C7D8FA;color:#4477FF;}*//*,,corlor:关闭按钮的颜色363B41*/
+.cal_day_border{border:none;cursor:pointer; border-right:solid 1px #BBBBBB; border-bottom:solid 1px #BBBBBB; color:#215DC6; font-family:Verdana; font-size:12px;}/*日期下框和右框的颜色*/
+
+#id_event_channel tr{height:26px;}
+#id_event_channel td{ border:solid 1px #000; border-left:none; border-right:none; padding:2px;}
+.main_table{border-collapse:collapse; border:solid 1px gray;}  /*zld 2010/8/16*/
+.main_table_2{border-collapse:collapse; border:solid 1px #000;} /*zld 2010/10/23*/
+
+#id_wait{width: 100%; height: 708px; position: absolute; top: 0px;left: 0px;
+         background: #cccccc; text-align: center; vertical-align: middle;filter: alpha(opacity=40);opacity:0.4;}/*等待框样式*/
+#wait_tip_div{position: absolute; width : 300px; height: 100px;line-height: 50px; z-index: 1;
+			  text-align: center;border: solid 1px #3040F0;background-color: #D0E0FF;}/*等待框样式*/
+#wait_tip_div_conn{position: absolute;width: 300px; height: 100px; line-height: 36px; z-index: 1;
+				 text-align: center;border: solid 1px #3040F0;background-color: #D0E0FF;}/*重连等待框样式*/
+
+#div_info{width:980px; position: relative; text-align: left;border-bottom: solid #D4E8FE 20px;}/*信息查询页面颜色061D51*/
+#div_info_index{width: 170px; margin: 20px 0 0 8px; padding: 0; border: solid 1px #000;background-color: #F4F7FE;}/*信息查询页面颜色102E83*/
+#div_info_body{width: 780px; position: absolute; left: 190px; top: 0;margin: 20px 0 0 0; padding: 0; color:#000000;}/*信息查询页面颜色FFFFFF*/
+#info_basic_div{width:778px; border:solid 1px #000; height:648px; background-color:#F4F7FE;}/*;基本信息查询页面背景颜色102E83*/
+/*#info_event_div{width:528px;height:648px; float:left; padding:0 10px; border:solid 1px #000; background-color:#F4F7FE;}*//*事件信息页面中间框的背景颜色F4F7FE*/
+#info_event_div{width:520px; float:left; padding:0 10px; border:solid 1px #000; background-color:#F4F7FE; height:648px;}/*事件信息页面中间框的背景颜色102E83*/
+#event_info_right{width:210px; float:right; padding:0;text-align:center;padding:0 10px; border:solid 1px #000;background-color:#F4F7FE; height:648px;}/*事件信息右边框背景颜色102E83*/
+/*#event_info_right{width:195px;height:648px; float:right; padding:0 10px; border:solid 1px #000; background-color:#F4F7FE;}*//*事件信息右边框背景颜色102E83*/
+#info_log_div{width:528px; height:648px; float:left; padding:0 10px; border:solid 1px #000; background-color:#F4F7FE;}/*日志信息页面中间框背景颜色102E83*/
+#log_info_right{width:195px;height:648px; float:right; padding:0 10px; border:solid 1px #000; background-color:#F4F7FE;}/*日志信息页面右边框背景颜色102E83*/
+#info_net_div{width:778px; height:648px; border:solid 1px #000; background-color:#F4F7FE;}/*网络信息查询页面背景颜色102E83*/
+#info_online_div{width:778px; height:648px; border:solid 1px #000; background-color:#F4F7FE;}/*在线用户信息页面背景颜色102E83*/
+
+/*90px btn*/
+#sensor_copy_button,#vloss_copy_button,#sch_copy_buttom,
+#motion_trigger_ok_button,#motion_trigger_cancel_button,#sensor_trigger_ok_button,#sensor_trigger_cancel_button,#osd_position_ok,#osd_position_cancel,
+#vloss_trigger_ok_button,#vloss_trigger_cancel_button,
+#Preset_btn_ok_group input,#cruise_btn_group input,
+#btn_group_add input,#btn_group_modify input,#btn_group_modpwd input,/*user_cfg ok cancel*/
+#file_checkall_button,#file_checkall_button_local,#file_checknull_button,#file_inverse_button,#file_inverse_button_local,/*file_manager 60px btn*/
+#backup_select_all,#backup_select_null,#backup_select_invert,/*backup*/
+#file_del_button,#file_lock_button,#file_unlock_button,#backup_browse_buttom,
+#live_snap_browse_btn,#play_snap_browse_btn,#local_rec_browse_btn,#advanced_update_browse_btn,#advanced_update_btn,
+#user_button_group input,#cancel_update_btn,
+#backup_backup_buttom,#backup_stopbackup_buttom,
+#btn_osd_position,#btn_stamp_position,
+#advance_diskm_btn_group input,#advance_upgrade_btn_group input,#upgrade_refresh_btn,
+#export_button,#path_browse_button,#export_btn,#import_btn,#config_browse,#export_browse,
+#alarm_btn,#clear_btn,
+#device_button_group input,#btn_group_device_add input,#btn_group_device_modify input,#device_search_btn_group input,#device_checkall_btn
+{width:90px; height:25px; border:0; background:url(../res/90x25_btn.jpg) no-repeat left top;cursor:pointer;color:#000000;}/*按钮字体颜色FFFFFF*/
+/*145px btn*/
+#id_ptz_advance input,
+#motion_area_markall_button,#motion_area_marknone_button,#motion_area_invertmark_button,
+#btn_record_trace,
+#update_now_label,#modify_time_now_label,
+#btn_record_trace_stop,
+#vloss_trigger_btn, #sensor_trigger_button,
+.preset_set_btn
+{width:145px; height:25px; border:0; background:url(../res/145x25_btn.jpg) no-repeat left top;cursor:pointer; color:#000000;}/*按钮字体颜色FFFFFF*/
+/*60px btn*/
+#motion_copy_button,/*motion*/
+#pppoe_test_btn,#ddns_test_btn,
+#net_mail_test_btn,#ddns_register_btn,#ddns_delete_btn
+{width:60px; height:25px; border:0; background:url(../res/60x25_btn.jpg) no-repeat left top;cursor:pointer; color:#000000;}/*按钮字体颜色FFFFFF*/
+			 
+#motion_area_tip{margin-left:10px;margin-top:5px;position:relative; color:Red;}/*移动区域提示字体颜色*/
+#cfg_area_div{color:#000000;}/*移动区域设置中字的颜色FFFFFF*/
+#cfg_preset_set_div{position:absolute;left:0px;top:0;width:190px;height:420px;text-align:left; padding:5px; color:#000000;}/*预置点配置页面中字的颜色FFFFFF*/
+#cruise_list{width:192px; border:solid 1px gray; height:156px; background-color:#FFFFFF;}/*巡航线背景颜色*/
+#cfg_trace_set_div{position:relative;margin-top:0px;width:190px;text-align:left;padding:5px; color:#000000}/*轨迹配置页面中字的颜色FFFFFF*/
+/*data box css*/
+.multiEditInput input{border:0px;font-size:13px;height:16px;line-height:16px;width:24px;text-align:center;background:transparent; color:#000000;}/*FFFFFF*/
+.multiEditInputDisabled input{border:0px;font-size:13px;height:16px;line-height:16px;width:24px;text-align:center;background:#D4E8FE;}/*ip/mac编辑框背景颜色*/
+
+#ocx_alt_label{position: absolute; z-index: -1; font-weight: bold;font-size: 20px; left: 200px; top: 200px; color:#000000;}/*点击显示的提示FFFFFF*/

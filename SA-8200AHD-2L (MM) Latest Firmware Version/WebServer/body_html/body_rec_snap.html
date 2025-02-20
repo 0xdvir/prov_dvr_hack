@@ -1,0 +1,48 @@
+﻿<div class = "tip_div">
+    <div class = "tip_img"></div>
+    <span id = "recSnap_errortips" class = "tip_span"></span>
+</div>
+<div class = "dash_line"></div>
+<div class = "save_bar">
+    <input id = "default_btn" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgSnap()"/>
+    <input id = "save_btn" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>
+<ul class = "list_ul">
+<div id = "record_snap_label" class = "head_div">Snap</div>
+<li>
+<table  border = "1" class = "main_table">
+  <tr>
+    <td id = "snap_resolution_label" class = "label">Resolution</td>
+       <td>
+            <select class = "td_select" id = "snap_rec_resolution" onchange="g_bChange = true;">
+            </select>
+       </td>
+  </tr>
+  <tr>
+    <td id = "snap_quality_label" class = "label">Quality</td>
+       <td>
+            <select class = "td_select" id = "snap_rec_quality" onchange = "g_bChange = true;">
+            </select>
+       </td>
+   </tr>
+   <tr>
+     <td id = "snap_time_range_label" class = "label">Snap Time Interval</td>
+        <td>
+              <select class = "td_select" id = "jpeg_period" onchange = "g_bChange = true;">
+              </select>
+        </td>
+   </tr>
+     <tr>
+     <td id = "snap_rec_num_label" class = "label">Snap Num</td>
+        <td>
+              <select class = "td_select" id = "snap_rec_num" onchange = "g_bChange = true;">
+              </select>
+        </td>
+   </tr>
+</table>
+</li>
+</ul>
+<div class = "save_bar">
+    <input id = "default_btn1" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgSnap()"/>
+    <input id = "save_btn1" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>

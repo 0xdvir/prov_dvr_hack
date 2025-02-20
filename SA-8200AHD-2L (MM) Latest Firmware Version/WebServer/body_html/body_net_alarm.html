@@ -1,0 +1,132 @@
+﻿<ul>
+<li><label id = "net_alarm_label">Net alarm</label> 
+<div>
+<table id = "id_net_alarm" border = "1"  style ="border-collapse:collapse; margin-top:30px;">
+    <tbody>
+    </tbody>
+</table>
+</div>
+</li>
+</ul>
+<ul>
+<li><label id = "net_all_label">All</label>
+    <table id = "id_net_all" border = "1"  style ="border-collapse:collapse; margin-top:10px; text-align:center;">
+    <tr>
+        <td><input type = "checkbox" id = "net_all_cfg" style = "width:30px;" onchange = "bTrigger = true;" onclick = "var id_net_alarm = document.getElementById('id_net_alarm');var id_net_all = document.getElementById('id_net_all');cfgCopy2All(this,id_net_alarm,id_net_all),HisDiv(new Array(div_net_trigger))" /></td>
+        <td><input type = "checkbox" name = "all_net_enable" style = "width:70px;" /></td>
+        <td>
+            <input type = "text" style ="width:130px;" />
+        </td>
+        <td>
+            <input type = "text" style ="width:150px;" />
+        </td>
+        <td>
+            <select name = "all_net_hold_time" style =" width:100px;">
+            </select>
+        </td>
+        <td style ="width:160px;">
+            <input id = "net_trigger_button" type = "button" value = "Trigger" style ="width:130px;" onclick = "disAllnet()"/>
+        </td>
+    </tr>
+    </table>
+</li>
+</ul>
+<ul>
+<li style ="list-style:none;">
+<div id = "div_net_trigger" style="display: none;">
+<table border = "1" style ="border-collapse:collapse; margin-top:30px; width:715px;">
+    <tr>
+    <td colspan = "3" id = "net_index_num">
+    </td>
+    </tr>
+    <tr>
+    <td id = "net_buzzer_label" style ="width :205px;">Trigger buzzer</td>
+    <td style ="width :480px;" colspan = "2"><input type = "checkbox" name = "net_buzzer" onchange = "bTrigger = true;"/></td>
+    </tr>
+    <tr>
+    <td id= "net_alarmout_label" colspan = "3" >Trigger alarm out</td>
+    </tr>
+    <tr>
+        <td colspan = "3">
+        <table id = "net_trigger_out" style ="margin:0;"> 
+            <tr>
+                <td class = "user_checkbox"></td>
+                <td class = "user_checkbox"></td>
+                <td class = "user_checkbox"></td>
+                <td class = "user_checkbox"></td>
+            </tr>
+        </table>
+        </td>
+    </tr>
+    <tr>
+    <td id = "net_trigger_rec_label" colspan = "3">Trigger record</td>
+    </tr>
+    <tr>
+    <td colspan = "3">
+        <table id = "net_trigger_record" style ="margin:0;"> 
+            <tr>
+                <td class = "user_checkbox"></td>
+                <td class = "user_checkbox"></td>
+                <td class = "user_checkbox"></td>
+                <td class = "user_checkbox"></td>
+            </tr>
+        </table>
+    </td>
+    </tr>
+    <tr>
+    <td id = "net_trigger_ptz_label" colspan = "3">Trigger PTZ</td>
+    </tr>
+    <tr>
+    <td colspan = "3">
+    <table id = "id_net_ptz" border = "1"  style ="border-collapse:collapse; margin-bottom:0;">
+        <tbody>
+        </tbody>
+    </table>
+    </td>
+    </tr>
+    <tr>
+        <td colspan = "3">
+            <div id = "id_cp_net">
+            <table style ="margin:0;">
+                <tr>
+                    <td id = "net_applay_setting_label" style ="width:200px;">Applay setting to</td>
+                    <td style ="width:300px;">
+                        <select name = "ptz_copy" id = "cp_config_net" style =" width :100%;">
+                        </select>
+                    </td>
+                    <td align = "center" style ="width:180px;">
+                        <input id = "net_copy_button" type = "button" value ="copy" onclick = "onCopySave(cp_config_net);bTrigger = true;"/>
+                    </td>
+                </tr>
+            </table>
+            </div>
+        </td>
+    </tr>
+    <tr>
+    <td colspan = "3">
+    <table style ="margin-bottom:0;">
+    <tr id = "ptz_group_button">
+    <td align = "center" style =" width:300px;" ><input id = "net_trigger_ok_button" type = "button" value = "OK" onclick = ""/></td>
+    <td align = "center" style =" width:300px;" ><input id = "net_trigger_cancel_button" type = "button" value = "Cancel" onclick = ""/></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+</table>
+</div>
+</li>
+</ul>
+
+<!--
+配置到此结束
+//-->
+<div id = "netconfig_errortips" style ="margin-left:50px;">
+</div>
+
+<table style="font-size: small" width = "100%">
+<tr>
+<td align = "center">
+<input type = "button" value = "Apply" id = "btn_save"  onclick="OnSaveConfig()"/>
+</td>
+</tr>
+</table>

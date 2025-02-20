@@ -1,0 +1,61 @@
+﻿<div class = "tip_div">
+    <div class = "tip_img"></div>
+    <span id = "rec_osdCfg_errortips" class = "tip_span"></span>
+</div>
+<div class = "dash_line"></div>
+<div class = "save_bar">
+    <input id = "default_btn" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgRecOSD()"/>
+    <input id = "save_btn" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>
+<ul class = "list_ul">
+<div id = "record_osd_label" class = "head_div">OSD</div>
+<li>
+<div>
+    <table id = "id_record_osd_cfg" border = "1" class = "main_table">
+        <tbody>
+        </tbody>
+    </table>
+</div>
+</li>
+<div id = "record_osd_all_label" class = "head_div">All</div>
+<li>
+    <table id = "id_rec_osd_all" border = "1" class = "main_table">
+    <tr>
+        <td><input type = "checkbox" id = "rec_osd_all_cfg" style ="width:50px;" onchange = "g_bChange = true;" onclick = "var id_record_osd_cfg = document.getElementById('id_record_osd_cfg');var id_rec_osd_all = document.getElementById('id_rec_osd_all');var osd_position_set_pane = document.getElementById('osd_position_set_pane');cfgCopy2All(this,id_record_osd_cfg,id_rec_osd_all),HisDiv(osd_position_set_pane)" /></td>
+        <td><input type = "checkbox" name = "all_name_osd" style ="width:100px;" onchange = "g_bChange = true;" checked = "checked" /></td>        
+        <td style ="width:222px; text-align:center;"><input id="btn_osd_position" type = "button" onclick = "BeginPositionSet(false, -1)" value = "Set" style ="width:145px; height:25px; border:0; background:url(res/145x25_btn.jpg) no-repeat left top;cursor:pointer;" /></td>        
+        <td><input type = "checkbox" name = "all_time_stamp" style ="width:100px;" onchange = "g_bChange = true;" checked = "checked" /></td>
+        <td style ="width:222px; text-align:center;"><input id="btn_stamp_position" type = "button" onclick="BeginPositionSet(true, -1)" value = "Set" style ="width:145px; height:25px; border:0; background:url(res/145x25_btn.jpg) no-repeat left top;cursor:pointer;" /></td>        
+    </tr>
+    </table>
+</li>
+</ul>
+<ul id="osd_position_set_pane" class = "list_ul" style="display:none;">
+    <div id = "osd_position_set_label" class = "head_div">OSD position</div>
+    <li>
+        <table border = "1" class = "main_table" style ="width:750px;">
+            <tr>
+                <td id="osd_channel" colspan="2" style="text-align:left; font-weight:bold;">
+                </td>
+            </tr>
+            <tr>
+                <td id="osd_x_pos_label" class = "label">horizontal position</td>
+                <td class = "data"><input type="text" id="osd_x_pos" maxlength = "2" onchange = "g_bChange = true;InputCheck(this,99,0)" class = "input_text" onkeypress = "return isNumberInput(this,event);" /></td>
+            </tr>
+            <tr>
+                <td id="osd_y_pos_label" class = "label">vertical position</td>
+                <td class = "data"><input type="text" id="osd_y_pos" maxlength = "2" onchange = "g_bChange = true;InputCheck(this,99,0)" class = "input_text" onkeypress = "return isNumberInput(this,event);"/></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:right;">
+                    <input type="button" id="osd_position_ok" style="text-align:center;" value="OK" onclick="EndPositionSet(true)"/>
+                    <input type="button" id="osd_position_cancel" style="text-align:center;" value="Cancel" onclick="EndPositionSet(false)"/>
+                </td>
+            </tr>
+        </table>
+    </li>
+</ul>
+<div class = "save_bar">
+    <input id = "default_btn1" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgRecOSD()"/>
+    <input id = "save_btn1" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>

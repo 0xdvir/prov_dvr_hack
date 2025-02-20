@@ -1,0 +1,40 @@
+﻿
+	<div id = "ptz_ctrl" style ="width:134px; height:134px;background:url(res/ptzPane.jpg);text-align:center; margin:0 auto; padding:0; position:relative;">
+	    <div style ="width:134px; height:54px; margin:0; padding:0; position:relative;">
+	        <img src="res/left_up1.jpg" alt = "" style ="width:19px; height:19px; position:absolute; top:27px ;left: 31px;" onmouseover = "this.src = 'res/left_up2.jpg'" onmouseout = "this.src = 'res/left_up1.jpg';RunPTZCtrl(STR_PTZ_STOP_MOVE);" onmousedown = "RunPTZCtrl(STR_PTZ_LEFT_UP)" onmouseup = "RunPTZCtrl(STR_PTZ_STOP_MOVE)" />
+	        <img src="res/up1.jpg" alt="" style ="width:19px; height:19px; position:absolute; top:13px;left:57px;" onmouseover = "this.src = 'res/up2.jpg'" onmouseout = "this.src = 'res/up1.jpg';RunPTZCtrl(STR_PTZ_STOP_MOVE);" onmousedown = "RunPTZCtrl(STR_PTZ_UP)" onmouseup = "RunPTZCtrl(STR_PTZ_STOP_MOVE)" />
+	        <img src="res/right_up1.jpg" alt="" style ="width:19px; height:19px; position:absolute; top:27px;left:85px;" onmouseover = "this.src = 'res/right_up2.jpg'" onmouseout = "this.src = 'res/right_up1.jpg';RunPTZCtrl(STR_PTZ_STOP_MOVE);" onmousedown = "RunPTZCtrl(STR_PTZ_RIGHT_UP)" onmouseup = "RunPTZCtrl(STR_PTZ_STOP_MOVE)" />
+	    </div>
+	    <div style ="width:134px; height:19px; margin:0; padding:0; position:relative;">
+	        <img src="res/left1.jpg" alt="" style ="width:19px; height:19px; position:absolute; top:0;left:16px;" onmouseover = "this.src = 'res/left2.jpg'" onmouseout = "this.src = 'res/left1.jpg';RunPTZCtrl(STR_PTZ_STOP_MOVE);" onmousedown = "RunPTZCtrl(STR_PTZ_LEFT)" onmouseup = "RunPTZCtrl(STR_PTZ_STOP_MOVE)"/>
+	        <img src="res/center1.jpg" alt="" style ="width:19px; height:19px; position:absolute; top:0;left:57px;" onmouseover = "this.src = 'res/center2.jpg'" onmouseout = "this.src = 'res/center1.jpg'" onclick="RunPTZCtrl(STR_PTZ_STOP_MOVE)"/>
+	        <img src="res/right1.jpg" alt="" style ="width:19px; height:19px; position:absolute; top:0;left:98px;" onmouseover = "this.src = 'res/right2.jpg'" onmouseout = "this.src = 'res/right1.jpg';RunPTZCtrl(STR_PTZ_STOP_MOVE);" onmousedown = "RunPTZCtrl(STR_PTZ_RIGHT)" onmouseup = "RunPTZCtrl(STR_PTZ_STOP_MOVE)"/>
+	    </div>
+	    <div style ="width:134px; height:61px; margin:0; padding:0; position:relative;">
+	        <img src="res/left_bottom1.jpg" alt="" style ="width:19px; height:19px; position:absolute; top:9px;left:31px;" onmouseover = "this.src = 'res/left_bottom2.jpg'" onmouseout = "this.src = 'res/left_bottom1.jpg';RunPTZCtrl(STR_PTZ_STOP_MOVE);" onmousedown = "RunPTZCtrl(STR_PTZ_LEFT_DOWN)" onmouseup = "RunPTZCtrl(STR_PTZ_STOP_MOVE)"/>
+	        <img src="res/bottom1.jpg" alt="" style ="width:19px; height:19px; position:absolute; top:23px;left:57px;" onmouseover = "this.src = 'res/bottom2.jpg'" onmouseout = "this.src = 'res/bottom1.jpg';RunPTZCtrl(STR_PTZ_STOP_MOVE);" onmousedown = "RunPTZCtrl(STR_PTZ_DOWN)" onmouseup = "RunPTZCtrl(STR_PTZ_STOP_MOVE)"/>
+	        <img src="res/right_bottom1.jpg" alt="" style ="width:19px; height:19px; position:absolute; top:9px;left:85px;" onmouseover = "this.src = 'res/right_bottom2.jpg'" onmouseout = "this.src = 'res/right_bottom1.jpg';RunPTZCtrl(STR_PTZ_STOP_MOVE);" onmousedown = "RunPTZCtrl(STR_PTZ_RIGHT_DOWN)" onmouseup = "RunPTZCtrl(STR_PTZ_STOP_MOVE)"/>
+	    </div>
+	</div>
+	
+	<div id="div_speed" style="position:relative; margin-left:0px; margin-top:0px; height:30px;">
+		<img id = "speed_img" title = "Speed" src = "res/speed.jpg" style ="position:absolute;left:5px;top:0px;" />
+		<img id="speed_bk" src="res/sliderbk.jpg" style="position:absolute;left:45px;top:5px" onmousedown="bright_thumb.src='res/sliderthumb2.jpg';"/>
+		<img id="speed_thumb" src="res/sliderthumb1.jpg" style="z-index:1; position:absolute;left:80px;top:0px" onmouseover="this.src='res/sliderthumb2.jpg'" onmouseout="this.src='res/sliderthumb1.jpg'"/>
+		<div id="speed_tip" style="z-index:20; position:absolute; display:none;width:30px; border:solid 1 black; background-color:#a0b0f0"></div>
+	</div>
+	<div id="div_focus" style="position:relative; margin-left:0px;margin-top:10px;font-size:0; height:25px;">
+		<img src="res/minus1.jpg" style="border:0; position:absolute; top:0; left:8px;" onmousedown = "RunPTZCtrl(STR_PTZ_FOCUS_NEAR)" onmouseup = "RunPTZCtrl(STR_PTZ_STOP_MOVE);" onmouseout="RunPTZCtrl(STR_PTZ_STOP_MOVE);this.src='res/minus1.jpg'" onmouseover="this.src='res/minus2.jpg'"/>
+		<img src="res/PtzFocus.jpg" id = "ptz_focus" style=" cursor:default; position:absolute; top:0; left:44px;" title="Focus" />
+		<img src="res/add1.jpg" style="border:0;position:absolute; top:0; left:148px;" onmousedown = "RunPTZCtrl(STR_PTZ_FOCUS_FAR)" onmouseup = "RunPTZCtrl(STR_PTZ_STOP_MOVE);" onmouseover="this.src='res/add2.jpg'" onmouseout="RunPTZCtrl(STR_PTZ_STOP_MOVE);this.src='res/add1.jpg'"/>
+	</div>
+	<div id="div_zoom" style="position:relative; margin-left:0px; margin-top:10px;font-size:0; height:25px;">
+		<img src="res/minus1.jpg" style="border:0; position:absolute; top:0; left:8px;" onmousedown = "RunPTZCtrl(STR_PTZ_ZOOM_IN)" onmouseup = "RunPTZCtrl(STR_PTZ_STOP_MOVE);" onmouseover="this.src='res/minus2.jpg'" onmouseout="RunPTZCtrl(STR_PTZ_STOP_MOVE);this.src='res/minus1.jpg'"/>
+		<img src="res/PtzZoom.jpg" id = "ptz_zoom" style=" cursor:default;  position:absolute; top:0; left:44px;" title="Zoom" />
+		<img src="res/add1.jpg" style="border:0;position:absolute; top:0; left:148px;" onmousedown = "RunPTZCtrl(STR_PTZ_ZOOM_OUT)" onmouseup = "RunPTZCtrl(STR_PTZ_STOP_MOVE);" onmouseover="this.src='res/add2.jpg'" onmouseout="RunPTZCtrl(STR_PTZ_STOP_MOVE);this.src='res/add1.jpg'"/>
+	</div>
+	<div id="div_iris" style="position:relative; margin-left:0px; margin-top:10px;font-size:0; height:25px;">
+		<img src="res/minus1.jpg" style="border:0;position:absolute; top:0; left:8px;" onmousedown = "RunPTZCtrl(STR_PTZ_IRIS_CLOSE)" onmouseup = "RunPTZCtrl(STR_PTZ_STOP_MOVE);" onmouseover="this.src='res/minus2.jpg'" onmouseout="RunPTZCtrl(STR_PTZ_STOP_MOVE);this.src='res/minus1.jpg'"/>
+		<img src="res/PtzIris.jpg" id = "ptz_iris" style=" cursor:default; position:absolute; top:0; left:44px;" title="Iris" />
+		<img src="res/add1.jpg" style="border:0;position:absolute; top:0; left:148px;" onmousedown = "RunPTZCtrl(STR_PTZ_IRIS_OPEN)" onmouseup = "RunPTZCtrl(STR_PTZ_STOP_MOVE);" onmouseover="this.src='res/add2.jpg'" onmouseout="RunPTZCtrl(STR_PTZ_STOP_MOVE);this.src='res/add1.jpg'"/>
+	</div>

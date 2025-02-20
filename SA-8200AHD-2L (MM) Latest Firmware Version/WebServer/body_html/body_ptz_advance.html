@@ -1,0 +1,187 @@
+﻿<div class = "tip_div">
+    <div class = "tip_img"></div>
+    <span id = "ptzAdvConfig_errortips" class = "tip_span"></span>
+</div>
+<div class = "dash_line"></div>
+<div class = "save_bar">
+    <input id = "default_btn" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgPtzAdvance()"/>
+    <input id = "save_btn" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>
+<ul class = "list_ul">
+<div id = "pztadvance_ptz_label" class = "head_div">PTZ config</div>
+<li>
+<div>
+<table id = "id_ptz_advance" border = "1" class = "main_table">
+    <tbody>
+    </tbody>
+</table>
+</div>
+</li>
+</ul>
+<ul id = "preset_cfg" class = "list_ul" style ="display:none;">
+<div id = "preset_set_label" class = "head_div">Preset config</div>
+<li>
+    <table id = "preset_info" class = "main_table" style = "width:750px; height:290px; text-align:center;" border = "1">
+        <tr>
+            <td colspan = "4" id = "preset_set_channel" style ="text-align:left;"></td>
+        </tr>
+        <tr>
+            <td id = "ptzadvance_presertnum_label" style ="width:30px;">No.</td>
+            <td id = "ptzadvande_preset_enable">enable</td>
+            <td id = "ptzadvance_presetname_label" style="width: 400px;">Name</td>
+            <td id = "ptz_modify_label" style ="width:200px;">Set</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type = "checkbox" name="preset_enable" style ="height:20px;" onchange = "g_bChange = true;" /></td>
+            <td><input class = "presetname_input" type = "text" name = "Preset_name_p" onkeydown = "return LenCheck(this,event,const_preset_name_max_len);" onkeyup = "return KeyupCheck(this,const_preset_name_max_len);" onchange = "g_bChange = true;" /></td>
+            <td><input name = "set_preset" id = "ptz_modify_label1" type = "button" value = "Set" class = "preset_set_btn"  onclick="ModifyPresetP(0)"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type = "checkbox"  name="preset_enable" style ="height:20px;" onchange = "g_bChange = true;" /></td>
+            <td><input class = "presetname_input" type = "text" name = "Preset_name_p" onkeydown = "return LenCheck(this,event,const_preset_name_max_len);" onkeyup = "return KeyupCheck(this,const_preset_name_max_len);" onchange = "g_bChange = true;" /></td>
+            <td><input name = "set_preset" id = "ptz_modify_label2" type = "button" value = "Set" class = "preset_set_btn"  onclick="ModifyPresetP(1)"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type = "checkbox"  name="preset_enable" style ="height:20px;" onchange = "g_bChange = true;" /></td>
+            <td><input class = "presetname_input" type = "text" name = "Preset_name_p" onkeydown = "return LenCheck(this,event,const_preset_name_max_len);" onkeyup = "return KeyupCheck(this,const_preset_name_max_len);" onchange = "g_bChange = true;" /></td>
+            <td><input name = "set_preset" id = "ptz_modify_label3" type = "button" value = "Set" class = "preset_set_btn"  onclick="ModifyPresetP(2)"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type = "checkbox"  name="preset_enable" style ="height:20px;" onchange = "g_bChange = true;" /></td>
+            <td><input class = "presetname_input" type = "text" name = "Preset_name_p" onkeydown = "return LenCheck(this,event,const_preset_name_max_len);" onkeyup = "return KeyupCheck(this,const_preset_name_max_len);" onchange = "g_bChange = true;" /></td>
+            <td><input name = "set_preset" id = "ptz_modify_label4" type = "button" value = "Set" class = "preset_set_btn"  onclick="ModifyPresetP(3)"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type = "checkbox"  name="preset_enable" style ="height:20px;" onchange = "g_bChange = true;" /></td>
+            <td><input class = "presetname_input" type = "text" name = "Preset_name_p" onkeydown = "return LenCheck(this,event,const_preset_name_max_len);" onkeyup = "return KeyupCheck(this,const_preset_name_max_len);" onchange = "g_bChange = true;" /></td>
+            <td><input name = "set_preset" id = "ptz_modify_label5" type = "button" value = "Set" class = "preset_set_btn"  onclick="ModifyPresetP(4)"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type = "checkbox"  name="preset_enable" style ="height:20px;" onchange = "g_bChange = true;" /></td>
+            <td><input class = "presetname_input" type = "text" name = "Preset_name_p" onkeydown = "return LenCheck(this,event,const_preset_name_max_len);" onkeyup = "return KeyupCheck(this,const_preset_name_max_len);" onchange = "g_bChange = true;" /></td>
+            <td><input name = "set_preset" id = "ptz_modify_label6" type = "button" value = "Set" class = "preset_set_btn"  onclick="ModifyPresetP(5)"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type = "checkbox"  name="preset_enable" style ="height:20px;" onchange = "g_bChange = true;" /></td>
+            <td><input class = "presetname_input" type = "text" name = "Preset_name_p" onkeydown = "return LenCheck(this,event,const_preset_name_max_len);" onkeyup = "return KeyupCheck(this,const_preset_name_max_len);" onchange = "g_bChange = true;" /></td>
+            <td><input name = "set_preset" id = "ptz_modify_label7" type = "button" value = "Set" class = "preset_set_btn"  onclick="ModifyPresetP(6)"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type = "checkbox"  name="preset_enable" style ="height:20px;" onchange = "g_bChange = true;" /></td>
+            <td><input class = "presetname_input" type = "text" name = "Preset_name_p" onkeydown = "return LenCheck(this,event,const_preset_name_max_len);" onkeyup = "return KeyupCheck(this,const_preset_name_max_len);" onchange = "g_bChange = true;" /></td>
+            <td><input name = "set_preset" id = "ptz_modify_label8" type = "button" value = "Set" class = "preset_set_btn"  onclick="ModifyPresetP(7)" /></td>
+        </tr>
+    </table>
+    <div style =" width:750px; height:26px; margin:0; padding:0;">
+        <div id = "page_number" style="width: 80px; float: left; height:26px; line-height:26px;">0/0</div>
+        <div style="float: right; width: 180px; height:26px;">
+        <span><img src = "res/first.png" id = "preset_first_alt" title ="first" onmousemove = "this.style.cursor = 'pointer'" onclick = "GotoFirst()" /></span>
+        <span><img src = "res/prev.png" id = "preset_prev_alt" title ="preview" onmousemove = "this.style.cursor = 'pointer'" onclick = "GotoPrew()"/></span>
+        <span><img src = "res/next.png" id = "preset_next_alt" title ="next" onmousemove = "this.style.cursor = 'pointer'" onclick = "GotoNextP()"/></span>
+        <span><img src = "res/end.png" id = "preset_end_alt" title ="end" onmousemove = "this.style.cursor = 'pointer'" onclick = "GotoEnd()" /></span>
+        </div>
+    </div>
+    <div id = "Preset_btn_ok_group" style ="width:750px; text-align:right; margin-top:5px;">
+        <input id = "cfg_preset_ok_btn" type = "button" value = "OK" onclick = "PresetSaveOK();" />
+        <input id = "cfg_preset_cancel_btn" type = "button" value = "Cancel" style ="margin-left:10px;" onclick = "PresetCancel();" />
+    </div>
+</li>
+</ul>
+<ul id = "cruise_cfg" class = "list_ul" style ="display:none;">
+<div id = "cruise_set_label" class = "head_div">Cruise set</div>
+<li>
+    <table  class = "main_table" style ="width:750px;" border = "1">
+        <tr>
+            <td colspan = "2" id = "cruise_set_channel"></td>
+        </tr>
+        <tr style ="height:215px;">
+            <td style ="width:200px; padding:0;">
+                <div style ="height:178px;padding:5px;">
+                    <input id = "cruiseName" type = "text" style ="width:188px; height:20px;" onkeydown = "return LenCheck(this,event,const_cruise_name_max_len);" onkeyup = "var ret = KeyupCheck(this,const_cruise_name_max_len);var cruise_list = document.getElementById('cruise_list'); if(ret){SaveCruiseName(this,cruise_list)};return ret;" onchange=""/>
+                    <select id = "cruise_list" size = "8" onchange = "var cruiseName = document.getElementById('cruiseName');var cuise_preset_set = document.getElementById('cuise_preset_set');GetCruiseValue(this,cruiseName,cuise_preset_set),TemCruiseArrSave(),g_bChange = true;">
+                    </select>
+                </div>
+                <div style ="height:26px; text-align:center;">
+                    <img src ="res/add.png" id = "cruise_addc_alt" title = "Add" onmousemove = "this.style.cursor = 'pointer'" onclick = "var cruise_list = document.getElementById('cruise_list');AddCruise(cruise_list)" />
+                    <img src ="res/delete.png" id = "cruise_deletec_alt" title = "Delete" onmousemove = "this.style.cursor = 'pointer'" onclick = "var cruise_list = document.getElementById('cruise_list');DelCruise(cruise_list)" />
+                    <img src ="res/clear.png" id = "cruise_clearallc_alt" title = "Delete all" onmousemove = "this.style.cursor = 'pointer'"  onclick = "var cruise_list = document.getElementById('cruise_list');DelAllCruise(cruise_list)" />
+                </div>
+            </td>
+            <td style ="padding:0;">
+            <div style ="height:179px; padding:5px;">
+                <table id = "cuise_preset_set" class = "main_table" style ="width:535px; height:175px; margin:0;" border = "1">
+                <tr class = "table_head_bgcolor">
+                    <td id = "ptzadvance_cruiseNum_label" style ="text-align:center;">No.</td>
+                    <td id = "ptzadvance_presetname2_label" style ="text-align:center;">Preset name</td>
+                    <td id = "ptzadvance_holdtime_label" style ="text-align:center;">Hold time(s)</td>
+                    <td id = "ptzadvance_speed_label" style="text-align:center;">Speed</td>
+                </tr>
+                <tr onclick = "Selected(this)" style = "height:29px;">
+                    <td style ="text-align:center; width:100px;"></td>
+                    <td><select name = "preset_name" style ="width:155px;" onchange = "g_bChange = true;"></select></td>
+                    <td><select name = "preset_hold_time" style ="width:105px;" onchange = "g_bChange = true;"></select></td>
+                    <td><select name = "preset_speed" style ="width:115px;" onchange = "g_bChange = true;"></select></td>
+                </tr>
+                <tr onclick = "Selected(this)" style = "height:29px;">
+                    <td style ="text-align:center; width:100px;"></td>
+                    <td><select name = "preset_name" style ="width:155px;" onchange = "g_bChange = true;"></select></td>
+                    <td><select name = "preset_hold_time" style ="width:105px;" onchange = "g_bChange = true;"></select></td>
+                    <td><select name = "preset_speed" style ="width:115px;" onchange = "g_bChange = true;"></select></td>
+                </tr>
+                <tr onclick = "Selected(this)" style = "height:29px;">
+                    <td style ="text-align:center; width:100px;"></td>
+                    <td><select name = "preset_name" style ="width:155px;" onchange = "g_bChange = true;"></select></td>
+                    <td><select name = "preset_hold_time" style ="width:105px;" onchange = "g_bChange = true;"></select></td>
+                    <td><select name = "preset_speed" style ="width:115px;" onchange = "g_bChange = true;"></select></td>
+                </tr>
+                <tr onclick = "Selected(this)" style = "height:29px;">
+                    <td style ="text-align:center; width:100px;"></td>
+                    <td><select name = "preset_name" style ="width:155px;" onchange = "g_bChange = true;"></select></td>
+                    <td><select name = "preset_hold_time" style ="width:105px;" onchange = "g_bChange = true;"></select></td>
+                    <td><select name = "preset_speed" style ="width:115px;" onchange = "g_bChange = true;"></select></td>
+                </tr>
+                <tr onclick = "Selected(this)" style = "height:29px;">
+                    <td style ="text-align:center; width:100px;"></td>
+                    <td><select name = "preset_name" style ="width:155px;" onchange = "g_bChange = true;"></select></td>
+                    <td><select name = "preset_hold_time" style ="width:105px;" onchange = "g_bChange = true;"></select></td>
+                    <td><select name = "preset_speed" style ="width:115px;" onchange = "g_bChange = true;"></select></td>
+                </tr>
+                </table>
+                </div>
+                <div style ="padding:0 5px; height:26px;">
+                    <div style ="float:left; width:150px;">
+                        <img src ="res/add.png" id = "cruise_addp_alt" title = "add" onmousemove = "this.style.cursor = 'pointer'" onclick = "var cruise_list = document.getElementById('cruise_list');var cuise_preset_set = document.getElementById('cuise_preset_set');AddPresetInC(cruise_list,cuise_preset_set)" />
+                        <img src ="res/delete.png" id = "cruise_delp_alt" title = "delete" onmousemove = "this.style.cursor = 'pointer'" onclick = "var cruise_list = document.getElementById('cruise_list');var cuise_preset_set = document.getElementById('cuise_preset_set');DelPresetInc(cruise_list,cuise_preset_set)" />
+                        <img src ="res/clear.png" id = "cruise_delall_alt" title = "clear all" onmousemove = "this.style.cursor = 'pointer'" onclick = "ClearAllPInC()" />
+                    </div>
+                    <div style ="float:right; width:180px; height:26px;">
+                        <span><img id = "cruise_first_alt" src = "res/first.png" title ="first page" onmousemove = "this.style.cursor = 'pointer'" onclick = "GotoFirC()" /></span>
+                        <span><img id = "cruise_prev_alt" src = "res/prev.png" title ="previous page" onmousemove = "this.style.cursor = 'pointer'" onclick = "GotoPrewC()"/></span>
+                        <span><img id = "cruise_next_alt" src = "res/next.png" title ="next page" onmousemove = "this.style.cursor = 'pointer'" onclick = "GotoNextC()"/></span>
+                        <span><img id = "cruise_end_alt" src = "res/end.png" title ="end page" onmousemove = "this.style.cursor = 'pointer'" onclick = "GotoEndC()"/></span>
+                    </div>
+                    <span id = "page_inC" style ="width:80px; height:26px; line-height:26px; float:right;">0/0</span>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div id = "cruise_btn_group" style ="width:750px; text-align:right; margin-top:5px;">
+        <input id = "ptz_cruise_preview_btn" type = "button" value = "Preview" onclick = "CruisePreview();" />
+        <input id = "ptz_cruise_ok_btn" type = "button" value = "OK" onclick = "CruiseSaveOK();" />
+        <input id = "ptz_cruise_cancel_btn" type = "button" value = "Cancel" onclick = "CruiseCancel();" />
+    </div>
+    <div style ="clear:both;"></div>
+</li>
+</ul>
+<div class = "save_bar">
+    <input id = "default_btn1" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgPtzAdvance()"/>
+    <input id = "save_btn1" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>

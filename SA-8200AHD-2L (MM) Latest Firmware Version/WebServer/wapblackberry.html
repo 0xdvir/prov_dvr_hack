@@ -1,0 +1,117 @@
+<html>
+<head>
+    <META. HTTP-EQUIV="pragma" CONTENT="no-cache" /> 
+    <META. HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate" /> 
+
+    <title>TVT mobile client</title>
+    <script language="javascript" src="cgi/videoNum.js" type="text/javascript"></script>
+
+    <script type="text/javascript" language="javascript">
+    var timeout;
+	function displayNewPic(picPath)
+	{
+		document.b1.src = picPath;
+	}
+	    
+    </script>
+
+    <script type="text/javascript">
+    var g_bAuto = true;
+    var g_stop = false;
+    var g_path = "cgi/1.jpg";
+	function run(picPath)
+	{
+	    g_path = picPath;
+        clearTimeout(timeout);
+        if (g_stop) 
+        {
+            g_stop = false;
+            return;
+        }
+		var random = parseInt(Math.random() * 3600 * 24 * 365 + 1);
+		var path = "cgi/" + picPath + "?id=" + random; 
+		displayNewPic(path);
+        
+        if (g_bAuto) 
+        {
+		    timeout = setTimeout("run('"+ picPath +"')", 4000);
+        }
+	}
+
+    function chgRefreshMode() 
+    {
+        g_bAuto = !g_bAuto;
+        if (g_bAuto) 
+        {
+            document.getElementById("myfresh").value = "manual";
+            g_stop = false;
+            run(g_path);
+        }
+        else
+        {//自动刷新切换到手动刷新模式
+            document.getElementById("myfresh").value = "auto";
+            g_stop = true;
+        }
+    }
+    
+    function chnnLayer(chnnNum) 
+    {
+        var vselect = "<select id= " + ' "selectChnn" ' + "onchange = ChgChnn()" + ">";
+        document.write(vselect);
+        var i = 0;
+        while (i < chnnNum)
+        {
+            ++i;
+            if (1 != i) 
+            {
+                vselect = "<option value=" + '"' + i + '"' + ">" + i + "</option>" ;
+            }
+            else
+            {
+                vselect = "<option value=" + '"' + i + '"' + "selected=true" + ">" + i + "</option>" ;
+            }
+            document.write(vselect);
+        }
+        var vselect = "</select>";
+        document.write(vselect);
+    }
+    
+    function ChgChnn() 
+    {
+        var oListbox = document.getElementById("selectChnn");
+        var index = oListbox.selectedIndex;
+        var picPara = index + 1 + ".jpg";
+        run(picPara);
+    }
+
+    function disPic()
+    {
+        var vImg = "<img src=" + '"' + "cgi/1.jpg" + '"' + " id=" + '"' + "pic" + '"' + " name=" + '"' + "b1" + '"'  + " onclick=" +  "run(g_path)" + " width=" + (screen.availWidth-10) + " height=" + (screen.availHeight - 100) + " />";
+        document.write(vImg);
+    }
+    </script>
+
+</head>
+<body>
+    channel:
+    <script type="text/javascript">
+    chnnLayer(channelNum);
+    </script>
+    
+    Refresh:
+    <input type="button" id="myfresh" name="freshMode" value="manual" onclick="chgRefreshMode()" />
+    
+    <br \>    
+    <script type="text/javascript">
+    disPic();
+    </script>
+
+    
+    <script type="text/javascript">
+    run("1.jpg");
+    </script>
+    
+</body>
+
+
+</html>

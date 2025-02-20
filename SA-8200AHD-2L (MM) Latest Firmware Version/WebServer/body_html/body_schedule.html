@@ -1,0 +1,82 @@
+﻿<div onselectstart="return false;" style="-moz-user-select: none;">
+<div class = "tip_div">
+    <div class = "tip_img"></div>
+    <span id = "sch_errortips" class = "tip_span"></span>
+</div>
+<div class = "dash_line"></div>
+<div class = "save_bar">
+    <input id = "default_btn" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgSchedule()"/>
+    <input id = "save_btn" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>
+<ul class = "list_ul">
+<div id = "sch_schdule_label" class = "head_div">Schedule</div>
+<li>
+<table class = "main_table" style ="width:750px;">
+    <tr>
+        <td style ="width:550px;">
+            <select name = "channelIndex" id = "schChannelIndex" style ="width:540px;" onchange = "OnchangeChannel(this)">
+            </select>
+        </td>
+        <td  align = "center">
+            <img id = "img_sch_draw" src = "res/draw2.png" alt = "" onclick = "OnSetDrawMode(false)" />
+            <img id = "img_sch_erase" src = "res/erase1.png" alt = "" onclick = "OnSetDrawMode(true)" />
+        </td>
+    </tr>
+    <tr>
+        <td id = "sch_label" colspan="3" style="border-bottom:solid 1px gray; font-weight:bold;text-align:center;">week schedule</td>
+    </tr>
+    <tr style="height:30px; padding:0;">
+        <td colspan="3" style="border-bottom:solid 1px gray;">
+            <div id="schedule_time_tip" style="height:20px;line-height:20px;width:150px;text-align:center;background-color:#CCBBFF;display:none;"></div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" style="border-bottom:solid 1px gray; margin:0; padding:0;">
+        <table>
+        <tr style="height:40px; vertical-align:middle">
+            <td style="border:none;"><div id = "schedule_div0" style ="height:40px;position:relative;"></div></td>
+        </tr>
+        <tr style="height:40px; vertical-align:middle">
+            <td style="border:none;"><div id = "schedule_div1" style ="height:40px;position:relative"></div></td>
+        </tr>
+        <tr style="height:40px; vertical-align:middle">
+            <td style="border:none;"><div id = "schedule_div2" style ="height:40px;position:relative"></div></td>
+        </tr>
+        <tr style="height:40px; vertical-align:middle">
+        <td style="border:none;"><div id = "schedule_div3" style ="height:40px;position:relative"></div></td>
+        </tr>
+        <tr style="height:40px; vertical-align:middle">
+            <td style="border:none;"><div id = "schedule_div4" style ="height:40px;position:relative"></div></td>
+        </tr>
+        <tr style="height:40px; vertical-align:middle">
+            <td style="border:none;"><div id = "schedule_div5" style ="height:40px;position:relative"></div></td>
+        </tr>
+        <tr style="height:40px; vertical-align:middle">
+            <td style="border:none;"><div id = "schedule_div6" style ="height:40px;position:relative"></div></td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+</table>    
+
+</li>
+<div id = "sch_copy_label" class = "head_div">Copy setting</div>
+<li>
+<table border = "1" class = "main_table" style ="width:750px;">
+    <tr>
+        <td id = "sch_applay_label" style ="width:150px;">Applay setting to</td>
+        <td style ="width:400px;">
+            <select id = "cp_config_schedule" style ="width:400px;"></select>
+        </td>
+        <td align = "center">
+            <input type = "button" id = "sch_copy_buttom" value = "Copy" onclick = "var cp_config_schedule = document.getElementById('cp_config_schedule');schCopy(cp_config_schedule)"/>
+        </td>
+    </tr>
+</table>
+</li>
+</ul>
+<div class = "save_bar">
+    <input id = "default_btn1" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgSchedule()"/>
+    <input id = "save_btn1" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>
+</div>

@@ -1,0 +1,30 @@
+﻿<div id="win7_run_tip_div" style="color:Red; font-size:18px; width:770px; margin-top:40px; text-align:left; display:none;">
+    <label id="win7_run_tip"></label>
+</div>
+<div class = "login_bg">
+    <div style ="margin:10px 0 0 20px; position:relative;">
+        <div style =" width:33px; height:37px;background:url(res/login_lock.png) no-repeat left top; padding:0; position:absolute; left:0; top:0;
+            _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='res/login_lock.png');_background-image:none; "></div>
+        <span id = "login_label" style ="height:37px; line-height:37px;font-weight:bold; font-size:20px; position:absolute; left:40px; top:0;">User login</span>
+    </div>
+    <div style ="width:350px; margin-left:20px; margin-top:50px;"><hr style ="border-bottom-style:dashed;" /></div>
+    <div id = "log_middle">
+        <table>
+            <tr>
+                <td id = "login_user_label" style="width:100px"></td>
+                <td><input type = "text" id="username" value = "" style ="overflow:hidden;" maxlength = "32" onchange = "userpwd=document.getElementbyId('userpwd'); userpwd.value = ''" /></td>
+            </tr>
+            <tr>
+                <td id = "login_pwd_label"></td>
+                <td><input type = "password" id="userpwd" value = "" maxlength = "32" /></td>
+            </tr>
+            <tr>
+                <td id = "login_language_label"></td>
+                <td><select name="language_list" onchange="OnChangeLang()" style ="display:none;" ></select></td>
+            </tr>
+        </table>
+    </div>
+    <div class="log_button">
+        <input id = "login_ok_button" type = "button" name="btn_login" value="LOGIN" onclick = "OnLogin()"/>
+    </div>
+</div>

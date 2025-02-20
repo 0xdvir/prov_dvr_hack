@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>Error log</title>
+<script type = "text/javascript">
+var curPage = 0;
+var arr_log = new Array();
+var rows = 0;
+var table_info = "<table id = \"log_table\" border = \"1\" style =\"border-collapse:collapse; width:998px;\">";
+
+function createXMLDoc() 
+{
+    xmlDoc = null;
+    try //Firefox, Mozilla, Opera, etc.
+	{
+        xmlDoc = document.implementation.createDocument("", "", null);
+    }
+    catch (e) 
+    {
+        try //Internet Explorer
+		{
+            xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+        }
+        catch (e) 
+        { 
+        alert(e.message);
+        }
+    }
+    return (xmlDoc);
+}
+
+function createXMLHttp() 
+{
+    xmlhttp = null;
+    if (window.ActiveXObject) 
+    {
+        xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
+    }
+    else if (window.XMLHTTPRequest) 
+    {
+        xmlhttp = new XMLHTTPRequest();
+    }
+    else 
+    {
+        return null;
+    }
+    return xmlhttp;
+}
+
+//zld 2010/8/18
+function FormatToXmlDOM(strXml)
+{ 
+   var isIE = function()
+   {   
+       var IE = /msie/i.test(navigator.userAgent);   
+       return IE;   
+   }   
+   
+   var Exc = function()
+   {   
+       var XmlDoc = null;   
+       if (isIE())   
+       {   
+           XmlDoc = new ActiveXObject("Microsoft.XMLDOM");    
+           XmlDoc.loadXML(strXml);   
+       }
+       else
+       {   
+           //FireFox2.0、Safari2.0   
+           XmlDoc = (new DOMParser()).parseFromString(strXml, "text/xml");   
+       }   
+       return XmlDoc;   
+    }   
+    return Exc();   
+} 
+
+function parseXML()
+{
+    var stringXmlDoc; //= createXMLDoc();
+    var xmlhttp = createXMLHttp();
+    xmlhttp.open("get", "error_log_overview.cgi", false);
+    xmlhttp.onreadystatechange = function()
+    {
+        if (xmlhttp.readyState != 4) 
+        {
+            return;
+        }
+        
+        //zld 2010/9/2
+        stringXmlDoc=FormatToXmlDOM(xmlhttp.responseText);
+        stringXmlDoc.async = false;
+        //stringXmlDoc.loadXML(xmlhttp.responseText);
+        var log_data = stringXmlDoc.getElementsByTagName("log_file_name");
+        delete stringXmlDoc;
+        
+        for(var i = 0; i < log_data.length; i++)
+        {
+            arr_log[i] = log_data[i].childNodes[0].nodeValue;
+        }
+        First();
+    }
+    xmlhttp.Send(null);
+}
+
+function Go(obj)
+{
+    totalPage = arr_log.length;
+    if(obj.value <= totalPage)
+    {
+        var cPage = parseInt(obj.value,10)-1;
+        div_log.innerHTML = "";
+        GotoPage(cPage);
+        curPage = obj.value;
+        page.innerHTML = obj.value+"/"+totalPage;
+    }
+}
+
+function First()
+{
+    totalPage = arr_log.length;
+    curPage = 0;
+    div_log.innerHTML = "";
+    GotoPage(curPage);
+    page.innerHTML = 1+"/"+totalPage;
+    ipage.value = 1;
+}
+
+function Preview()
+{
+    totalPage = arr_log.length;
+    if(curPage > 0)
+    {
+        curPage = curPage-1;
+    }
+    div_log.innerHTML = "";
+    GotoPage(curPage);
+    ipage.value = curPage+1;
+    page.innerHTML = (curPage+1)+"/"+totalPage;
+}
+
+function Next()
+{
+    totalPage = arr_log.length;
+    if(curPage < totalPage-1)
+    {
+        curPage = curPage+1;
+    }
+    div_log.innerHTML = "";
+    GotoPage(curPage);
+    ipage.value = curPage+1;    
+    page.innerHTML = (curPage+1)+"/"+totalPage;
+}
+
+function End()
+{
+    totalPage = arr_log.length;
+    curPage = totalPage-1;
+    div_log.innerHTML = "";
+    GotoPage(curPage);
+    page.innerHTML = totalPage+"/"+totalPage;
+    ipage.value = totalPage;
+}
+
+function GotoPage(index)
+{
+    var xmlDoc; //= createXMLDoc();
+    var xmlhttplog = createXMLHttp();
+    xmlhttplog.open("get",arr_log[index],false);
+    xmlhttplog.onreadystatechange = function ()
+    {
+    	if (xmlhttplog.readyState != 4)
+    	{
+    	    return;
+    	}
+    	
+    	//zld 2010/9/2
+    	xmlDoc=FormatToXmlDOM(xmlhttplog.responseText);
+    	xmlDoc.async = false;
+    	//xmlDoc.loadXML(xmlhttplog.responseText);
+    	var logx = xmlDoc.getElementsByTagName("Log");
+    	var Headers = new Array("Type","ID","Information","Time","File","Line");
+    	rows = logx.length;
+    	num.innerHTML = rows;
+	    var tableHtml = table_info + "\r\n";
+	    tableHtml += "<tr style='background-color:#D4E8FE'>";
+	    for(var j = 0; j < 6; j++)
+	    {
+		    tableHtml += "<td>" + Headers[j] + "</td>";
+	    }
+	    tableHtml += "</tr>";
+	    for(var j = 0; j < rows; j++)
+	    {
+		    tableHtml += "<tr>";
+	        tableHtml += "<td>"+logx[j].getElementsByTagName("Type")[0].childNodes[0].nodeValue+"</td>";
+	        tableHtml += "<td>"+logx[j].getElementsByTagName("ID")[0].childNodes[0].nodeValue+"</td>";
+	        tableHtml += "<td>"+logx[j].getElementsByTagName("Information")[0].childNodes[0].nodeValue+"</td>";
+	        tableHtml += "<td>"+logx[j].getElementsByTagName("Time")[0].childNodes[0].nodeValue+"</td>";
+	        tableHtml += "<td>"+logx[j].getElementsByTagName("File")[0].childNodes[0].nodeValue+"</td>";
+	        tableHtml += "<td>"+logx[j].getElementsByTagName("Line")[0].childNodes[0].nodeValue+"</td>";
+		    tableHtml += "</tr>";
+	    }
+	    tableHtml += "</table>";
+	    div_log.innerHTML = tableHtml;
+	    
+	    //zld 2010/9/2
+	    delete xmlDoc;
+    }
+    xmlhttplog.Send(null);
+}
+</script>
+</head>
+<body onload = "parseXML()">
+<div style ="margin:0 auto;">
+<div id = "page_crl" style ="width:1000px;">
+    <div style ="float:left;">共<span id = "num"></span>条记录</div>
+    <div style ="float:right;">
+        <input type = 'button' value = '第一页' onclick = 'First();'/>
+        <input type = 'button' value = '上一页' onclick = 'Preview();'/>
+        <input id = "ipage" type = 'text' style ='width:40px;' onchange = 'Go(this)' />
+        <span id = 'page' style ="width:80px;"></span>
+        <input type = 'button' value = '下一页' onclick = 'Next();'/>
+        <input type = 'button' value = '最后一页' onclick = 'End();'/>
+    </div>
+</div>
+<div id="div_log" style =" width:1000px;">
+</div>
+</div>
+</body>
+</html>

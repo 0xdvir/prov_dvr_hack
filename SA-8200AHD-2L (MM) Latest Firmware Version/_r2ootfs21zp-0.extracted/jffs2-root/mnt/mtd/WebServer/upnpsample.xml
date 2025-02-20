@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<root xmlns="urn:schemas-upnp-org:device-1-0">
+  <specVersion>
+    <major>1</major>
+    <minor>0</minor>
+  </specVersion>
+  <device>
+    <deviceType>urn:schemas-upnp-org:device:device:1</deviceType>
+    <friendlyName>friendlyName</friendlyName>
+    <manufacturer></manufacturer>
+    <manufacturerURL></manufacturerURL>
+    <modelDescription>UPnP Device</modelDescription>
+    <modelName>Device</modelName>
+    <modelNumber>1.0</modelNumber>
+    <modelURL></modelURL>
+    <serialNumber>123456789001</serialNumber>
+    <UDN>uuid</UDN>
+    <UPC>123456789</UPC>
+    <serviceList>
+      <service>
+        <serviceType>urn:schemas-upnp-org:service:control:1</serviceType>
+        <serviceId>urn:upnp-org:serviceId:control1</serviceId>
+        <controlURL>/upnp/control/control1</controlURL>
+        <eventSubURL>/upnp/event/control1</eventSubURL>
+        <SCPDURL>/SCPD.xml</SCPDURL>
+      </service>
+    </serviceList>
+   <presentationURL>/webcamera.html</presentationURL>
+</device>
+</root>

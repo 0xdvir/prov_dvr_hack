@@ -1,0 +1,228 @@
+﻿<div class = "tip_div">
+    <div class = "tip_img"></div>
+    <span id = "netconfig_errortips" class = "tip_span"></span>
+</div>
+<div class = "dash_line"></div>
+<div class = "save_bar">
+    <input id = "default_btn" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgNetwork()"/>
+    <input id = "save_btn" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>
+<ul class = "list_ul">
+<div id = "net_setup_label" class = "head_div">Network setup</div>
+  <li>
+  <table border = "1" class = "main_table" id = "network_table">
+  <tr>
+      <td id = "net_httpport_label" class = "label">HTTP port</td>
+      <td class = "data" colspan = "2">
+        <input type = "text" class = "input_text" id = "http_port" maxlength = "5" onkeypress = "return isNumberInput(this,event);" onchange = "g_bChange = true;InputCheck(this,65535,0)"/>
+      </td>
+  </tr>
+  <tr>
+      <td id = "net_dataport_label">Data port</td>
+      <td colspan = "2"><input type = "text" class = "input_text" id = "server_port" maxlength = "5" onkeypress = "return isNumberInput(this,event);" onchange = "g_bChange = true;InputCheck(this,65535,0)"/></td>
+  </tr>
+  
+  <!--有线网络-->
+  <tr>
+    <td>IPv4</td>
+    <td colspan = "2"><input  type = "checkbox" style="display:none;" id = "ipv4_enable" onclick = "" onchange = "g_bChange = true;" />
+  </tr>
+  <tr>
+  <td colspan = "3">
+  <input id = "autoIp" type = "radio" name = "ip_type"  value = "1" style =" width:30px;" checked = "checked" onclick = "IPAuto(this);g_bNetworkPassTest = false;" onchange = "g_bChange = true;"/><label id = "net_autoip_label">Obtain an IP address automaticlly</label> 
+  <input id = "staticIP"  type = "radio" name = "ip_type" value = "0"  style =" width:30px; margin-left:230px;" onclick = "IPStatic(this);g_bNetworkPassTest = false;" onchange = "g_bChange = true;"/><label id = "net_fixedip_label">Use the following IP address</label>
+  </td>
+  </tr>
+  <tr>
+      <td id = "net_ipaddress_label">IP address</td>
+      <td colspan = "2">
+      <span id = "ip_address"></span>
+      </td>
+  </tr>
+  <tr>
+      <td id = "net_subnet_label">Subnet mask</td>
+      <td colspan = "2">
+          <span id="net_mask"></span>
+      </td>
+  </tr>
+  <tr>
+      <td id = "net_gateway_label">Gateway</td>
+      <td colspan = "2">
+          <span id="gate_way"></span>  
+      </td>
+  </tr>
+  <tr>
+      <td id = "net_dns1_label">Preferred DNS server</td>
+      <td colspan = "2">
+          <span id="net_dns1"></span>  
+      </td>
+  </tr>
+  <tr>
+      <td id ="net_dns2_label">Alternate DNS server</td>
+      <td colspan = "2">
+          <span id="net_dns2"></span>  
+      </td>
+  </tr>
+  <tr>
+    <td>IPv6</td>
+    <td colspan = "2"><input  type = "checkbox" style="display:none;" id = "ipv6_enable" onclick = "" onchange = "g_bChange = true;" />
+  </tr>
+  <tr>
+  <td colspan = "3">
+  <input id = "ipv6_autoIp" style="display:none;" type = "radio" name = "ipv6_type"  value = "1" style =" width:30px;" checked = "checked" onclick = "IPV6Auto(this);g_bNetworkPassTest = false;" onchange = "g_bChange = true;"/>
+  <label id = "ipv6_autoip_label"  style="display:none;" >Obtain an IP address automaticlly</label> 
+  <input id = "ipv6_staticIp"  type = "radio" name = "ipv6_type" value = "0"  style =" width:30px; margin-left:360px;" onclick = "IPV6Static(this);g_bNetworkPassTest = false;" onchange = "g_bChange = true;"/>
+  <label id = "ipv6_fixedip_label">Use the following IP address</label>
+  </td>
+  </tr>
+  <tr>
+      <td id = "ipv6_address_label">IP address</td>
+      <td colspan = "2">
+      <span id = "ipv6_address"></span>
+      </td>
+  </tr>
+  <tr>
+      <td id = "ipv6_subnet_label">Subnet mask</td>
+      <td colspan = "2">
+          <span id="ipv6_net_mask"></span>
+      </td>
+  </tr>
+  <tr>
+      <td id = "ipv6_gateway_label">Gateway</td>
+      <td colspan = "2">
+          <span id="ipv6_gateway"></span>  
+      </td>
+  </tr>
+  <tr style="display:none;">
+      <td id = "ipv6_dns1_label">Preferred DNS server</td>
+      <td colspan = "2">
+          <span id="ipv6_dns1"></span>  
+      </td>
+  </tr>
+  <tr style="display:none;">
+      <td id ="ipv6_dns2_label">Alternate DNS server</td>
+      <td colspan = "2">
+          <span id="ipv6_dns2"></span>  
+      </td>
+  </tr>
+  
+  <tr>
+  <td id = "net_pppoe_label">PPPoE</td>
+  <td colspan = "2"><input  type = "checkbox" name = "pppoe_enable" onclick = "PPPoeEnable(this)" onchange = "g_bChange = true;" />
+  </td>
+  </tr>
+  <tr>
+      <td id = "id_pppoe_username">User name</td>
+      <td colspan = "2"><input type = "text" class = "input_text" name = "pppoe_username" disabled = "disabled" onkeydown = "return LenCheck(this,event,const_pppoe_username_max_len);" onkeyup = "return KeyupCheck(this,const_pppoe_username_max_len);" onchange = "g_bChange = true;g_bNetworkPassTest = false;"/></td>
+  </tr>
+  <tr>
+      <td id = "id_pppoe_password">Password</td>
+      <td colspan = "2"><input type = "password" class = "input_text" name = "pppoe_password" disabled = "disabled" onkeydown = "return LenCheck(this,event,const_pppoe_password_max_len);" onkeyup = "return KeyupCheck(this,const_pppoe_password_max_len);" onchange = "g_bChange = true;g_bNetworkPassTest = false;"/></td>
+  </tr>
+  <tr>
+  <td colspan="3"></td>
+  </tr>
+  <tr style="display:none;">
+    <td></td>
+    <td colspan = "2"><input id = "pppoe_test_btn" type = "button" value = "Test" onclick="NetworkTest()"/></td>
+  </tr>
+  <!--wireless-->
+  
+  <tr>
+      <td id = "net_enable_wireless_label">enable</td>
+      <td><input type = "checkbox" id = "wireless_enable" onchange = "g_bChange = true;"/>
+      </td>
+  </tr>
+  <tr>
+      <td id = "net_wireless_type_label" class = "label">wireless type</td>
+      <td>
+          <select class = "td_select" id = "wireless_type" onchange = "g_bChange = true;">
+          </select>
+      </td>
+  </tr>
+  <tr>
+      <td id = "connect_point_label" class = "label">Connect Point</td>
+      <td><input type = "text" class = "input_text" id = "connect_point" onkeydown = "return LenCheck(this,event,67);" onkeyup = "return KeyupCheck(this,67);" onchange = "g_bChange = true;"/></td>
+  </tr>
+  <tr>
+      <td id = "wireless_apn_lable" class = "label">APN Code</td>
+      <td><input type = "text" class = "input_text" id = "wireless_apn" onkeydown = "return LenCheck(this,event,67);" onkeyup = "return KeyupCheck(this,67);" onchange = "g_bChange = true;"/></td>
+  </tr>
+  <tr>
+    <td id="wireless_username_label" class = "label">User Name</td>
+    <td><input type = "text" id = "wireless_usename" class = "input_text" /></td>
+  </tr>
+  <tr>
+      <td id = "wireless_password_label" class = "label">Password</td>
+      <td><input type = "password" class = "input_text" id = "wireless_password" onkeydown = "return LenCheck(this,event,67);" onkeyup = "return KeyupCheck(this,36);" onchange = "g_bChange = true;"/></td>
+  </tr>
+  <tr>
+  <td colspan="3"></td>
+  </tr>
+  <!--                 DDNS                -->
+  
+  <tr>
+      <td id = "net_ddns_label">DDNS</td>
+      <td colspan = "2"><input type = "checkbox" name = "ddns_enable" onclick = "DdnsEnable(this)" onchange = "g_bChange = true;"/>
+      </td>
+  </tr>
+  <tr>
+      <td id = "net_ddnds_type_label">DDNS type</td>
+      <td colspan = "2">
+          <select class = "td_select" id = "ddns_type" disabled = "disabled" onchange = "g_bChange = true;g_bDDNSPassTest = false;DisDomain(this);DisServerName(this);DisUpdateCycle(this);ShowUserSuffix(this);Align();ClearInfo();">
+          </select>
+      </td>
+  </tr>
+  
+  <tr id = "ddns_server_name_tr">
+      <td id = "net_ddnds_server_label">DDNS Server</td>
+      <td colspan = "2"><input type = "text" class = "input_text" id = "ddns_server_name" onkeydown = "return LenCheck(this,event,131);" onkeyup = "return KeyupCheck(this,131);" onchange = "g_bChange = true;g_bDDNSPassTest = false;"/></td>
+  </tr>
+  
+  <tr id = "ddns_username_tr">
+      <td id = "id_ddns_username">User name</td>
+      <td>
+        <input type = "text" class = "input_text" id = "ddns_username" disabled = "disabled" onkeydown = "return LenCheck(this,event,const_ddns_uername_max_len);" onkeyup = "return KeyupCheck(this,const_ddns_uername_max_len);" onchange = "g_bChange = true;g_bDDNSPassTest = false;"/>
+      </td>
+      <td id = "br27ddns">.ddns.com.br</td>
+      <td id = "br27TecvozDDNS">.TecvozDDNS.com.br</td>
+  </tr>
+  <tr id = "ddns_pwd_tr">
+      <td id = "id_ddns_password">Password</td>
+      <td colspan = "2"><input type = "password" class = "input_text" id = "ddns_password" disabled = "disabled" onkeydown = "return LenCheck(this,event,const_ddns_password_max_len);" onkeyup = "return KeyupCheck(this,const_ddns_password_max_len);" onchange = "g_bChange = true;g_bDDNSPassTest = false;"/></td>
+  </tr>
+  <tr id = "ddns_email_tr">
+    <td id="ddns_email_label">E-mail</td>
+    <td colspan = "2"><input type = "text" name = "ddns_email" class = "input_text" /></td>
+  </tr>
+  <tr id = "ddns_domain_tr">
+      <td id = "id_ddns_domain_info">Host domain</td>
+      <td><input type = "text" class = "input_text" id = "ddns_domain_info" onkeydown = "return LenCheck(this,event,const_ddns_domain_max_len);" onkeyup = "return HostKeyupCheck(this,const_ddns_domain_max_len);" onchange = "g_bChange = true;g_bDDNSPassTest = false;"/></td>
+      <td id = "visionico_info" >.visionica.info</td>
+      <td id = "br27ddnsdomain" style="display:none">.ddns.com.br</td>
+      <td id = "autoddnsdomain" style="display:none">.autoddns.com</td>
+  </tr>
+  <tr id = "ddns_update_tr">
+    <td id = "ddns_update_label">Update Cycle[M]</td>
+    <td colspan = "2">
+        <select id = "ddns_update_cycle" class = "td_select" disabled = "disabled" onchange = "g_bChange = true;"></select>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td colspan = "2"><input id = "ddns_test_btn" type = "button" value = "Test" onclick="NetworkTestDDNS(false)"/>
+                      <input id = "ddns_register_btn" type = "button" value = "Register" onclick = "NetworkTestDDNS(false)" />
+                      <input id = "ddns_delete_btn" type = "button" value = "Delete" onclick="DeleteDDNS()" /></td>
+  </tr>
+  <tr>
+    <td id = "upnp_label">UPnP</td>
+      <td colspan = "2"><input type = "checkbox" name = "upnp_enable" onchange = "g_bChange = true;"/>
+      </td>
+  </tr>
+  </table>
+  </li>
+</ul>
+<div class = "save_bar">
+    <input id = "default_btn1" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgNetwork()"/>
+    <input id = "save_btn1" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>

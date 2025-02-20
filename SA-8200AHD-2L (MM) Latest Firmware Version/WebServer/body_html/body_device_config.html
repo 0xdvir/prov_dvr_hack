@@ -1,0 +1,159 @@
+﻿<div style="width: 765px;">
+    <div class="tip_div">
+        <div class="tip_img">
+        </div>
+        <span id="device_config_errortips" class="tip_span"></span>
+    </div>
+    <div class="dash_line">
+    </div>
+    <div class = "save_bar">
+        <input id = "save_btn" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "SetDeviceInfo();" />
+    </div>
+    <ul class="list_ul">
+        <div id="device_manage_label" class="head_div">Device management</div>
+        <li>
+            <table id="table_device_manage"  class="main_table" style="width: 750px;">
+            </table>
+        </li>
+        <li>
+            <div id="div_page_control" style=" width:750px; margin-top:10px;overflow:hidden;">
+                <span id = "device_list_page" style ="width:40px; height:30px; line-height:30px;float:left; text-align:center;">0/0</span>
+                <img id = "user_end" src = "res/end.png" class = "f_right" onmousemove = "this.style.cursor = 'pointer'" onclick = "DeviceList.Instance().LastPage()" />
+                <img id = "user_next" src = "res/next.png" class = "f_right" onmousemove = "this.style.cursor = 'pointer'" onclick = "DeviceList.Instance().NextPage()" />
+                <img id = "user_previous" src = "res/prev.png" class = "f_right" onmousemove = "this.style.cursor = 'pointer'" onclick = "DeviceList.Instance().PrevPage()" />
+                <img id = "user_first" src = "res/first.png" class = "f_right" onmousemove = "this.style.cursor = 'pointer'" onclick = "DeviceList.Instance().FirstPage()" />
+            </div>
+        </li>
+    </ul>
+    <div class="dash_line">
+    </div>
+    <ul class="list_ul">
+        <li style="width: 750px;">
+            <div id="device_button_group" style="margin-top:10px;margin-bottom: 5px; text-align: center;">
+                <input type="button" id="device_add_button" value="添加" onclick="OnAddDevice()" />
+                <input type="button" id="device_modify_button" value="设置" onclick="OnModifyDevice()" />
+                <input type="button" id="device_del_button" value="删除" onclick="OnDelDevice()" />
+                <input type="button" id="device_del_all_button" value="删除全部" onclick="OnDelAllDevice()" />
+                <input type="button" id="device_search_button" value="搜索" onclick="OnSearchDevice()" />
+            </div>
+        </li>
+    </ul>
+    <ul id="device_info_pane" class="list_ul" style="display: none;">
+        <div id="device_cfg_label" class="head_div">Device information</div>
+        <li style="width: 750px;">
+            <table border="1" class="main_table" style="width: 750px; margin-bottom: 10px;">
+                <tr>
+                    <td id="device_enable_label" class="label">
+                        Enable</td>
+                    <td class="data">
+                        <input type="checkbox" style="width: 20px" name="enable_device" onclick="BindingCh(this);" />
+                    </td>
+                </tr>
+                <tr>
+                    <td id="device_channel_label" class="label">
+                        Channel</td>
+                    <td class="data">
+                        <select name="device_channel" class="td_select" >
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="device_manufacturer_label" class="label">
+                        Manufacturer</td>
+                    <td class="data">
+                        <select name="device_manufacturer" class="td_select" onchange="OnChangeManufacturer();">
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="device_ip_label" class="label">
+                        Network address</td>
+                    <td class="data">
+                        <input type="text" name="device_ip" class="input_text"/>
+                    </td>
+                </tr>
+                <tr>
+                  <td id = "device_server_port_label" class = "label">Server port</td>
+                  <td class = "data">
+                    <input type = "text" class = "input_text" id = "device_server_port" maxlength = "5" onkeypress = "return isNumberInput(this,event);" onchange = "InputCheck(this,65535,1)"/>
+                  </td>
+                </tr>
+                <tr id = "http_port_tr">
+                  <td id = "device_http_port_label" class = "label">HTTP port</td>
+                  <td class = "data">
+                    <input type = "text" class = "input_text" id = "device_http_port" maxlength = "5" onkeypress = "return isNumberInput(this,event);" onchange = "InputCheck(this,65535,1)"/>
+                  </td>
+                </tr>
+                <tr id = "ctrl_port_tr">
+                  <td id = "device_ctrl_port_label" class = "label">Ctrl port</td>
+                  <td class = "data">
+                    <input type = "text" class = "input_text" id = "device_ctrl_port" maxlength = "5" onkeypress = "return isNumberInput(this,event);" onchange = "InputCheck(this,65535,1)"/>
+                  </td>
+                </tr>
+                <tr>
+                    <td id="device_username_label" class="label">
+                        Username</td>
+                    <td class="data">
+                        <input type="text" name="device_username" class="input_text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td id="device_user_password_label" class="label">
+                        Password</td>
+                    <td class="data">
+                        <input type="password" name="device_user_password" class="input_text" />
+                    </td>
+                </tr>
+            </table>
+            <div id="btn_group_device_add" style="text-align: right; margin: 20px 27px 0 0;">
+                <input type="button" id="device_ok_button" value="OK" onclick="OnAddDevicerOK()" />
+                <input type="button" id="device_cancel_button" value="Cancel" onclick="OnDeviceCancel()" />
+            </div>
+            <div id="btn_group_device_modify" style="text-align: right; margin:20px 27px 0 0;">
+                <input type="button" id="device_mod_ok_button" value="OK" onclick="OnModifyDeviceOK()" />
+                <input type="button" id="device_mod_cancel_button" value="Cancel" onclick="OnDeviceCancel()" />
+            </div>
+        </li>
+    </ul>
+    <ul id="search_pane" class="list_ul" style="width: 750px; display:none;">
+        <div id="device_list" class="head_div">Device list</div>
+        <li style="width: 750px;">
+            <table id = "search_device_list" border="1" class="main_table" style="width: 750px;">
+                <tr class = "table_head_bgcolor">
+                    <td id = ""  style ="width:60px;">&nbsp</td>
+                    <td id = "search_manufacturer_label" style ="width:150px;">Manufacturer</td>
+                    <td id = "search_product_model_label" style ="width:150px;">Product Model</td>
+                    <td id = "search_IP_address_label" style ="width:300px;">IP Address</td>
+                    <td id = "search_port_label" style ="width:90px;">Port</td>
+                </tr>
+                <tr><td><input type = "checkbox" name = "device_item" /></td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
+                <tr><td><input type = "checkbox" name = "device_item" /></td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
+                <tr><td><input type = "checkbox" name = "device_item" /></td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
+                <tr><td><input type = "checkbox" name = "device_item" /></td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
+                <tr><td><input type = "checkbox" name = "device_item" /></td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
+                <tr><td><input type = "checkbox" name = "device_item" /></td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
+            </table>
+            <div style ="width:750px; margin-top:10px; text-align:left;overflow:hidden;">  <!----增加overflow:hidden zld 2010/8/16><!----->
+                <span id = "search_device_list_page" style ="width:180px; height:25px; line-height:25px;float:left; text-align:left;">0/0</span>
+                <input type = "checkbox" id = "device_checkall" style ="margin: 5px 0px 0 1px;float:left;" onclick = "DeviceM_SelectAll()"/>
+                <span id = "device_checkall_label" style ="width:25px; height:25px; line-height:25px;float:left; text-align:left;">All</span>
+         <!--        <input type = "button" id = "device_checkall_btn" value = "All" style ="float:left;" onclick = "DeviceM_SelectAll()"/>  -->
+                <img id = "search_device_end" src = "res/end.png" class = "f_right" onclick="DeviceGotoLastPage()" />
+                <img id = "search_device_next" src = "res/next.png" class = "f_right" onclick="DeviceGotoNextPage()" />
+                <img id = "search_device_previous" src = "res/prev.png" class = "f_right" onclick="DeviceGotoPrevPage()" />
+                <img id = "search_device_first" src = "res/first.png" class = "f_right" onclick="DeviceGotoFirstPage()" />
+            </div>
+            <div id = "device_search_btn_group" style ="width:750px; margin-top:10px; text-align:right;">
+                <input type = "button" id = "search_device_refresh_btn" value = "Refresh" onclick = "OnSearchDevice()"/>
+                <input type = "button" id = "search_device_ok_btn" value = "OK" onclick = "OnSearchDeviceOK()"/>
+                <input type = "button" id = "search_device_cancle_btn" value = "Cancle" onclick = "OnDeviceSearchCancel()" />
+            </div>
+        </li>
+    </ul>
+    <div class = "save_bar">
+        <input id = "save_btn1" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "SetDeviceInfo();" />
+    </div>
+</div>
+
+
+ 

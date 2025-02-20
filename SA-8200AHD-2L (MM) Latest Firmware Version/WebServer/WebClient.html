@@ -1,0 +1,633 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<meta http-equiv="Expires" content="Tue, 12 May 2001 1:00:00 GMT" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Content-type" content="text/html;" />
+<link href="res/WebClient.ico" rel="SHORTCUT ICON" />
+<style type="text/css">
+*{margin:0;padding:0;}
+div,table,tr,td,input,img,ul,label{margin:0; padding:0;}
+body {font-size:12px; font-family:Tahoma,Verdana;}
+img{ border:0;cursor:pointer;}
+a{text-decoration:none;}
+input{margin-top:1px;height:auto;}/*针对firefox的checkbox会出现一个难看的黑框*/
+body{font-size: 12px; background: url(res/bg.png) repeat-x left top;}
+#ocx_alt_label{position: absolute; z-index: -1; font-weight: bold;font-size: 20px; left: 200px; top: 200px;}
+#div_playback{margin: 0 0 0 730px; width: 240px; position: relative;height: 608px;}
+/*zld 2014/2/28*/
+#div_playback_local{margin: 0 0 0 730px; width: 240px; position: relative;height: 608px;}
+#div_main_menu{margin: 0; padding: 0; height: 30px; width: 980px;position: relative;}
+
+.tip_div{width:750px; height:40px; margin:10px 0 0 15px; position:relative;}
+.tip_span{ width:710px; height:40px; line-height:40px; font-size:17px; position:absolute; left:40px; top:0;}
+.list_ul{margin-left:15px; list-style-type:none;}
+.label		{width:287px;}
+.data		{width:440px;}
+.input_text {width:437px;}
+.td_select	{width:441px;}
+select		{width:100px;}
+input		{width:65px;}
+/*#id_live_cfg input,#id_sensor_alarm input,#id_alarm_out input,#preset_info input,#cruiseName{overflow:visible;}*/
+
+/*config && info common css*/
+#div_config_body td,#div_info_body td,#div_advance_body td  {height:26px; padding:0 5px;}
+
+/*td border invisible*/
+#other_alarm_trigger_out td,
+#motion_trigger_out td,#motion_trigger_record td,
+#sensor_trigger_out td,#sensor_trigger_record td,
+#user_authority td,#user_record_auth td,
+#vloss_trigger_out td,
+#id_log_type td,#info_log_sdate_span td,#info_log_edate_span td,
+#info_event_sdate_span td,#info_event_edate_span td,
+#user_playback_auth td,#user_backup_auth td,#user_ptzctrl_auth td,#user_remoteview_auth td,#user_localview_auth td,
+#user_auth_group td,
+#pc_time td,#dst_start_date_time td,#dst_end_date_time td
+{border:0;}
+
+#user_authority input{ width:20px;}
+
+/*canlendar css*/
+#info_event_sdate_span td,#info_event_edate_span td,
+#info_log_sdate_span td,#info_log_edate_span td,
+#div_calendar_schedule td,#pc_time td,#dst_start_date_time td,#dst_end_date_time td,
+#timesearch_sdate_span td{padding:0 1px;height:auto;}
+#sel_date{border-width :1px 0 1px 1px;border-style:solid;width:170px;text-align:center;cursor: pointer;}
+#sel_date_right{width: 15px; border-width:1px 1px 1px 0;border-style:solid;margin-left:-8px; display:inline;}
+.pickerImg  	{position: absolute;margin-left: -23px;margin-top: 5px;cursor: pointer;display:inline;}
+
+/*search backup tr height*/
+    #div_file_list tr,#div_event_list tr,#file_list tr,#div_file_list_local tr{height:20px;}
+#log_info_table td,#event_info_table td,#online_user_table td,/*info tabel line-height*/
+#advance_diskm_table td,#advance_upgrade_table td
+{
+	height:22px;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+}
+    #play_channel_table tr,#file_manager_channel tr,#div_backup_channel tr,#file_manager_channel_local tr{height:24px;}  /*zld 2010/8/16   °ÃÅ0ä2°Ã°ŸÅ0Ö1Å0Ü2°Ã®¨#file_manager_channel tr #div_backup_channel tr*/
+
+/*user auth*/
+#user_authority td,#user_record_auth td,#user_playback_auth td,#user_backup_auth td,#user_ptzctrl_auth td,#user_remoteview_auth td,#user_localview_auth td,
+#motion_trigger_out td,#motion_trigger_record td,
+#sensor_trigger_out td,#sensor_trigger_record td,
+#motion_snap td,#sensor_snap td,#vloss_snap td, #id_sensor_ftp, #id_motion_ftp, 
+#vloss_trigger_out td{width:175px;}
+#net_ftp_upload_channel td{width:135px;}
+/*info*/
+#id_event_type label,
+#id_log_type td
+{
+	margin:0;
+	padding:0;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+}
+#id_log_type input{margin:0px; padding:0px;width:20px;}
+
+/*config preset table css*/
+#preset_info input{ height:25px; line-height:25px; margin:0; padding:0;}
+#preset_info tr{height:27px;}
+.presetname_input{width:400px;}
+
+/*backup*/
+#file_list{margin-bottom:10px; text-align:center; width:700px;}
+#backup_list_page{width:300px; height:25px; line-height:25px;float:left; text-align:center;}
+/*zld 2010/8/25*/
+/*#div_file_path{width:680px;height:26px;padding :0 10px; margin-top:10px;}*/
+#div_file_path{width:690px;height:26px;padding :0 10px; margin-top:10px;}
+#backup_filepath_label{width:80px; height: 26px; line-height:26px; float:left; text-align:left;}
+
+.f_left{float:left; margin-right:3px;}
+.f_right{float:right; margin-left:3px;}
+
+/*2010/8/27*/
+.user_gen_table td,
+#motion_trigger_record td,
+#sensor_trigger_out td,#sensor_trigger_record td,
+#vloss_trigger_out td,
+#user_playback_auth td,#user_backup_auth td,#user_ptzctrl_auth td,#user_remoteview_auth td,#user_record_auth td,#user_localview_auth td,
+{ border:solid 1px gray; border-left:none; border-right:none; padding:2px;}
+#play_channel_table td,#play_channel_table_2 td,#file_manager_channel td,#div_backup_channel td,#file_manager_channel_local td{border-bottom:solid 1px #000;}  /*zld 2010/8/16   °ÃÅ0ä2°Ã°ŸÅ0Ö1Å0Ü2°Ã®¨#file_manager_channel td #div_backup_channel td,*/
+#user_auth_group td{padding:0;}
+.user_check_tabel{border-collapse:collapse; border:solid 1px gray;margin:0px; width:346px;}
+
+#first_stream_table, #web_rec_table{border-color:#FFFFFF;}/*master status table border color*/
+#first_stream_table td,#web_rec_table td{ height:20px;border-color:#FFFFFF;}
+#event_list td{text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+
+
+/***÷˜≤Àµ•µº∫Ω—˘ Ω**/
+/*÷˜≤Àµ•—˘ Ω»´≤ø∏ƒ≥…”√ID¿¥ µœ÷2011/07/20/dj*/
+#logo_text{background-color:#ADD4FD; border:none; height:28px;}/*061D51*/
+#info_nav{display :none;width:115px;border-left:solid 1px #7F98B3;position:absolute; top:0;left:0; background-color:#D4E8FE;margin:0px;height:29px;width:114px; color:#000000; padding:0;text-overflow:ellipsis;white-space:nowrap;overflow:hidden; display:block;}/*0066FF,FFFFFF*/
+#advance_nav{display :none; position:absolute; top:0;left:0; background-color:#D4E8FE;margin:0px;height:29px;width:114px; color:#000000; padding:0; border-left:solid 1px #041427;border-right:solid 1px #7F98B3;text-overflow:ellipsis;white-space:nowrap;overflow:hidden; display:block;}/*0066FF,FFFFFF*/
+#config_nav{display :none; position:absolute; top:0;left:0; background-color:#D4E8FE;margin:0px;height:29px;width:114px; color:#000000; padding:0; border-left:solid 1px #041427;border-right:solid 1px #7F98B3;text-overflow:ellipsis;white-space:nowrap;overflow:hidden; display:block;}/*0066FF,FFFFFF*/
+#backup_nav{display :none; position:absolute; top:0;left:0; background-color:#D4E8FE;margin:0px;height:29px;width:114px; color:#000000; padding:0; border-left:solid 1px #041427;border-right:solid 1px #7F98B3;text-overflow:ellipsis;white-space:nowrap;overflow:hidden; display:block;}/*0066FF,FFFFFF*/
+#search_nav{display :none; position:absolute; top:0;left:0; background-color:#D4E8FE;margin:0px;height:29px;width:114px; color:#000000; padding:0; border-left:solid 1px #041427;border-right:solid 1px #7F98B3;text-overflow:ellipsis;white-space:nowrap;overflow:hidden; display:block;}/*0066FF,FFFFFF*/
+#live_nav{display :none; position:absolute; top:0;left:0; background-color:#D4E8FE;margin:0px;height:29px;width:114px; color:#000000; padding:0; border-left:solid 1px #041427;border-right:solid 1px #7F98B3;text-overflow:ellipsis;white-space:nowrap;overflow:hidden; display:block;}/*0066FF,FFFFFF*/
+
+#localPB_nav{display :none; position:absolute; top:0;left:0; background-color:#D4E8FE;margin:0px;height:29px;width:114px; color:#000000; padding:0; border-left:solid 1px #041427;border-right:solid 1px #7F98B3;text-overflow:ellipsis;white-space:nowrap;overflow:hidden; display:block;}/*0066FF,FFFFFF*/
+    
+/*#div_main_menu span {position:absolute; top:0;left:0; background-color:#0066FF;margin:0px;height:29px;width:114px; color:#FFFFFF; padding:0; border-left:solid 1px #7F98B3;border-right:solid 1px #7F98B3;text-overflow:ellipsis;white-space:nowrap;overflow:hidden; display:block;}/*D4E8FE*/
+/*#logo_text{background-color:#061D51; border:none; height:28px;}/*ADD4FD*/
+
+#main_ul {width:980px; height:28px; border:0; border-bottom:solid 1px #7F98B3; border-top:solid 1px #7F98B3; background-color:#ADD4FD; margin:0; padding:0; font-size:15px; font-weight:bold;}/*061D51*/
+#main_ul li  {margin:0; padding:0; height:28px;line-height:28px; width:116px; display:inline; float:right; position:relative; color:#000000;}/*FFFFFF*/
+
+.table_head_bgcolor{background-color:#D4E8FE;}/*∂ØÃ¨…˙≥…±Ì∏Ò±ÌÕ∑µƒ—’…´061D51*/
+
+#work_area{width: 0px; float: left; margin-top: 5px; border:solid 0px #767778; background-color:#D4E8FE;}/*π§◊˜«¯”Ú—˘ Ω061D51*/
+#div_live{margin: 0 0 0 779px; width: 200px;text-align: center;position : relative;
+		 border-left: solid 1px #7F98B3;  background-color: #D4E8FE;  }/*œ÷≥°”“øÚ—˘ Ω,061D51*/
+		 
+#div_live_time{ position:absolute; z-index:1; left:0px; top:0px; height:55px; width:200px; font-weight:bold; line-height:55px; font-size:16px;color:#000000;}/*œ÷≥° ±º‰—˘ ΩFFFFFF*/
+.liveNav{width:200px; height:35px; line-height:35px;font-size:12px; cursor:pointer;background:url(res/live_status_1px.jpg) repeat-x left top;color:#000000;}/*œ÷≥°”“≤‡◊¥Ã¨¿∏…œ◊÷µƒ—’…´FFFFFF*/
+#master_eg{ width:10px;background-color:#2A54AE;}/*÷˜¬Î¡˜—’…´009900*/
+#master_stream_label{padding-left:10px; width:170px;color:#000000;}/*÷˜¬Î¡˜◊÷—’…´FFFFFF*/
+#sub_eg{ width:10px;background-color:#800040;}/*◊”¬Î¡˜—’…´0066FF*/
+#sub_stream_label{padding-left:10px; width:170px;color:#000000;}/*◊”¬Î¡˜◊÷—’…´FFFFFF*/
+/*#rec_status_label{position:relative;margin-top:20px; margin-left:15px;color:#000000;}*//*±æµÿ¬ºœÒ◊÷µƒ—˘ Ω000000*/
+#rec_status_label{position:relative;margin-top:20px; margin-left:15px;color:#000000;}/*±æµÿ¬ºœÒ◊÷µƒ—˘ ΩFFFFFF*/
+
+/*À—À˜“≥√Ê*/
+#div_search_body{width: 980px;  position: relative;border-bottom: solid #D4E8FE 20px;}/*À—À˜“≥√Ê◊Óœ¬√Êµƒ—’…´061D51*/
+
+/*search channel divsion css*/
+#sguide,#sguide1 {position:relative;border-bottom:solid 1px #000; height:43px; font-size:12px; width:210px;}
+#sguidelist,#sguidelist1 {position:absolute; height:44px;line-height:44px; border:0;left:0px;top:0px; border-right:solid 1px black;}
+#sguidelist a,#sguidelist1 a{padding:0;display:block; float:left;text-align:center;background:#F6F6F6; width:45px; height:43px; text-decoration:none;}
+#sguidelist a.on, #sguidelist1 a.on{height:44px;}
+#content,#content1 { border:solid 1px #000; border-top:0; border-bottom:0; width:208px; background-color:#D4E9FE;color:#000000;}/*ª≠√Ê—°‘Ò«¯”Ú±≥æ∞—’…´061D51,FFFFFF*/
+#search_middle_div{position:absolute;left:150px; top:20px;width:560px; padding:10px 10px 0 10px;background-color:#F4F7FE;border:solid 1px #000;}/*102E83*/
+#search_right_div{position:absolute;left:745px; top:20px;width:200px; padding:10px 10px 0 10px; background-color:#F4F7FE;border:solid 1px #000;}/*102E83*/
+
+/*zld 2014/2/26*/
+#search_middle_div_local{width:720px; position:absolute;left:10px; top:20px;  background-color:#F4F7FE;border:solid 1px #000;margin-right:10px;}/*102E83*/
+/*#search_middle_div_local{position:absolute;left:150px; top:20px;width:690px; padding:10px 10px 0 10px;background-color:#F4F7FE;border:solid 1px #000;}*//*102E83*/
+#search_right_div_local{position:absolute;left:745px; top:20px;width:200px; padding:10px 10px 0 10px; background-color:#F4F7FE;border:solid 1px #000;}/*102E83*/
+    
+    
+#timesearch_stime_label,#ts_play_label,#div_search_condition,#div_event_condition,#ts_search_label,#search_file_list_page,#search_event_list_page,
+    #pb_file_list,#event_list,#pb_starttime,#id_record_osd_cfg,#id_record_osd_cfg input,#id_motion_alarm input,#id_sensor_alarm input,#user_config_label,#pb_file_list_local,#search_file_list_page_local,#div_search_condition_local{ color:#000000;}/*FFFFFF*/
+
+/***À—À˜“≥√Êµº∫Ω—˘ Ω* */  
+#div_search_nav{width:130px; position:absolute;left:10px; top:20px;  background-color:#F4F7FE;border:solid 1px #000;margin-right:10px;}/*102E83*/
+/*#div_search_nav{width:130px; background-color:#F4F7FE;border:solid 1px #000;margin:20px 0 0 10px; height:100%;}  zld 825*/
+#div_search_nav ul{margin-top:30px; text-align:center;list-style-type:none; margin:0; padding:0;height:100%;}
+#div_search_nav li{height:130px;margin:30px 10px;padding:0;}
+#time_search_hour{color:#000000;}/*FFFFFF*/
+
+.timeNav a:link{display:block;height:30px;line-height:30px;padding:101px 0 0 0;margin:0;text-decoration:none;color:#000000;font-weight:normal; font-family: Arial, Helvetica, sans-serif;font-size: 15px;}/*FFFFFF*/
+.timeNav a:visited{display:block;height:30px;line-height:30px;padding:101px 0 0 0;margin:0;text-decoration:none;color:#000000;font-weight:normal;  font-family: Arial, Helvetica, sans-serif;font-size: 15px;}/*FFFFFF*/
+.timeNav a:active{display:block;height:30px;line-height:30px;padding:101px 0 0 0;margin:0;text-decoration:none;color:#000000;font-weight:normal; font-family: Arial, Helvetica, sans-serif;font-size: 15px;}/*FFFFFF*/
+.timeNav a:hover{display:block;height:30px;line-height:30px;padding:101px 0 0 0;margin:0;text-decoration:none;color:#000000;font-weight:bold; font-family: Arial, Helvetica, sans-serif;font-size: 15px;}/*FFFFFF*/
+
+/*±∏∑›“≥√Ê*/
+#div_backup_body{width: 980px; height: 600px; position: relative;text-align: left; border-bottom: solid #D4E8FE 20px; color:#000000;}/*061D51,FFFFFF*/
+#div_backup{background-color:#F4F7FE; position:absolute; left:10px; top:20px; height:560px; width:710px; border:solid 1px #000;margin-right:10px; padding:10px 0 0 10px; text-align:left;}/*102E83*/
+#div_backup_search{position:absolute; left:745px; top:20px; margin: 0px auto; padding: 0;padding:10px 5px 0 5px;text-align:center; width:220px; height:560px;background-color:#F4F7FE; border:solid 1px #000;}/*102E83*/
+
+                    
+/*≈‰÷√“≥√Ê*/
+#div_config{width: 980px; position: relative;text-align: left;  padding:1px;}
+/*#div_config{width: 980px; position: relative;text-align: left; border-bottom: solid #D4E8FE 20px;}*//*≈‰÷√“≥√Ê◊Óœ¬√Êµƒ—’…´505050*/
+#div_config_index{width: 170px; background-color: #F4F7FE; margin: 20px 0 0 8px;border: solid 1px #000; padding: 0;}/*≈‰÷√µº∫Ωµƒ±≥æ∞102E83*/
+#div_config_body{width: 780px; position: absolute; left: 190px; top:0px;background-color: #F4F7FE; margin: 20px 0 0 0; border: solid 1px #000; padding: 0;color:#000000;}/*≈‰÷√÷˜ÃÂ≤ø∑÷±≥æ∞—’…´102E83,FFFFFF*/
+
+/***√Ö√§√ñ√É√í¬≥√É√¶&&√ê√Ö√è¬¢¬≤√©√ë¬Ø¬µ¬º¬∫¬Ω√ë√π√ä¬Ω**/
+/***≈‰÷√“≥√Ê&&–≈œ¢≤È—Øµº∫Ω—˘ Ω**/
+#left_nav a{text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+
+#config_left_nav a{text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+#config_left_nav,#left_nav{background-color:#F4F7FE;margin:0px;padding:0; list-style-type:none; width:170px; text-align:left; font-size:14px;font-family:Arial;}/*102E83*/
+#div_config_index a:link,#div_info_index a:link{color: #424242;}/*FFFFFF*/
+#div_config_index a:visited,#div_info_index a:visited{color: #424242;}/*FFFFFF*/
+#div_config_index a:active,#div_info_index a:active{color: #424242;}/*FFFFFF*/
+#div_config_index a:hover,#div_info_index a:hover{color: #000000;}/*FFFFFF*/
+
+.L11,.L12{height:56px; padding:0; margin:0;text-align:left; width:170px;}
+
+.L11 a:link,.L12 a:link{display:block;width:110px;height:36px;line-height:36px;padding:10px 0 10px 60px;color:#424242;font-weight:normal;background-color:Transparent;}
+.L11 a:visited,.L12 a:visited{display:block;width:110px;height:36px;line-height:36px;padding:10px 0 10px 60px;color:#424242;font-weight:normal;background-color:Transparent;}
+.L11 a:active,.L12 a:active{display:block;width:110px;height:36px;line-height:36px;padding:10px 0 10px 60px;color:#424242;font-weight:normal;background-color:Transparent;}
+.L11 a:hover,.L12 a:hover{display:block;width:110px;height:36px;line-height:36px;padding:10px 0 10px 60px;color:black;font-weight:bold;background-color:Transparent;}
+
+.L11 a.active:link,.L12 a.active:link{display:block;width:110px;height:36px;line-height:36px;padding:10px 0 10px 60px;color:black;font-weight:bold;background-color:#72B1FF;}/*0066FF*/
+.L11 a.active:visited,.L12 a.active:visited{display:block;width:110px;height:36px;line-height:36px;padding:10px 0 10px 60px;color:black;font-weight:bold;background-color:#72B1FF;}/*0066FF*/
+
+.L21{height:20px;padding:0;margin:0;width:150px;text-align:left; list-style-type:none;}
+
+.L21 a:link{width:100%;padding-left:20px;margin:0;background-image:none;background-color:Transparent;font-weight:normal;height:20px;line-height:20px;display:block; font-size:12px;}
+.L21 a:visited{width:100%;padding-left:20px;margin:0;background-image:none;background-color:Transparent;font-weight:normal;height:20px;line-height:20px;display:block; font-size:12px;}
+.L21 a:active{width:100%;padding-left:20px;margin:0;background-image:none;background-color:#D4E8FE;font-weight:bold; height:18px; line-height:18px;display:block; font-size:12px;}
+.L21 a:hover{width:100%;padding-left:20px;margin:0;background-image:none;background-color:Transparent;font-weight:bold; height:18px; line-height:18px;display:block; font-size:12px;}
+
+.L21 a.active:link{width:100%;padding-left:20px;margin:0;background-image:none;background-color:#D4E8FE;font-weight:bold; height:18px; line-height:18px;display:block; font-size:12px;}/*93BEFF*/
+.L21 a.active:visited{width:100%;padding-left:20px;margin:0;background-image:none;background-color:#D4E8FE;font-weight:bold; height:18px; line-height:18px;display:block; font-size:12px;}/*93BEFF*/
+
+/*∏ﬂº∂≈‰÷√ΩÁ√Ê—˘ Ω*/
+#div_advance_body{width: 980px; height: 588px; position: relative;text-align: left;padding:1px;color:#000000;}/*FFFFFF*/
+
+/*∏ﬂº∂≈‰÷√ΩÁ√Êµº∫Ω—˘ Ω*/
+#div_advance_nav{ width:180px; height:560px; margin:20px 0 0 10px; background-color:#F4F7FE;border:solid 1px gray; text-align:center;}/*102E83*/
+#div_advance_content{position:absolute;left:200px; top:20px;width:725px;height:550px; padding:10px 10px 0 30px;background-color:#F4F7FE;border:solid 1px gray;}/*102E83*/
+#div_advance_nav ul{margin-top:30px;}
+/*
+.advanceNav a:link{display:block;height:30px;line-height:30px;padding:101px 0 0 0;margin:0;text-decoration:none;color:black;font-weight:normal; font-family: Arial, Helvetica, sans-serif;font-size: 15px;}
+.advanceNav a:visited{display:block;height:30px;line-height:30px;padding:101px 0 0 0;margin:0;text-decoration:none;color:black;font-weight:normal;  font-family: Arial, Helvetica, sans-serif;font-size: 15px;}
+.advanceNav a:active{display:block;height:30px;line-height:30px;padding:101px 0 0 0;margin:0;text-decoration:none;color:black;font-weight:normal; font-family: Arial, Helvetica, sans-serif;font-size: 15px;}
+.advanceNav a:hover{display:block;height:30px;line-height:30px;padding:101px 0 0 0;margin:0;text-decoration:none;color:black;font-weight:bold; font-family: Arial, Helvetica, sans-serif;font-size: 15px;}
+*/
+.advanceNav a:link{display:block;height:60px;line-height:30px;padding:101px 0 0 0;margin:0;text-decoration:none;font-weight:normal; font-family: Arial, Helvetica, sans-serif;font-size: 15px;color:#000000;}/*FFFFFF*/
+.advanceNav a:visited{display:block;height:60px;line-height:30px;padding:101px 0 0 0;margin:0;text-decoration:none;font-weight:normal;  font-family: Arial, Helvetica, sans-serif;font-size: 15px;color:#000000;}/*FFFFFF*/
+.advanceNav a:active{display:block;height:60px;line-height:30px;padding:101px 0 0 0;margin:0;text-decoration:none;font-weight:normal; font-family: Arial, Helvetica, sans-serif;font-size: 15px;color:#000000;}/*FFFFFF*/
+.advanceNav a:hover{display:block;height:60px;line-height:30px;padding:101px 0 0 0;margin:0;text-decoration:none;font-weight:bold; font-family: Arial, Helvetica, sans-serif;font-size: 15px;color:#000000;}/*FFFFFF*/
+#main_ul a:link   {text-decoration:none;height:28px;width:116px;color:black;margin:0;padding:0;}
+#main_ul a:visited   {text-decoration:none;height:28px;width:116px;color:black;margin:0;padding:0;}
+#main_ul a:active   {text-decoration:none;height:28px;width:116px;color:black;margin:0;padding:0;}
+
+#main_ul a:hover   {text-decoration:none;height:28px;width:116px;color:#4169E1;margin:0;padding:0;}
+
+
+.nav1 a{background:url(res/basic.png) no-repeat 10px center; position:relative;}
+.nav2 a{background:url(res/live.png) no-repeat 10px center;}
+.nav3 a{background:url(res/record.png) no-repeat 10px center;}
+.nav4 a{background:url(res/schedule.png) no-repeat 10px center;}
+.nav5 a{background:url(res/alarm.png) no-repeat 10px center;}
+.nav6 a{background:url(res/network.png) no-repeat 10px center;}
+.nav7 a{background:url(res/ptz.png) no-repeat 10px center;}
+.nav8 a{background:url(res/user.png) no-repeat 10px center;}
+.nav9 a{background:url(res/local_cfg.png) no-repeat 10px center;}
+.nav10 a{background:url(res/advanced_cfg.png) no-repeat 10px center;}
+.nav11 a{background:url(res/device.png) no-repeat 10px center;}
+
+.nav21 a{background:url(res/system.png) no-repeat 10px center;}
+.nav22 a{background:url(res/events.png) no-repeat 10px center;}
+.nav23 a{background:url(res/log.png) no-repeat 10px center;}
+.nav24 a{background:url(res/network.png) no-repeat 10px center;}
+.nav25 a{background:url(res/user_info.png) no-repeat 10px center;}
+
+
+
+/*zld 2010/10/12*/
+.div_load_webkit a:link{display:block;width:110px;height:127px;line-height:127px;padding:10px 0 10px 60px;color:#424242;font-weight:normal;background-color:Transparent;}
+.div_load_webkit a:visited{display:block;width:110px;height:127px;line-height:127px;padding:10px 0 10px 60px;color:#424242;font-weight:normal;background-color:Transparent;}
+.div_load_webkit a:active{display:block;width:110px;height:127px;line-height:127px;padding:10px 0 10px 60px;color:#424242;font-weight:normal;background-color:Transparent;}
+.div_load_webkit a:hover{display:block;width:110px;height:127px;line-height:127px;padding:10px 0 10px 60px;color:black;font-weight:bold;background-color:Transparent;}
+
+.div_load_webkit a.active:link{display:block;width:110px;height:127px;line-height:127px;padding:10px 0 10px 60px;color:black;font-weight:bold;background-color:#72B1FF;}
+.div_load_webkit a.active:visited{display:block;width:110px;height:127px;line-height:127px;padding:10px 0 10px 60px;color:black;font-weight:bold;background-color:#72B1FF;}
+.div_load_webkit a{background:url(res/load_webkit.jpg) no-repeat 10px center;}
+
+#chromeTipDiv {text-align: left; position: absolute;top: -160px; font-size: 16px;}
+#chromeTipDiv ul{list-style-type: none; margin-top: 10px;}
+#chromeTipDiv ul li{height: 25px;}
+
+
+#div_ocx{width: 0px;  position: absolute;left:2px;top:39px;padding-top: 5px;background-color: #D4E8FE;}/*061D51*/
+.s1 a{background:url(res/TimeSearch1.jpg) no-repeat center top;}
+.s2 a{background:url(res/EventSearch1.jpg) no-repeat center top;}
+.s3 a{background:url(res/FileManager1.jpg) no-repeat center top;}
+
+
+.s1 a.active{background:url(res/TimeSearch2.jpg) no-repeat center top;font-weight:bold; font-family: Arial, Helvetica, sans-serif;font-size: 15px;}
+.s2 a.active{background:url(res/EventSearch2.jpg) no-repeat center top;font-weight:bold; font-family: Arial, Helvetica, sans-serif;font-size: 15px;}
+.s3 a.active{background:url(res/FileManager2.jpg) no-repeat center top;font-weight:bold; font-family: Arial, Helvetica, sans-serif;font-size: 15px;}
+
+
+
+.n1 a{background:url(res/diskmanager1.jpg) no-repeat center top;}
+.n2 a{background:url(res/update1.jpg) no-repeat center top;}
+.n3 a{background:url(res/manual_alarm1.jpg) no-repeat center top;}
+
+.n1 a.active{background:url(res/diskmanager2.jpg) no-repeat center top;font-weight:bold; font-family: Arial, Helvetica, sans-serif;font-size: 15px;}
+.n2 a.active{background:url(res/update2.jpg) no-repeat center top;font-weight:bold; font-family: Arial, Helvetica, sans-serif;font-size: 15px;}
+.n3 a.active{background:url(res/manual_alarm2.jpg) no-repeat center top;font-weight:bold; font-family: Arial, Helvetica, sans-serif;font-size: 15px;}
+
+
+/*zld 2010/10/19 uistyle*/
+/*public*/
+.head_div{width:150px; color:White; background:url(res/list_head.png) no-repeat left top; height:27px; margin-top:20px; line-height:27px; padding-left:5px;
+	      _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='res/list_head.png');_background-image:none; /*IE6*/overflow:hidden;}
+
+
+.tip_img{width:40px; height:40px; background-image:url(res/save_tip.png); _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='res/save_tip.png');_background-image:none;}
+.save_bar{width:750px; height:27px; border:0; margin:5px 0 10px 15px; padding:0; background-color:#AFD5FA;}/*061D51*/
+.cfg_save_btn{border:0; float:right; height:27px; background-color:Transparent; margin:0; padding:0;cursor:pointer; width:110px;color:#000000;}/*FFFFFF*/
+.dash_line{width:750px; height:1px; margin-left:15px; padding:0; margin-top:5px; border-top:dashed 1px #72B1FF;}
+/*td border visible*/
+#div_config_body td,
+#div_info_body td,
+#event_list td,
+#pb_file_list td,
+#pb_file_list_local td,
+#file_list td,
+#advance_diskm_table td,#advance_upgrade_table td,
+#id_manual_alarm td, #id_manual_alarm_all td
+{border:solid 1px gray;}
+
+.calendar_bgcolor{width:202px;border:1px solid #0066FF; background-color:#EDF2FC;}/*»’¿˙øÿº˛±≥æ∞061D51∫Õborder—’…´£¨border*/
+.calendar_bgcolor_pop{width:227px;border:1px solid #0066FF; background-color:#EDF2FC}/*»’¿˙øÿº˛±≥æ∞061D51∫Õborder—’…´£¨border*/
+.Calendar_Div{border-bottom:1px solid #0066FF; background-color:#C7D8FA;}/*061D51*/
+.calendar_close_bgcolor{border:1px solid #0066FF;}/*,,corlor:πÿ±’∞¥≈•µƒ—’…´363B41*/
+/*.calendar_close_bgcolor{border-bottom:1px solid #0066FF; background-color:#C7D8FA;color:#4477FF;}*//*,,corlor:πÿ±’∞¥≈•µƒ—’…´363B41*/
+.cal_day_border{cursor:pointer; border-right:1px solid #BBBBBB; border-bottom:1px solid #BBBBBB; color:#215DC6; font-family:Verdana; font-size:12px;}/*»’∆⁄œ¬øÚ∫Õ”“øÚµƒ—’…´*/
+
+#id_event_channel tr{height:26px;}
+#id_event_channel td{ border:solid 1px #000; border-left:none; border-right:none;}
+.main_table,.main_table_2{border-collapse:collapse; border:solid 1px #000;}  /*zld 2010/8/16*/
+
+#id_wait{width: 100%; height: 708px; position: absolute; top: 0px;left: 0px;
+         background: #cccccc; text-align: center; vertical-align: middle;filter: alpha(opacity=40);opacity:0.4;}/*µ»¥˝øÚ—˘ Ω*/
+#wait_tip_div{position: absolute; width : 300px; height: 100px;line-height: 50px; z-index: 1;
+			  text-align: center;border: solid 1px #3040F0;background-color: #D0E0FF;}/*µ»¥˝øÚ—˘ Ω*/
+#wait_tip_div_conn{position: absolute;width: 300px; height: 100px; line-height: 36px; z-index: 1;
+				 text-align: center;border: solid 1px #3040F0;background-color: #D0E0FF;}/*÷ÿ¡¨µ»¥˝øÚ—˘ Ω*/
+
+#div_info{width:980px; position: relative; text-align: left;border-bottom: solid #D4E8FE 20px;}/*–≈œ¢≤È—Ø“≥√Ê—’…´061D51*/
+#div_info_index{width: 170px; margin: 20px 0 0 8px; padding: 0; border: solid 1px #000;background-color: #F4F7FE;}/*–≈œ¢≤È—Ø“≥√Ê—’…´102E83*/
+#div_info_body{width: 780px; position: absolute; left: 190px; top: 0;margin: 20px 0 0 0; padding: 0; color:#000000;}/*–≈œ¢≤È—Ø“≥√Ê—’…´FFFFFF*/
+#info_basic_div{width:778px; border:solid 1px #000; height:648px; background-color:#F4F7FE;}/*;ª˘±æ–≈œ¢≤È—Ø“≥√Ê±≥æ∞—’…´102E83*/
+/*#info_event_div{width:528px;height:648px; float:left; padding:0 10px; border:solid 1px #000; background-color:#F4F7FE;}*//*F4F7FE ¬º˛–≈œ¢“≥√Ê÷–º‰øÚµƒ±≥æ∞—’…´*/
+#info_event_div{width:520px; float:left; padding:0 10px; border:solid 1px #000; background-color:#F4F7FE; height:648px;}/*102E83 ¬º˛–≈œ¢“≥√Ê÷–º‰øÚµƒ±≥æ∞—’…´*/
+#event_info_right{width:210px; float:right; padding:0;text-align:center;padding:0 10px; border:solid 1px #000;background-color:#F4F7FE; height:648px;}/*102E83 ¬º˛–≈œ¢”“±ﬂøÚ±≥æ∞—’…´*/               
+/*#event_info_right{width:195px;height:648px; float:right; padding:0 10px; border:solid 1px #000; background-color:#102E83;}*//*F4F7FE ¬º˛–≈œ¢”“±ﬂøÚ±≥æ∞—’…´*/
+#info_log_div{width:528px; height:648px; float:left; padding:0 10px; border:solid 1px #000; background-color:#F4F7FE;}/*102E83»’÷æ–≈œ¢“≥√Ê÷–º‰øÚ±≥æ∞—’…´*/
+#log_info_right{width:195px;height:648px; float:right; padding:0 10px; border:solid 1px #000; background-color:#F4F7FE;}/*102E83»’÷æ–≈œ¢“≥√Ê”“±ﬂøÚ±≥æ∞—’…´*/
+#info_net_div{width:778px; height:648px; border:solid 1px #000; background-color:#F4F7FE;}/*102E83Õ¯¬Á–≈œ¢≤È—Ø“≥√Ê±≥æ∞—’…´*/
+#info_online_div{width:778px; height:648px; border:solid 1px #000; background-color:#F4F7FE;}/*102E83‘⁄œﬂ”√ªß–≈œ¢“≥√Ê±≥æ∞—’…´*/
+
+/*90px btn*/
+#refresh_btn,
+#sensor_copy_button,#vloss_copy_button,#sch_copy_buttom,
+#motion_trigger_ok_button,#motion_trigger_cancel_button,#sensor_trigger_ok_button,#sensor_trigger_cancel_button,#osd_position_ok,#osd_position_cancel,
+#vloss_trigger_ok_button,#vloss_trigger_cancel_button,
+#Preset_btn_ok_group input,#cruise_btn_group input,
+#btn_group_add input,#btn_group_modify input,#btn_group_modpwd input,/*user_cfg ok cancel*/
+    #file_checkall_button,#file_checknull_button,#file_inverse_button,#file_checkall_button_local,#file_inverse_button_local,/*file_manager 60px btn*/
+#backup_select_all,#backup_select_null,#backup_select_invert,/*backup*/
+#file_del_button,#file_lock_button,#file_unlock_button,#backup_browse_buttom,
+#live_snap_browse_btn,#play_snap_browse_btn,#local_rec_browse_btn,#advanced_update_browse_btn,#advanced_update_btn,
+#user_button_group input,#cancel_update_btn,
+#backup_backup_buttom,#backup_stopbackup_buttom,
+#btn_osd_position,#btn_stamp_position,
+#advance_diskm_btn_group input,#advance_upgrade_btn_group input,#upgrade_refresh_btn,
+#export_button,#path_browse_button,#export_btn,#import_btn,#config_browse,#export_browse,
+#alarm_btn,#clear_btn,
+    #device_button_group input,#btn_group_device_add input,#btn_group_device_modify input,#device_search_btn_group input,#file_del_button_local
+{width:90px; height:25px; border:0; background:url(res/90x25_btn.jpg) no-repeat left top;cursor:pointer;color:#000000;overflow:hidden;}/*FFFFFF*/
+/*145px btn*/
+#id_ptz_advance input,
+#motion_area_markall_button,#motion_area_marknone_button,#motion_area_invertmark_button,
+#btn_record_trace,
+#update_now_label,#modify_time_now_label,
+#btn_record_trace_stop,
+#vloss_trigger_btn, #sensor_trigger_button,
+.preset_set_btn
+{width:145px; height:25px; border:0; background:url(res/145x25_btn.jpg) no-repeat left top;cursor:pointer;color:#000000;overflow:hidden;}/*FFFFFF*/
+/*60px btn*/
+#motion_copy_button,/*motion*/
+#pppoe_test_btn,#ddns_test_btn,
+#net_mail_test_btn,#ddns_register_btn,#ddns_delete_btn
+{width:60px; height:25px; border:0; background:url(res/60x25_btn.jpg) no-repeat left top;cursor:pointer;color:#000000;overflow:hidden;}/*FFFFFF*/
+			 
+#motion_area_tip{margin-left:10px;margin-top:5px;position:relative; color:Red;}/*“∆∂Ø«¯”ÚÃ· æ◊÷ÃÂ—’…´*/
+#cfg_area_div{color:#000000;}/*“∆∂Ø«¯”Ú…Ë÷√÷–◊÷µƒ—’…´FFFFFF*/
+#cfg_preset_set_div{position:absolute;left:0px;top:0;width:190px;height:420px;text-align:left; padding:5px; color:#000000;}/*‘§÷√µ„≈‰÷√“≥√Ê÷–◊÷µƒ—’…´FFFFFF*/
+#cfg_trace_set_div{position:relative;margin-top:0px;width:190px;text-align:left;padding:5px; color:#000000}/*πÏº£≈‰÷√“≥√Ê÷–◊÷µƒ—’…´FFFFFF*/
+#cruise_list{width:192px; border:solid 1px gray; height:156px; background-color:#FFFFFF;}/*—≤∫Ωœﬂ±≥æ∞—’…´*/
+/*data box css*/
+.multiEditInput input{border:0px;font-size:13px;height:16px;line-height:16px;width:24px;text-align:center;background:transparent; color:#000000;}/*FFFFFF*/
+.multiEditInputDisabled input{border:0px;font-size:13px;height:16px;line-height:16px;width:24px;text-align:center;background:#D4E8FE;}/*ip/mac±‡º≠øÚ±≥æ∞—’…´*/
+
+</style>
+
+<title>
+
+</title>
+<script language="javascript">var WebClient;</script>
+<script src ="server.js" type="text/javascript"></script>
+<script src ="script/protocol.js" type="text/javascript"></script> 
+<script src ="script/main.js" type="text/javascript"></script> 
+<script src ="script/login.js" type="text/javascript"></script>
+<script src ="script/flush_string.js" type="text/javascript"></script>
+<script src ="script/Load_WebKit.js" type="text/javascript"></script>
+<script src="logo/logo.js" type="text/javascript"></script>
+<script src="css_style/uistyle.js" type="text/javascript"></script>
+<script src ="script/ctrl_multi_edit.js" type="text/javascript"></script>
+
+<script id="string_js" src ="language/english_us/string.js" type="text/javascript"></script>
+<script id="device_param_js" src ="script/device_param.js" type="text/javascript"></script>
+<script id="cfg_main_js" src ="script/cfg_main.js" type="text/javascript"></script>
+<script id="live_js" src ="script/live.js" type="text/javascript"></script>
+<script id="main_menu_js" src ="script/main_menu.js" type="text/javascript"></script>
+<script id="ctrl_generator_js" src ="script/ctrl_generator.js" type="text/javascript"></script>
+<script id="ctrl_slider_js" src ="script/ctrl_slider.js" type="text/javascript"></script>
+
+    
+    <!--- local ---->
+    <!-----<script id="string_js" src ="language/chinese_prc/string.js" type="text/javascript"></script>
+    <script id="device_param_js" src ="script/device_param.js" type="text/javascript"></script>
+    <script id="cfg_main_js" src ="script/cfg_main.js" type="text/javascript"></script>
+    <script id="live_js" src ="script/live.js" type="text/javascript"></script>
+    <script id="backup_js" src ="script/backup.js" type="text/javascript"></script>
+    <script id="ctrl_time_js" src ="script/ctrl_time.js" type="text/javascript"></script>
+    <script id="ctrl_generator_js" src ="script/ctrl_generator.js" type="text/javascript"></script>
+    <script id="cfg_live_js" src ="script/cfg_live.js" type="text/javascript"></script>
+    <script id="cfg_net_js" src ="script/cfg_net.js" type="text/javascript"></script>
+    <script id="main_menu_js" src ="script/main_menu.js" type="text/javascript"></script>
+    <script id="cfg_live_js" src ="script/cfg_advance.js" type="text/javascript"></script>
+    <script id="cfg_record_js" src ="script/cfg_record.js" type="text/javascript"></script>
+    <script id="cfg_schedule_js" src ="script/cfg_schedule.js" type="text/javascript"></script>
+    <script id="cfg_motion_alarm_js" src ="script/cfg_motion_alarm.js" type="text/javascript"></script>
+    <script id="cfg_sensor_alarm_js" src ="script/cfg_sensor_alarm.js" type="text/javascript"></script>
+    <script id="cfg_vloss_alarm_js" src ="script/cfg_vloss_alarm.js" type="text/javascript"></script>
+    <script id="cfg_alarmout_js" src ="script/cfg_alarmout.js" type="text/javascript"></script>
+    <script id="cfg_user_js" src ="script/cfg_user.js" type="text/javascript"></script>
+    <script id="cfg_ptz_js" src ="script/cfg_ptz.js" type="text/javascript"></script>
+    <script id="playback_js" src ="script/playback.js" type="text/javascript"></script>
+    <script id="cfg_net_alarm_js" src ="script/cfg_net_alarm.js" type="text/javascript"></script>
+    <script id="pub_cfg_alarm_js" src ="script/pub_cfg_alarm.js" type="text/javascript"></script>
+    <script id="information_js" src ="script/information.js" type="text/javascript"></script>
+    <script id="ctrl_calendar_js" src ="script/ctrl_calendar.js" type="text/javascript"></script>
+    <script id="ctrl_list_js" src ="script/ctrl_list.js" type="text/javascript"></script>
+    <script id="ctrl_multi_edit_js" src ="script/ctrl_multi_edit.js" type="text/javascript"></script>
+    <script id="ctrl_slider_js" src ="script/ctrl_slider.js" type="text/javascript"></script>
+    <script id="cfg_basic_js" src ="script/cfg_basic.js" type="text/javascript"></script>
+    <script id="ctrl_rec_time_js" src ="script/ctrl_rec_time.js" type="text/javascript"></script>
+    <script id="ctrl_schedule_js" src ="script/ctrl_schedule.js" type="text/javascript"></script>
+    <script id="advance_js" src="script/advance.js" type="text/javascript"></script>
+    <script id="web_cfg_js" src="script/web_cfg.js" type="text/javascript"></script>
+    <script id="cfg_other_alarm_js" src="script/cfg_other_alarm.js" type="text/javascript"></script>
+    <script id="cfg_device_js" src="script/cfg_device.js" type="text/javascript"></script>
+    <script id="cfg_net_ftp_js" src="script/cfg_net_ftp.js" type="text/javascript"></script>
+    <script id="playback_local_js" src="script/playback_local.js" type="text/javascript"></script>--->
+    
+</head>
+
+<body oncontextmenu="return false;" onresize="OnResize()"
+    onload="OnLoadPage()" onunload="OnUnloadPage()" onkeypress="OnBodyKeyDown(event);">
+    <div id="div_client" style="width: 992px; height:1px;text-align: center; margin: 5px auto 0 auto;padding: 0; position: relative;">
+        <div id="work_area" style="">
+            <div id="div_main_menu" style="display: none;">
+            </div>
+            <div id="div_ocx" style="width:0px; height: 0px;">
+                <div id="ocx_alt_label" style="display:none;">
+                </div>
+                <embed id="WebClientPlugin" name="WebClientPlugin" width="100%" height="100%" type="application/x-dvrwebclient">
+				</embed>
+            </div>
+            <div id="div_live" style="display: none;">
+            </div>
+            <div id="div_playback" style="height: 608px;display: none;">
+            </div>
+            
+            <div id="div_playback_local" style="height: 608px;display: none;">
+            </div>
+            
+            <div id="div_config" style="width: 980px; position: relative; display: none;
+                text-align: left;  padding:1px;">
+                <div id="div_config_index" style="display: inline;">
+                </div>
+                <div id="div_config_body" style="display: inline;">
+                </div>
+            </div>
+            <!----- height: 100%¬∏√Ñ¬≥√â600px---->
+            <div id="div_search_body" style="width: 980px;  position: relative;
+                display: none; ">
+            </div>
+            
+            <div id="div_search_local_body" style="width: 980px;  position: relative;
+                display: none; ">
+            </div>
+            
+            <div id="div_advance_body" style="width: 980px; height: 588px; position: relative;
+                text-align: left; display: none; padding:1px;">
+            </div>
+            <div id="div_backup_body" style="width: 980px; height: 600px; position: relative;
+                display: none; text-align: left;">
+            </div>
+            <div id="div_info" style="width: 975px; height: 600px; position: relative; display: none; text-align: left;
+                 padding:1px;">
+                <div id="div_info_index" style="">
+                </div>
+                <div id="div_info_body" style="width: 780px; position: absolute; left: 190px; top: 0;
+                    margin: 20px 0 0 0; padding: 0;">
+                </div>
+            </div>
+        </div>
+        <div id="div_load_webkit" style="margin: 0 auto; padding: 0; text-align: center; position: relative;
+            width: 100%; height: 638px;width:520px;display:none;">
+            <div id = "chromeTipDiv"></div>
+            <table id="table_load" style="margin:0 auto; text-align:center;width:460px;">
+                <tr style="height:127px;">
+                    <td id="load_webkit_label" style="width: 295px;font-size: 18px;">请单击此链接下载Webkit插件:</td>
+                    <td style="width: 100px;">
+                        
+                        <div class="div_load_webkit" style="height:127px;width:155px;text-align:center;padding:0;">
+                        
+                        <script type="text/javascript">
+                            function OnclickRefreshPlugin()
+                            {
+                                navigator.plugins.refresh(true);
+    
+                                var plugins = navigator.plugins; 
+                                
+                                for(var i = 0; i < plugins.length; i++)
+                                {
+                                    if(plugins[i].description == "Web Camera")
+                                    {
+                                        location.reload();
+                                        return;
+                                    }
+                                }
+                            }
+							
+                            var userAgentString = navigator.userAgent.toLowerCase();
+                            var userPlatform = navigator.platform.toLowerCase();
+                            if((userAgentString.indexOf("windows nt") != -1 || userPlatform.indexOf("win32") != -1) && 
+                                (userAgentString.indexOf("firefox") != -1 || userAgentString.indexOf("chrome") != -1 ||
+                                userAgentString.indexOf("safari") != -1))
+                            {
+                                document.write('<a href="./WebClient.exe"></a>');
+                            }
+                            else
+                            {
+                                document.write('<a href="./WebClientPlugin.pkg"></a>');
+                            }
+                        </script>
+                        
+                        </div>
+                    
+                    </td> 
+                </tr>
+                <tr style="height:40px;">
+                <!--<td id="refresh_label" colspan="2" style="width: 460px;font-size: 18px;text-align:left;">安装完成之后请重启浏览器才能正常使用!</td>-->
+                <td colspan = "2"><input id = "refresh_btn" type="button" value = "Refresh" onclick = "OnclickRefreshPlugin();" /></td>
+                </tr>
+           </table>
+
+        </div>
+        <div id="div_login" style="margin: 0 auto; padding: 0; text-align: center; position: relative;
+            width: 100%; height: 638px; ">
+            <div id="win7_run_tip_div" style="color: Red; font-size: 18px; width: 770px; margin-top: 40px;
+                text-align: left; display: none;">
+                <label id="win7_run_tip">
+                </label>
+            </div>
+            <table style="margin:0 auto; text-align:center;" id="login_table">
+                 <tr style="height:40px;">
+                    <td id="device_no_label" style="display:none;"></td>
+                    <td>
+                        <input type="text" id="deviceNo" value="" maxlength="64" style="width: 90%; display:none;" /></td>
+                </tr>
+                <tr style="height:40px;">
+                    <td id="login_user_label" style="width: 100px;display:none;"></td>
+                    <td style="width: 200px;">
+                        <input type="text" id="username" value="admin" style="width: 90%; overflow: hidden;display:none;" maxlength="32" onchange="document.getElementById('userpwd').value = ''" />
+                    </td>
+                </tr>
+                <tr style="height:40px;">
+                    <td id="login_pwd_label" style="display:none;"></td>
+                    <td>
+                        <input type="password" id="userpwd" value="" maxlength="32" style="width: 90%; display:none;" /></td>
+                </tr>
+                <tr style="height:40px;">
+                    <td id="login_language_label" style="display:none;"></td>
+                    <td>
+                        <select name="language_list" style="width: 90%; display:none;" onchange="OnChangeLang()" >
+                        </select>
+                    </td>
+                </tr>
+                <tr style="height:40px;">
+                    <td></td>
+                    <td>
+                        <input id="login_ok_button" type="button" name="btn_login" value="LOGIN" onclick="OnLogin()"
+                            style="width: 90%; display:none;" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <br />
+            <img src="logo/login_CNB.jpg" style="width: 200px;display: none;" id="WebClient_CNB_Logo" /></div>
+    </div>
+    
+    <div id="id_wait" style="display: none;">
+    </div>
+    <iframe id="wait_iframe" style="position: absolute; z-index: 0; left: 0; top: 0;display: none; filter: alpha(opacity=40);opacity:0.4;"></iframe>
+    <img id="img_wait" style="position: absolute; display: none;" src="res/wait.gif" />
+    <div id="wait_tip_div" style="display: none;">
+    </div>
+    <div id="wait_tip_div_conn" style="display: none;">
+        <label id="wait_tip_conn_text"></label>
+        <img id="img_wait_conn" style="position: absolute; top:36px; left:118px; display: none;" src="res/wait.gif" />
+    </div>
+</body>
+</html>

@@ -1,0 +1,230 @@
+﻿<div class = "tip_div">
+    <div class = "tip_img"></div>
+    <span id = "sysconfig_errortips" class = "tip_span"></span>
+</div>
+<div class = "dash_line"></div>
+<div class = "save_bar">
+    <input id = "default_btn" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgBasic()"/>
+    <input id = "save_btn" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>
+<ul class = "list_ul">
+<div id = "sys_basic_config" class = "head_div">Basic</div>
+  <li>
+  <table border = "1" class = "main_table">
+  <tr>
+      <td id = "item_device_name"class = "label">Device name</td>
+      <td class = "data">
+        <input type = "text" name="device_name" class = "input_text" onkeydown = "return LenCheck(this,event,const_device_name_len);" onkeyup = "return KeyupCheck(this,const_device_name_len);" onchange = "g_bChange = true;"/>
+      </td>
+  </tr>
+  <tr>
+      <td id= "basic_device_id">Device ID</td>
+      <td>
+         <input type = "text" name="device_id" class = "input_text" maxlength = "5" onkeypress = "return isNumberInput(this,event);" onchange = "g_bChange = true;InputCheck(this,65535,0)"/>
+      </td>
+  </tr>
+  <tr>
+      <td id = "basic_video_format">Video format</td>
+      <td>
+          <select id = "video_format" class = "td_select">
+          </select>
+      </td>
+  </tr>
+  <tr>
+      <td id = "basic_password_check">Password check</td>
+      <td>
+        <input type = "checkbox" style="width: 20px" name = "authorize_if" onchange = "g_bChange = true;"/>
+      </td>
+  </tr>
+  <tr>
+    <td id = "basic_show_time">Show time</td>
+    <td>
+        <input type = "checkbox" style ="width:20px;" id = "has_time_stamp" onchange = "g_bChange = true;" />
+    </td>
+  </tr>
+  <tr>
+      <td id = "max_client_user">Max net user</td>
+      <td>
+        <select id="max_client_num" class = "td_select" onchange = "g_bChange = true;"></select>
+      </td>
+  </tr>
+  <tr>
+      <td id = "basic_vga_resolution">VGA resolution</td>
+      <td>
+          <select class = "td_select" id = "vga_resolution"  onchange = "g_bChange = true;">
+          </select>
+      </td>
+  </tr>
+  <tr>
+      <td id = "dvr_language">Language</td>
+      <td>
+        <select id="device_language" class = "td_select" onchange = "g_bChange = true;">
+            <option value="0">English</option>
+            <option value="1">简体中文</option>
+        </select>
+      </td>
+  </tr>
+  <tr>
+    <td id = "basic_screen_saver_label">ScreenSaver[S]</td>
+    <td>
+        <select id = "screen_save_time" class = "td_select" onchange = "g_bChange = true;"></select>
+    </td>
+  </tr>
+  <tr>
+    <td id = "Preview_after_login_label">Preview After Login</td>
+    <td>
+        <input type = "checkbox" style ="width:20px;" id = "channel_visible" onchange = "g_bChange = true;" />
+    </td>
+  </tr>
+  </table>
+  </li>
+<div id = "anchor_sys_time" class = "head_div">Date & time</div>
+<li>
+<table border = "1" class = "main_table">
+    <tr>
+        <td id = "basic_date_format" class = "label">Date format</td>
+        <td class = "data">
+            <select id="time_stamp_format" class = "td_select" onchange = "g_bChange = true;" >
+            </select>
+        </td>
+    </tr>
+    <tr>
+    <td id = "basic_time_format_label" class = "label">Time format</td>
+    <td class = "data">
+        <select id = "list_time_format" class = "td_select" onchange = "g_bChange = true;">
+        </select>
+    </td>
+  </tr>
+  <tr>
+      <td id = "basic_time_zone">Time zone</td>
+      <td>
+          <select id="time_zone" class = "td_select" onchange = "g_bChange = true;onChangeTimeZone(false);">
+          </select>
+      </td>
+  </tr>
+  <tr>
+      <td id = "basic_dst_label">DST Enable</td>
+      <td>
+          <input  id="dst_enable" type  = "checkbox" onchange="g_bChange = true;" style="width: 20px"  />
+      </td>
+  </tr>
+  <tr>
+      <td id = "basic_syn_ntp">Sync time with NTP server</td>
+      <td>
+        <input type = "checkbox" style="width: 20px" id = "syn_time" onclick = "NtpSyn(this)" onchange = "g_bChange = true;"/>
+      </td>
+  </tr>
+  
+  <tr>
+      <td id = "item_ntp_server">NTP server</td>
+      <td><input type = "text" name="ntp_server" style = "float:left;width:280px;" disabled = "disabled"  onkeydown = "return LenCheck(this,event,const_time_server_max_len);" onkeyup = "return KeyupCheck(this,const_time_server_max_len);" onchange = "g_bChange = true;"/>
+          <input id = "update_now_label" type = "button" name="sync_time_now" style = "float:right;" value = "Update now" onclick="SyncTimeNow()" />
+      </td>
+  </tr>
+  <tr>
+      <td id = "basic_time">Time</td>
+      <td>
+          <div style="position: relative; float: left;width:230px;">
+              <span id="pc_time" style="margin-top:5px;"></span>
+              <input type="checkbox" style="width: 25px;margin-top:5px;" id="manual_set" onclick="SynToPCTime(!this.checked),SetManual(this)" />
+          </div>
+          <div id="manual_set_label" style="width:50px; margin-top:10px;position: relative;float:left;vertical-align:middle;">Manual set</div>
+          <input id="modify_time_now_label" type="button" value="Modify" style = "position: relative;float:right;" onclick="ChangeTime()" />
+      </td>
+  </tr>
+</table>
+</li>
+<!--<div id = "anchor_sys_dst" class = "head_div">Daylight saving time</div>
+<li>
+<table id="table_dst" border = "1" class = "main_table">
+  <tr>
+    <td id = "basic_dst_label" class = "label">DST enable</td>
+    <td>
+        <input type = "checkbox" id="dst_enable" style="width: 20px" onchange = "g_bChange = true;"/>
+    </td>
+  </tr>
+  <tr>
+      <td id = "basic_dst_offset_label"class = "label">DST offset</td>
+      <td class = "data">
+        <select id="dst_offset" class="td_select" onchange = "g_bChange = true;">
+        </select>
+      </td>
+  </tr>
+  <tr>
+      <td id = "dst_define_mode_label" class = "label">Mode</td>
+      <td class = "data">
+        <input type="radio" name="dst_mode" value="0" onclick = "g_bChange = true;OnChangeDSTMode();"/>
+        <label id="dst_week_mode">Week mode</label>
+        <input type="radio" name="dst_mode" value="1" style="margin-left:40px;" onclick = "g_bChange = true;OnChangeDSTMode();"/>
+        <label id="dst_date_mode">Date mode</label>
+      </td>
+  </tr>
+  
+  <tr>
+      <td id = "dst_start_month_label" class = "label">Start</td>
+      <td class = "data">
+        <select id="dst_start_month" class="td_select" onchange = "g_bChange = true;"></select>
+      </td>
+  </tr>
+  <tr>
+      <td class = "label"></td>
+      <td class = "data">
+        <select id="dst_start_week" class="td_select" onchange = "g_bChange = true;"></select>
+      </td>
+  </tr>
+  <tr>
+      <td class = "label"></td>
+      <td class = "data">
+        <select id="dst_start_weekday" class="td_select" onchange = "g_bChange = true;"></select>
+      </td>
+  </tr>
+  <tr>
+      <td class = "label"></td>
+      <td class = "data">
+        <span id = "dst_start_day_time"></span>
+      </td>
+  </tr>
+  
+    <tr>
+      <td id = "dst_end_month_label" class = "label">Until</td>
+      <td class = "data">
+        <select id="dst_end_month" class="td_select" onchange = "g_bChange = true;"></select>
+      </td>
+  </tr>
+  <tr>
+      <td class = "label"></td>
+      <td class = "data">
+        <select id="dst_end_week" class="td_select" onchange = "g_bChange = true;"></select>
+      </td>
+  </tr>
+  <tr>
+      <td class = "label"></td>
+      <td class = "data">
+        <select id="dst_end_weekday" class="td_select" onchange = "g_bChange = true;"></select>
+      </td>
+  </tr>
+  <tr>
+      <td class = "label"></td>
+      <td class = "data">
+        <span id = "dst_end_day_time"></span>
+      </td>
+  </tr>
+  <tr>
+      <td id = "basic_dst_starttime_label"class = "label">Start</td>
+      <td class = "data">
+        <span id = "dst_start_date_time"></span>
+      </td>
+  </tr>
+  <tr>
+      <td id = "basic_dst_endtime_label"class = "label">Until</td>
+      <td class = "data">
+        <span id = "dst_end_date_time"></span>
+      </td>
+  </tr>
+</table>
+</li>-->
+</ul>
+<div class = "save_bar">
+    <input id = "default_btn1" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgBasic()"/>
+    <input id = "save_btn1" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>

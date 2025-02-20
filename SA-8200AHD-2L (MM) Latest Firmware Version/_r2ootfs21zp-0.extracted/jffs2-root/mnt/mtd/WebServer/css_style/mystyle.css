@@ -1,0 +1,117 @@
+*{margin:0;padding:0;}
+div,table,tr,td,input,img,ul,label{margin:0; padding:0;}
+body {font-size:12px; font-family:Tahoma,Verdana;}
+img{ border:0;cursor:pointer;}
+a{text-decoration:none;}			 
+
+body{font-size: 12px; background: url(../res/bg.png) repeat-x left top;}
+/*已移至uistyle.css*/
+/*#ocx_alt_label{position: absolute; z-index: -1; font-weight: bold;font-size: 20px; left: 200px; top: 200px; color:#000000;}/*点击显示的提示FFFFFF*/
+
+#ocx_alt_label{position: absolute; z-index: -1; font-weight: bold;font-size: 20px; left: 200px; top: 200px;}
+#div_playback{margin: 0 0 0 730px; width: 240px; position: relative;height: 608px;}
+#div_main_menu{margin: 0; padding: 0; height: 30px; width: 980px;position: relative;}
+
+.tip_div{width:750px; height:40px; margin:10px 0 0 15px; position:relative;}
+.tip_span{ width:710px; height:40px; line-height:40px; font-size:17px; position:absolute; left:40px; top:0;}
+.list_ul{margin-left:15px; list-style-type:none;}
+.label		{width:287px;}
+.data		{width:440px;}
+.input_text {width:437px;}
+.td_select	{width:441px;}
+select		{width:100px;}
+input		{width:65px;}
+/*#id_live_cfg input,#id_sensor_alarm input,#id_alarm_out input,#preset_info input,#cruiseName{overflow:visible;}*/
+
+/*config && info common css*/
+#div_config_body td,#div_info_body td,#div_advance_body td  {height:26px; padding:0 5px;}
+
+
+/*td border invisible*/
+#other_alarm_trigger_out td,
+#motion_trigger_out td,#motion_trigger_record td,
+#sensor_trigger_out td,#sensor_trigger_record td,
+#user_authority td,#user_record_auth td,
+#vloss_trigger_out td,
+#info_log_sdate_span td,#info_log_edate_span td,
+#info_event_sdate_span td,#info_event_edate_span td,
+#user_playback_auth td,#user_backup_auth td,#user_ptzctrl_auth td,#user_remoteview_auth td,#user_localview_auth td,
+#user_auth_group td,
+#pc_time td,#dst_start_date_time td,#dst_end_date_time td
+{border:0;}
+
+#user_authority input{ width:20px;}
+
+
+
+/*canlendar css*/
+#info_event_sdate_span td,#info_event_edate_span td,
+#info_log_sdate_span td,#info_log_edate_span td,
+#div_calendar_schedule td,#pc_time td,#dst_start_date_time td,#dst_end_date_time td,
+#timesearch_sdate_span td{padding:0 1px;height:auto;}
+#sel_date{border-width :1px 0 1px 1px;border-style:solid;width:170px;text-align:center;cursor: pointer;}
+#sel_date_right{width: 15px; border-width:1px 1px 1px 0;border-style:solid;margin-left:-8px; display:inline;}
+.pickerImg  	{position: absolute;margin-left: -23px;margin-top: 5px;cursor: pointer;display:inline;}
+
+/*search backup tr height*/
+#div_file_list tr,#div_file_list_local tr,#div_event_list tr,#file_list tr,#table_device_manage tr{height:20px;}
+#log_info_table td,#event_info_table td,#online_user_table td,/*info tabel line-height*/
+#advance_diskm_table td,#advance_upgrade_table td, #id_manual_alarm td,#table_device_manage td
+{
+	height:22px;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+}
+#play_channel_table tr,#file_manager_channel tr,#file_manager_channel_local tr,#div_backup_channel tr{height:24px;}  /*zld 2010/8/16   添加#file_manager_channel tr #div_backup_channel tr*/
+
+/*user auth*/
+#user_authority td,#user_record_auth td,#user_playback_auth td,#user_backup_auth td,#user_ptzctrl_auth td,#user_remoteview_auth td,#user_localview_auth td,
+#motion_trigger_out td,#motion_trigger_record td,
+#sensor_trigger_out td,#sensor_trigger_record td,
+#motion_snap td,#sensor_snap td,#vloss_snap td, #id_sensor_ftp, #id_motion_ftp, 
+#vloss_trigger_out td{width:175px;}
+
+#net_ftp_upload_channel td{width:135px;}
+
+/*info*/
+#id_event_type label,
+#id_log_type td
+{
+	margin:0;
+	padding:0;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+}
+#id_log_type input{margin:0px; padding:0px;width:20px;}
+
+/*config preset table css*/
+#preset_info input{ height:25px; line-height:25px; margin:0; padding:0;}
+#preset_info tr{height:27px;}
+.presetname_input{width:400px;}
+
+/*backup*/
+#file_list{margin-bottom:10px; text-align:center; width:700px;}
+#backup_list_page{width:300px; height:25px; line-height:25px;float:left; text-align:center;}
+/*zld 2010/8/25*/
+/*#div_file_path{width:680px;height:26px;padding :0 10px; margin-top:10px;}*/
+#div_file_path{width:690px;height:26px;padding :0 10px; margin-top:10px;}
+#backup_filepath_label{width:80px; height: 26px; line-height:26px; float:left; text-align:left;}
+
+.f_left{float:left; margin-right:3px;}
+.f_right{float:right; margin-left:3px;}
+
+/*2010/8/27*/
+.user_gen_table td,
+#motion_trigger_record td,
+#sensor_trigger_out td,#sensor_trigger_record td,
+#vloss_trigger_out td,
+#user_playback_auth td,#user_backup_auth td,#user_ptzctrl_auth td,#user_remoteview_auth td,#user_record_auth td,#user_localview_auth td,
+{ border:solid 1px gray; border-left:none; border-right:none; padding:2px;}
+#play_channel_table td,#play_channel_table_2 td,#file_manager_channel td,#file_manager_channel_local td,#div_backup_channel td{border-bottom:solid 1px #000;}  /*zld 2010/8/16   添加#file_manager_channel td #div_backup_channel td,*/
+#user_auth_group td{padding:0;}
+.user_check_tabel{border-collapse:collapse; border:solid 1px gray;margin:0px; width:346px;}
+
+#first_stream_table td,#web_rec_table td{ height:20px;}
+#event_list td{text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}

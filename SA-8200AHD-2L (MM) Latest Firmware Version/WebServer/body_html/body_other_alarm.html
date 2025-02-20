@@ -1,0 +1,53 @@
+﻿<div class = "tip_div">
+    <div class = "tip_img"></div>
+    <span id = "otherAlarmConfig_errortips" class = "tip_span"></span>
+</div>
+<div class = "dash_line"></div>
+<div class = "save_bar">
+    <input id = "default_btn" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgOtherAlarm();"/>
+    <input id = "save_btn" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>
+<ul class = "list_ul">
+<div id = "other_alarm_label" class = "head_div">Other alarm</div>
+<li>
+<div>
+<table id = "id_other_alarm" border = "1" class = "main_table">
+    <tr>
+        <td id = "other_alarm_type_label" class = "label">Alarm Type</td>
+        <td>
+            <select class = "td_select" id = "other_alarm_type" onchange = "ChangeAlarmType(this);"></select>
+        </td>
+    </tr>
+    <tr>
+        <td id = "other_alarm_buzzer_label">Buzzer</td>
+        <td>
+            <input type = "checkbox" id = "other_alarm_buzzer" style ="width:30px;" onchange = "g_bChange = true;" />
+        </td>
+    </tr>
+    <tr>
+        <td id = "other_to_alarm_out">To Alarm Out</td>
+        <td>
+            <table id = "other_alarm_trigger_out" class = "main_table" style ="border:none; width:441px;"></table>
+        </td>
+    </tr>
+     <tr id = "alarm_email_tr">
+        <td id = "other_alarm_email_label">E-mail</td>
+        <td>
+            <input type = "checkbox" id = "other_alarm_email" style ="width:30px;" onchange = "g_bChange = true;" />
+        </td>
+    </tr>
+    <tr id = "disk_alarm_tr">
+        <td id = "disk_alarm_label" class = "label">Disk Shortage Alarm</td>
+        <td>
+            <select id = "disk_alarm_free_space" class = "td_select" onchange = "g_bChange = true;"></select>
+        </td>
+    </tr>
+</table>
+
+</div>
+</li>
+</ul>
+<div class = "save_bar">
+    <input id = "default_btn1" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgOtherAlarm()"/>
+    <input id = "save_btn1" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>

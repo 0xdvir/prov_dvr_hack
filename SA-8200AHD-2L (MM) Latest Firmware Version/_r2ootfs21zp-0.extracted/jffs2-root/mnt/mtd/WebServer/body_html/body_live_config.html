@@ -1,0 +1,92 @@
+﻿<div class = "tip_div">
+    <div class = "tip_img"></div>
+    <span id = "channelconfig_errortips" class = "tip_span"></span>
+</div>
+<div class = "dash_line"></div>
+<div class = "save_bar">
+    <input id = "default_btn" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgLive()"/>
+    <input id = "save_btn" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>
+<ul class = "list_ul">
+    <div id = "live_label" class = "head_div">Live</div>
+    <li>
+    <table id = "id_live_cfg" border = "1" class = "main_table">
+        <tbody>
+        </tbody>
+    </table>
+    </li>
+    <div id = "live_all_label" class = "head_div">All</div>
+    <li>
+        <table id = "id_live_all" border = "1" class = "main_table">
+            <tr>
+                <td><input id = "live_all_cfg" type = "checkbox" style ="width:50px;" onchange = "g_bChange = true;" onclick = "var id_live_cfg = document.getElementById('id_live_cfg');var id_live_all = document.getElementById('id_live_all');cfgCopy2All(this,id_live_cfg,id_live_all)" /></td>
+                <td><input id = "all_show_channel_name" type = "checkbox" style ="width:200px;"  onchange = "g_bChange = true;"/></td>
+                <td><input type = "text" style ="width:460px;"disabled="disabled" /></td>
+            </tr>
+        </table>
+    </li>
+    <div id = "recording_status_label" class = "head_div">Recording Status</div>
+    <li>
+        <table border = "1" class = "main_table">
+            <tr>
+                <td id = "live_rec_status_label" class = "label">Recording Status</td>
+                <td class = "data"><input style="width: 20px;" name="live_re_status" type="checkbox" id="live_re_status" onchange="g_bChange=true" value=""/></td>
+            </tr>
+        </table>
+    </li>
+</ul>
+<ul style ="display:none;">
+<li><label id = "live_spot_label">SPOT</label> 
+<table border = "1"  style ="border-collapse:collapse; margin-top:30px;">
+  <tr>
+      <td id = "live_dwell_time_label" class = "label" style="height: 24px">Dwell time(s)</td>
+      <td class = "data" style="height: 24px">
+          <select id="dwell_time" class = "td_select" onchange = "g_bChange = true;">
+          </select>
+      </td>
+  </tr>
+  <tr>
+      <td id = "live_td_spot_label">SPOT</td>
+      <td>
+        <input type = "checkbox" style="width: 20px" name = "spot_enable" onchange = "g_bChange = true;" checked="CHECKED"/>
+      </td>
+  </tr>
+  </table>
+</li>
+</ul>
+
+  <ul id="Text_pane" class="list_ul" style="width: 750px; display:none;">
+        <div id="Text_list" class="head_div"></div>
+        <li style="width: 750px;">
+            <table id = "search_device_list" border="1" class="main_table" style="width: 750px;">
+                <tr><td style=" width: 50px; text-align: center;">1</td>
+                <td><input id="live_text_1" onchange = "g_bChange = true;" style = "width: 670px;" type = "text" onkeydown = "return LenCheck(this,event,const_live_text1234_max_len);" onkeyup = "return KeyupCheck(this,const_live_text1234_max_len);"/>&nbsp</td>
+                </tr>
+                <tr><td style=" width: 50px; text-align: center;">2</td>
+                <td><input id="live_text_2" onchange = "g_bChange = true;" style = "width: 670px;" type = "text" onkeydown = "return LenCheck(this,event,const_live_text1234_max_len);" onkeyup = "return KeyupCheck(this,const_live_text1234_max_len);"/>&nbsp</td>
+                </tr>
+                <tr><td style=" width: 50px; text-align: center;">3</td>
+                <td><input id="live_text_3" onchange = "g_bChange = true;" style = "width: 670px;" type = "text" onkeydown = "return LenCheck(this,event,const_live_text1234_max_len);" onkeyup = "return KeyupCheck(this,const_live_text1234_max_len);"/>&nbsp</td>
+                </tr>
+                <tr><td style=" width: 50px; text-align: center;">4</td>
+                <td><input id="live_text_4" onchange = "g_bChange = true;" style = "width: 670px;" type = "text" onkeydown = "return LenCheck(this,event,const_live_text1234_max_len);" onkeyup = "return KeyupCheck(this,const_live_text1234_max_len);"/>&nbsp</td>
+                </tr>
+                <tr><td style=" width: 50px; text-align: center;">5</td>
+                <td><input id="live_text_5" onchange = "g_bChange = true;" style = "width: 670px;" type = "text" onkeydown = "return LenCheck(this,event,const_live_text5_max_len);" onkeyup = "return KeyupCheck(this,const_live_text5_max_len);"/>&nbsp</td>
+                </tr>
+                <tr><td style=" width: 50px; text-align: center;">6</td>
+                <td><input id="live_text_6" onchange = "g_bChange = true;" style = "width: 670px;" type = "text" onkeydown = "return LenCheck(this,event,const_live_text6_max_len);" onkeyup = "return KeyupCheck(this,const_live_text6_max_len);"/>&nbsp</td>
+                </tr>
+
+            </table>
+            <div id = "Text_btn_group" style ="width:750px; margin-top:10px; text-align:right;">
+                <input type = "button" id = "Text_ok_btn" value = "OK" onclick = "OnTextOK()"/>
+                <input type = "button" id = "Text_cancle_btn" value = "Cancle" onclick = "OnTextCancel()" />
+            </div>
+        </li>
+    </ul>
+
+<div class = "save_bar">
+    <input id = "default_btn1" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgLive()"/>
+    <input id = "save_btn1" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>

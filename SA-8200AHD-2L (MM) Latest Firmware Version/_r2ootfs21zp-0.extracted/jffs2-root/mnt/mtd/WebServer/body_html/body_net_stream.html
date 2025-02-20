@@ -1,0 +1,58 @@
+﻿<div class = "tip_div">
+    <div class = "tip_img"></div>
+    <span id = "net_stream_config_errortips" class = "tip_span"></span>
+</div>
+<div class = "dash_line"></div>
+<div class = "save_bar">
+    <input id = "default_btn" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgNetStream()"/>
+    <input id = "save_btn" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>
+<ul class = "list_ul">
+<div id = "netstream_label" class = "head_div">Network stream</div>
+<li>
+<div>
+<table id = "id_net_stream_cfg" border = "1" class = "main_table">
+    <tbody>
+    </tbody>
+</table>
+</div>
+</li>
+<li>
+<div style = "height:47px;">
+<div id = "netstream_all_label" class = "head_div" style="float:left;">All</div>
+<div id="remain_source" style="float:right;height:27px; margin-top:20px; line-height:27px; margin-right:6px;"></div>
+</div>
+</li>
+<li>
+    <table id = "id_net_stream_all" border = "1" class = "main_table">
+    <tr>
+        <td><input type = "checkbox" id = "net_all_cfg" style ="width:50px;" onchange = "g_bChange = true;" onclick = "OnNetStreamCheckAll()" /></td>
+        <td>
+            <select id = "all_net_resolution" onchange="OnAllNetChangeResolution(this);g_bChange = true;">
+            </select>
+        </td>
+        <td>
+            <select id = "all_net_frame_rate" onchange="TryAllNetFrame();g_bChange = true;">
+            </select>
+        </td>
+        <td>
+            <select id = "all_net_encode_type" onchange="g_bChange = true;var all_net_video_quality = document.getElementById('all_net_video_quality');OnNetChangeEncodeType(this, all_net_video_quality)">
+            </select>
+        </td>
+        <td>
+            <select id = "all_net_video_quality" onchange="g_bChange = true;">
+            </select>
+        </td>
+        <td>
+            <select id = "all_net_maxbit_stream" onchange="g_bChange = true;">
+            </select>
+        </td>
+    </tr>
+    </table>
+</li>
+</ul>
+<div class = "save_bar">
+    <input id = "default_btn1" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgNetStream()"/>
+    <input id = "save_btn1" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>
+

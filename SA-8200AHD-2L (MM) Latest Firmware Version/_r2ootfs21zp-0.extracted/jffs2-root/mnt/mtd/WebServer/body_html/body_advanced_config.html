@@ -1,0 +1,69 @@
+﻿<table>
+<tr>
+<td style="width:800px; font-size: small; height: 593px;" valign = "top">
+
+<ul>
+    <li><a name = "#security">安全</a>
+    <fieldset>
+    <table>
+       <tr>
+            <td class="table_grid_label"></td>
+            <td class="table_grid_data"></td>
+            <td class="table_grid_label"></td>
+            <td class="table_grid_data"></td>
+       </tr>
+       <tr>
+            <td >IP地址过滤配置:</td>
+       </tr>
+       <tr>
+         <td colspan ="4">
+            <div> <hr /></div>
+         </td>
+       </tr>        
+       <tr>
+           <td colspan="2">
+                <input type="checkbox" name="filter_ip_if" onclick = "FilterIpIf(this)" />使用IP地址过滤
+           </td>
+        </tr>
+        <tr>
+            <td colspan ="2">
+                <input type ="radio" value ="0" name ="filter_ip_mode" disabled = "disabled" />拒绝以下的IP地址
+            </td>
+            <td colspan ="2">
+                <input type ="radio" value ="1" name ="filter_ip_mode" disabled = "disabled" />允许以下的IP地址
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <textarea rows="10" cols ="95">
+                </textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan ="4">
+                
+            
+                <input type ="text" style ="width:300;"name="add_ip"/>
+                <input type ="button" value ="添加" />
+            
+                <input type ="button" value ="删除" />
+            </td>
+        </tr>
+     </table>
+    </fieldset>
+</li>
+</ul>
+<!--
+配置到此结束
+//-->
+<table style="font-size: 12px" width = "100%">
+<tr>
+<td align = "center">
+<input type = "button" value = "保存" id = "btn_save" onclick = "ConstNetConfiglen()"/>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+

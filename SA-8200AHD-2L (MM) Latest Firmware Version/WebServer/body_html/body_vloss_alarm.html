@@ -1,0 +1,97 @@
+﻿<div class = "tip_div">
+    <div class = "tip_img"></div>
+    <span id = "vlossAlarmConfig_errortips" class = "tip_span"></span>
+</div>
+<div class = "dash_line"></div>
+<div class = "save_bar">
+    <input id = "default_btn" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgVlossAlarm()"/>
+    <input id = "save_btn" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>
+<ul class = "list_ul">
+<div id = "vloss_alarm_label" class = "head_div">Vloss alarm</div>
+<li>
+<div>
+<table id = "id_vloss_alarm" border = "1" class = "main_table">
+    <tbody>
+    </tbody>
+</table>
+</div>
+</li>
+</ul>
+<ul id = "div_vloss_trigger" class = "list_ul" style ="display:none;">
+<div id = "vloss_trigger_label" class = "head_div">Trigger</div>
+<li>
+<table border = "1" class = "main_table" style ="width:750px;">
+    <tr>
+    <td colspan = "3" id = "other_index_num">
+    </td>
+    </tr>
+    
+    <tr>
+    <td id = "vloss_buzzer_label" style ="width :205px;">Trigger buzzer</td>
+    <td style ="width :480px;" colspan = "2"><input type = "checkbox" name = "vloss_to_buzz_ctrl" onchange = "bTrigger = true;"/></td>
+    </tr>
+    <tr>
+        <td id = "vloss_full_screen_alarm_label">Full screen alarm</td>
+        <td colspan = "2">
+            <select id = "vloss_to_bigview_ctrl" onchange = "bTrigger = true" style ="width:540px;"></select>
+        </td>
+    </tr>
+    <tr>
+        <td id = "vloss_email_label">E-mail</td>
+        <td colspan = "2">
+            <input type = "checkbox" name = "vloss_to_email_ctrl" onchange = "bTrigger = true;" />
+        </td>
+    </tr>
+    <tr>
+    <td id = "vloss_snap_label" colspan = "3" >Snap</td>
+    </tr>
+    <tr>
+        <td colspan = "3" style ="padding:5px;">
+        <table id = "vloss_snap" class = "main_table"> 
+        </table>
+        </td>
+    </tr>
+    <tr>
+    <td id = "vloss_alarmout_label" colspan = "3" >Trigger alarm out</td>
+    </tr>
+    <tr>
+        <td colspan = "3" style ="padding:5px;">
+        <table id = "vloss_trigger_out" class = "main_table"> 
+        </table>
+        </td>
+    </tr>
+    <tr>
+    <td id = "vloss_trigger_ptz_label" colspan = "3">Trigger PTZ</td>
+    </tr>
+    <tr>
+    <td colspan = "3" style ="padding:5px; text-align:center;">
+    <table id = "id_vloss_ptz" border = "0" style ="width:738px;border-collapse:collapse;">
+        <tbody>
+        </tbody>
+    </table>
+    </td>
+    </tr>
+    <tr>
+    <td id = "vloss_applay_setting_label" style ="width :200px;">Applay setting to</td>
+    <td style ="width :300px;">
+        <select name = "ptz_copy" id = "cp_config_vloss" style =" width :285px;">
+        </select>
+    </td>
+    <td align = "center" style ="width :250px; text-align:right;">
+        <input id = "vloss_copy_button" type = "button" value ="Copy"  onclick = "onCopySave(document.getElementById('cp_config_vloss'));bTrigger = true;"/>
+    </td>
+    </tr>
+    <tr id = "save_bar">
+    <td colspan = "3" style ="text-align:right;">
+        <input id = "vloss_trigger_ok_button" type = "button" value = "OK" onclick = "onVlossPTZSave()"/>
+        <input id = "vloss_trigger_cancel_button" type = "button" value = "Cancel" onclick = "onVlossPTZCancel()"/>
+    </td>
+    </tr>
+</table>
+</li>
+</ul>
+<div class = "save_bar">
+    <input id = "default_btn1" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgVlossAlarm()"/>
+    <input id = "save_btn1" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>

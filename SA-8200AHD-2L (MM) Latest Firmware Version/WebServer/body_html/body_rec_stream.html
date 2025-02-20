@@ -1,0 +1,59 @@
+<div class = "tip_div">
+    <div class = "tip_img"></div>
+    <span id = "rec_streamCfg_errortips" class = "tip_span"></span>
+</div>
+<div class = "dash_line"></div>
+<div class = "save_bar">
+    <input id = "default_btn" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgRecStream()"/>
+    <input id = "save_btn" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>
+<ul class = "list_ul">
+<div id = "record_stream_label" class = "head_div">Record stream</div>
+<li>
+<div>
+    <table id = "id_record_stream_cfg" border = "1" class = "main_table">
+        <tbody>
+        </tbody>
+    </table>
+</div>
+</li>
+<div style = "height:47px;">
+<div id = "record_stream_all_label" class = "head_div" style="float:left;">All</div>
+<div id="remain_source" style="float:right;height:27px; margin-top:20px; line-height:27px; margin-right:6px;"></div>
+</div>
+
+<li>
+    <table id = "id_rec_stream_all" border = "1" class = "main_table">
+    <tr>
+        <td>
+        <input type = "checkbox" id = "rec_stream_all_cfg" style ="width:50px;" onchange = "g_bChange = true;" onclick = "OnRecStreamCheckAll()" />
+        </td>
+        <td>
+            <select id = "all_rec_resolution" class = "td_select" onchange="OnAllRecChangeResolution(this, 0); g_bChange = true;">
+            </select>
+        </td>
+        <td>
+            <select id = "all_rec_frame_rate" class = "td_select" onchange="TryAllFrame(0);g_bChange = true;">
+            </select>
+        </td>
+        <td>
+            <select id = "all_rec_encode_type" class = "td_select" onchange = "var all_rec_video_quality = document.getElementById('all_rec_video_quality');OnRecChangeEncodeType(this, all_rec_video_quality);g_bChange = true;">
+            </select>
+        </td>
+        <td>
+            <select id = "all_rec_video_quality" class = "td_select" onchange = "g_bChange = true;">
+            </select>
+        </td>
+        <td>
+            <select id = "all_rec_maxbit_stream" class = "td_select" onchange = "OnAllRecMaxBitStream(this, 0); g_bChange = true;">
+            </select>
+        </td>
+    </tr>
+    </table>
+</li>
+</ul>
+
+<div class = "save_bar">
+    <input id = "default_btn1" type = "button" value = "Default" class = "cfg_save_btn" onclick="LoadDefaultCfgRecStream()"/>
+    <input id = "save_btn1" type = "button" value = "Save"  class = "cfg_save_btn" onclick = "OnSaveConfig();" />
+</div>

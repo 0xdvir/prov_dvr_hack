@@ -1,0 +1,1062 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<script type="text/javascript">
+var sheadName;
+var sTitleName;
+var iTableWidthArray=new Array();
+var sTableTitleArray=new Array();
+var iCurPage=0;
+var iTotalPage=1;
+var firstTip = "First";
+var preTip = "Pre";
+var nextTip = "Next";
+var lastTip = "Last";
+var isTheFirstTip = "Is already the first page!";
+var isTheLastTip = "Is already the last page!";
+var recordsTip = "records";
+
+function createXMLDoc()
+{
+
+	var x=null;
+	if (window.ActiveXObject)
+	{
+	// code for IE
+		x=new ActiveXObject("Microsoft.XMLDOM");
+	}
+	else if (document.implementation.createDocument)
+	{
+	// code for Mozilla, Firefox, Opera, etc.
+		x=document.implementation.createDocument("","",null);
+	}
+	else
+	{
+		alert('Your browser cannot handle this script');
+	}
+
+	return (x);
+}
+
+function getFileCount()
+{
+	var fileNameXMLDoc=createXMLDoc();
+	if (fileNameXMLDoc==null)
+	{
+		alert('Your browser cannot handle this script');
+	}
+	fileNameXMLDoc.async=false;
+	fileNameXMLDoc.load("./xmlfiles/xmlFileName.xml");
+
+	iTotalPage=fileNameXMLDoc.getElementsByTagName("xmlFileName").length;
+
+}
+function getxmlFileName()
+{
+	var fileNameXMLDoc=createXMLDoc();
+	if (fileNameXMLDoc==null)
+	{
+		alert('Your browser cannot handle this script');
+	}
+	fileNameXMLDoc.async=false;
+	fileNameXMLDoc.load("./xmlfiles/xmlFileName.xml");
+
+	var xmlFileName ="./xmlfiles/";
+	xmlFileName+=fileNameXMLDoc.getElementsByTagName("xmlFileName")[iCurPage].childNodes[0].nodeValue;
+	
+	return (xmlFileName);
+}
+
+function TheFirstPage()
+{
+    alert(isTheFirstTip);
+}
+
+function TheLastPage()
+{
+    alert(isTheLastTip);
+}
+
+function First()
+{
+    if(0==iCurPage)
+    {
+        TheFirstPage();
+    }
+    else
+    {
+        iCurPage = 0;
+        document.getElementById("ipage").value=iCurPage+1;
+        document.getElementById("page").innerHTML=iCurPage + 1  + "/" + iTotalPage;
+        setTableValue();
+    }
+    
+}
+function Preview()
+{
+    if((iCurPage-1) >= 0)
+    {
+        iCurPage-=1;
+        document.getElementById("ipage").value=iCurPage+1;
+        document.getElementById("page").innerHTML=iCurPage+1 + "/" + iTotalPage;
+        setTableValue();
+    }
+    else
+    {
+        TheFirstPage();
+    }
+}
+function Go(obj)
+{
+    if(obj.value < iTotalPage)
+    {
+        iCurPage=obj.value;
+        document.getElementById("ipage").value=iCurPage+1;
+        document.getElementById("page").innerHTML=iCurPage+1 + "/" + iTotalPage;   
+        setTableValue();
+    }
+    
+}
+function Next()
+{
+    if((iCurPage+1)<iTotalPage)
+    {
+        iCurPage+=1;
+        
+        document.getElementById("ipage").value=iCurPage+1;
+        document.getElementById("page").innerHTML=iCurPage+1 + "/" + iTotalPage;
+        setTableValue();
+    }
+    else
+    {
+        TheLastPage();
+        return;
+    }
+}
+function End()
+{
+    if((iCurPage+1) == iTotalPage)
+    {
+        TheLastPage();
+        return;
+    }
+    else
+    {
+        iCurPage=iTotalPage -1;
+        document.getElementById("ipage").value=iCurPage+1;
+        document.getElementById("page").innerHTML=iCurPage+1 + "/" + iTotalPage;
+        setTableValue();
+    }
+}
+function getValueTitleValue()
+{	
+    var sfileName=getxmlFileName();
+    var xmlDoc=createXMLDoc();
+	xmlDoc.async=false;
+	xmlDoc.load(sfileName);
+
+	
+	var tableWidth=xmlDoc.getElementsByTagName("AttributeWidth")[0].getElementsByTagName("TableWidth");
+	for(i=0; i<tableWidth.length; i++)
+	{
+		iTableWidthArray[i]=tableWidth[i].childNodes[0].nodeValue;
+	}
+	
+	var x=document.getElementsByTagName("td");
+	for(j=0; j<x.length;j++)
+	{
+        x[j].width=iTableWidthArray[j%tableWidth.length];
+	}
+
+
+	var HeadElementTitle=xmlDoc.getElementsByTagName("HeadElementTitleInfor");
+	if( 1==HeadElementTitle.length)
+	{
+	    sTitleName = HeadElementTitle[0].getElementsByTagName("HeadTitle")[0].childNodes[0].nodeValue;
+	    document.getElementById("log_head_name").innerHTML=sTitleName;
+	
+		var elementTitle=HeadElementTitle[0].getElementsByTagName("ElementTitle");
+		var log_list = document.getElementById("log_list");
+		for(count=0; count<elementTitle.length; count++)
+		{
+		    log_list.rows[0].cells[count].innerText = elementTitle[count].childNodes[0].nodeValue;
+		}
+	}
+	else
+	{
+		alert("Error");
+	}
+
+
+}
+function setTableValue()
+{
+    var sfileName=getxmlFileName();
+    var xmlDoc=createXMLDoc();
+	xmlDoc.async=false;
+	xmlDoc.load(sfileName);
+	
+	var elementArray=xmlDoc.getElementsByTagName("Element");
+	document.getElementById("num").innerHTML=elementArray.length;
+	var log_list = document.getElementById("log_list");
+	
+	var bIE = /msie/i.test(navigator.userAgent);
+	
+	for (i=0;i<elementArray.length;i++)
+	{ 
+	    log_list.rows[i+1].style.display = "";
+		var Section=elementArray[i].getElementsByTagName("Section");
+		for(j=0; j<Section.length; j++)
+		{
+		    
+		    if ( 0 < Section[j].childNodes.length)
+		    {
+		        if (bIE) 
+		        {
+		            log_list.rows[i+1].cells[j].innerText = Section[j].childNodes[0].nodeValue;
+		        }
+		        else
+		        {
+		            log_list.rows[i+1].cells[j].textContent = Section[j].childNodes[0].nodeValue;
+		        }
+		    }
+		    else
+		    {
+		        if (bIE) 
+		        {
+		            log_list.rows[i+1].cells[j].innerText = " ";
+		        }
+		        else
+		        {
+		            log_list.rows[i+1].cells[j].textContent = " ";
+		        }
+		    }
+		}
+	}
+	
+	for (i=elementArray.length;i<100;i++)
+	{ 
+	    log_list.rows[i+1].style.display = "none";
+	}
+}
+
+function getButtonTip()
+{
+    var sfileName=getxmlFileName();
+    var xmlDoc=createXMLDoc();
+	xmlDoc.async=false;
+	xmlDoc.load(sfileName);
+	
+	var buttonTip = xmlDoc.getElementsByTagName("buttonTip");
+	if ( 0 < buttonTip.length )
+	{
+	    var button = buttonTip[0].getElementsByTagName("first");
+	    if ( (null != button) && (0 < button.length) )
+	    {
+	        firstTip = button[0].childNodes[0].nodeValue;
+	    }
+	    
+	    button = buttonTip[0].getElementsByTagName("preview");
+	    if ( (null != button) && (0 < button.length) )
+	    {
+	        preTip = button[0].childNodes[0].nodeValue;
+	    }
+	    
+	    button = buttonTip[0].getElementsByTagName("next");
+	   	if ( (null != button) && (0 < button.length) )
+	    {
+	        nextTip = button[0].childNodes[0].nodeValue;
+	    } 
+	    button = buttonTip[0].getElementsByTagName("last");
+	    if ( (null != button) && (0 < button.length) )
+	    {
+	        lastTip = button[0].childNodes[0].nodeValue;
+	    }
+	    
+	    button = buttonTip[0].getElementsByTagName("record");
+	    if ( (null != button) && (0 < button.length) )
+	    {
+	        recordsTip = button[0].childNodes[0].nodeValue;
+	    }
+	    
+	    button = buttonTip[0].getElementsByTagName("isTheLast");
+	    if ( (null != button) && (0 < button.length) )
+	    {
+	        isTheLastTip = button[0].childNodes[0].nodeValue; 
+	    }
+	    
+	    button = buttonTip[0].getElementsByTagName("isTheFirst");
+	    if ( (null != button) && (0 < button.length) )
+	    {
+	        isTheFirstTip = button[0].childNodes[0].nodeValue;
+	    }
+	    
+	}
+}
+
+function Initial()
+{  
+
+    getButtonTip();
+    document.getElementById("Span1").innerHTML = recordsTip + ":";
+    document.getElementById("first").value = firstTip;
+    document.getElementById("forward").value = preTip;
+    document.getElementById("backward").value= nextTip;
+    document.getElementById("last").value= lastTip;
+    
+    getFileCount();
+    getValueTitleValue();
+    setTableValue();
+    document.getElementById("ipage").value=iCurPage+1;
+    document.getElementById("page").innerHTML=iCurPage+1 + "/" + iTotalPage;
+}
+</script>
+</head>
+
+<body onload='Initial()'>
+<title id="log_title_name"></title>
+<h1 id="log_head_name"></h1>
+
+    <div><span id = "Span1">Record:</span><span id = "num"></span></div>
+
+<table id="log_list" style='color:#000000;font-size:10pt;height='20'>
+<tr style='background-color:#FF0000'>
+  <td name="log_table_title" stytle align="center"></td>
+  <td name="log_table_title" stytle align="center"></td>
+  <td name="log_table_title" stytle align="center"></td>
+  <td name="log_table_title" stytle align="center"></td>
+  <td name="log_table_title" stytle align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr style='background-color:#DFDFDF'>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+  <td align="center"></td>
+</tr>
+</table>
+<div>
+        <input id ="first" type = 'button' value = 'First' onclick = 'First();'/>
+        <input id ="forward" type = 'button' value = 'Next' onclick = 'Preview();'/>
+        <input id ="ipage" type = 'text' style ='width:40px;' onchange = 'Go(this)' />
+        <span  id = "page" style ='width:120;'></span>
+        <input id ="backward" type = 'button' value = 'Next' onclick = 'Next();'/>
+        <input id ="last" type = 'button' value = 'Last' onclick = 'End();'/>
+</div>
+
+</body>
+</html>
